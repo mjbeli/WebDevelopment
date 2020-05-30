@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryWebAPI", "LibraryWebAPI\LibraryWebAPI.csproj", "{1A34EC4B-1AB0-437F-B378-F997BE8DAACC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryDAO", "LibraryDAO\LibraryDAO.csproj", "{BC7246EB-5ECC-4C92-8FBA-5940FC617CF6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1A34EC4B-1AB0-437F-B378-F997BE8DAACC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A34EC4B-1AB0-437F-B378-F997BE8DAACC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A34EC4B-1AB0-437F-B378-F997BE8DAACC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A34EC4B-1AB0-437F-B378-F997BE8DAACC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC7246EB-5ECC-4C92-8FBA-5940FC617CF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC7246EB-5ECC-4C92-8FBA-5940FC617CF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC7246EB-5ECC-4C92-8FBA-5940FC617CF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC7246EB-5ECC-4C92-8FBA-5940FC617CF6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BD2CB829-C1DE-4AEA-A05B-10F40B3AB340}
+	EndGlobalSection
+EndGlobal
