@@ -28,7 +28,7 @@ namespace LibraryWebAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddTransient<ILibraryDAO, LibraryDAO.LibraryDAO>(); // IoC
+            services.AddTransient<ILibraryDAO, LibraryDAO.LibraryDAO>(service => new LibraryDAO.LibraryDAO("mongodb://localhost:27017", "Library", "Books")); // IoC
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
