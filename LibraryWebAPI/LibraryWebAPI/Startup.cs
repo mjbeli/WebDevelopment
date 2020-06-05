@@ -73,7 +73,7 @@ namespace LibraryWebAPI
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "Library API V1");
-                c.RoutePrefix = "library/help"; // Swagger page will be in 
+                c.RoutePrefix = ""; // Swagger page will be in https://localhost:44373/index.html
             });
         } // end Configure
     } // end Starup class

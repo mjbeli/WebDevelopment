@@ -34,7 +34,7 @@ namespace LibraryWebAPI.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [Produces("application/json")] // Indica que la respuesta es JSON.
+        [Produces("application/json")] // respuesta es JSON.
         public IActionResult GetByGenre(string genre)
         {
             if (string.IsNullOrWhiteSpace(genre))
