@@ -31,8 +31,8 @@ namespace LibraryWebAPI.Controllers
         /// <param name="genre">Género que se quiere buscar</param>
         /// <returns>Una lista en formato JSON con los libros del género buscado</returns>
         [HttpGet("GetByGenre/{genre}")] // URL as https://<<server>>:<<port>>/Library/GetByGenre/{genre}
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
-        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]       // Estos atributos documentan en swagger las posibles respuestas de esta acción.
+        [ProducesResponseType(StatusCodes.Status200OK)]             // Para evitar poner los atributos ProducesResponseType en todas las acciones: ¡usa convenciones!
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [Produces("application/json")] // respuesta es JSON.
         public IActionResult GetByGenre(string genre)
@@ -45,6 +45,38 @@ namespace LibraryWebAPI.Controllers
                 return NotFound();
 
             return Ok(listBooks);
+        }
+
+        [HttpPost]
+        [ApiConventionMethod(typeof(DefaultApiConventions),
+                     nameof(DefaultApiConventions.Create))] // Convención básica de cómo se comporta un método create.
+        public IActionResult Create(string bookName, string author, string genre)
+        {
+            if (string.IsNullOrWhiteSpace(bookName))
+                return BadRequest();
+
+            BookDTO myNewBook = new BookDTO()
+            {
+                BookName = bookName,
+                Author = author,
+                Genre = genre
+            };
+            _lib.CreateBook(myNewBook);
+            return Ok(myNewBook);
+        }
+
+        [HttpDelete]
+        [ApiConventionMethod(typeof(DefaultApiConventions),
+                     nameof(DefaultApiConventions.Delete))]
+        public IActionResult Delete(string bookName)
+        {
+            if (string.IsNullOrWhiteSpace(bookName))
+                return BadRequest();
+
+            if (_lib.DeleteBook(bookName) == 0)
+                return NotFound();
+
+            return Ok();
         }
 
         /*

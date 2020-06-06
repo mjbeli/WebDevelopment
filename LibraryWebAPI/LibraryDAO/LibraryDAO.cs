@@ -25,6 +25,12 @@ namespace LibraryDAO
             _books = database.GetCollection<BookDTO>(bookCollectionName);
         }
 
+        public BookDTO CreateBook(BookDTO book)
+        {
+            _books.InsertOne(book);
+            return book;
+        }
+
         public BookDTO Get(string id)
         {
             if (string.IsNullOrWhiteSpace(id))
@@ -40,5 +46,8 @@ namespace LibraryDAO
 
             return _books.Find(b => b.Genre == genre).ToList();
         }
+
+        public long DeleteBook(string bookName) => _books.DeleteOne(b => b.BookName == bookName).DeletedCount;
+        
     }
 }

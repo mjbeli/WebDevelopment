@@ -15,7 +15,14 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 
-[assembly: ApiController]
+
+[assembly: ApiController]   /* Esta anotación aplica el comportamiento de API web a todos los controladores del ensamblado.
+                             * No hay ninguna manera de excluir controladores específicos.
+                             */
+
+[assembly: ApiConventionType(typeof(DefaultApiConventions))]
+                            /* Esta anotación aplica a todo el ensamblado la convención de nombre DefaultApiConventions
+                             */
 namespace LibraryWebAPI
 {
     public class Startup

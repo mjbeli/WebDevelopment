@@ -8,5 +8,9 @@ namespace LibraryDAO
     {
         BookDTO Get(string id);
         IList<BookDTO> GetByGenre(string genre);
+
+        BookDTO CreateBook(BookDTO book);
+
+        long DeleteBook(string bookName);
     }
 }
