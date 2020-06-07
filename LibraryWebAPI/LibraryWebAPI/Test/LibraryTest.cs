@@ -14,7 +14,7 @@ namespace LibraryWebAPI.Test
         LibraryController _libApi;
         public LibraryTest()
         {
-            _libApi = new LibraryController(null, new LibraryDAO.LibraryDAO("mongodb://localhost:27017", "Library", "Books"));
+            _libApi = new LibraryController(null, null, new LibraryDAO.LibraryDAO("mongodb://localhost:27017", "Library", "Books"));
         }
 
 
