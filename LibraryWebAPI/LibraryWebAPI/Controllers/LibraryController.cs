@@ -7,6 +7,7 @@ using Microsoft.Extensions.Logging;
 using LibraryDAO;
 using LibraryDAO.Models;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Configuration;
 
 namespace LibraryWebAPI.Controllers
 {
@@ -17,12 +18,15 @@ namespace LibraryWebAPI.Controllers
 
         private readonly ILogger<LibraryController> _logger;
         private ILibraryDAO _lib;
+        private IConfiguration _config;
 
         public LibraryController(ILogger<LibraryController> logger,
+                                IConfiguration config,
                                 ILibraryDAO lib)
         {
             _logger = logger;
             _lib = lib;
+            _config = config;
         }
 
         /// <summary>
@@ -37,6 +41,9 @@ namespace LibraryWebAPI.Controllers
         [Produces("application/json")] // respuesta es JSON.
         public IActionResult GetByGenre(string genre)
         {
+            // Example of read a config value
+            // var s = _config.GetValue<string>("EntradaConfigEjemplo");
+
             if (string.IsNullOrWhiteSpace(genre))
                 return BadRequest();
 
