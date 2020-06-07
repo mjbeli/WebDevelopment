@@ -12,7 +12,7 @@
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "", // hte launch url will be the same were the swagger help is --> https://localhost:44373/index.html
+      "launchUrl": "", // the launch url will be the same were the swagger help is --> https://localhost:44373/index.html
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }

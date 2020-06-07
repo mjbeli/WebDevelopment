@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryWebAPI", "LibraryWebAPI\LibraryWebAPI.csproj", "{1A34EC4B-1AB0-437F-B378-F997BE8DAACC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibraryWebAPI", "LibraryWebAPI\LibraryWebAPI.csproj", "{1A34EC4B-1AB0-437F-B378-F997BE8DAACC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryDAO", "LibraryDAO\LibraryDAO.csproj", "{BC7246EB-5ECC-4C92-8FBA-5940FC617CF6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibraryDAO", "LibraryDAO\LibraryDAO.csproj", "{BC7246EB-5ECC-4C92-8FBA-5940FC617CF6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryWebApiTest", "LibraryWebApiTest\LibraryWebApiTest.csproj", "{0473D69E-A25C-402C-B560-33378858DA18}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{BC7246EB-5ECC-4C92-8FBA-5940FC617CF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BC7246EB-5ECC-4C92-8FBA-5940FC617CF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BC7246EB-5ECC-4C92-8FBA-5940FC617CF6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0473D69E-A25C-402C-B560-33378858DA18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0473D69E-A25C-402C-B560-33378858DA18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0473D69E-A25C-402C-B560-33378858DA18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0473D69E-A25C-402C-B560-33378858DA18}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
