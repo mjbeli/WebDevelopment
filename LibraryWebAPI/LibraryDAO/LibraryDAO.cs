@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using LibraryDAO.Models;
+using MongoDB.Bson;
 using MongoDB.Driver;
 using MongoDB.Driver.Core.Connections;
 
@@ -48,6 +49,13 @@ namespace LibraryDAO
         }
 
         public long DeleteBook(string bookName) => _books.DeleteOne(b => b.BookName == bookName).DeletedCount;
+
+        public long UpdateBook(string id, BookDTO book) 
+        {
+            if (book == null || string.IsNullOrWhiteSpace(id)) 
+                return -1;
+            return _books.ReplaceOne(b => b.Id == id, book).ModifiedCount;            
+        }
         
     }
 }
