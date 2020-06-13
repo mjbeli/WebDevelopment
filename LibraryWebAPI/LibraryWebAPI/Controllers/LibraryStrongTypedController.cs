@@ -20,17 +20,34 @@ namespace LibraryWebAPI.Controllers
         }
         // GET: api/<LibraryStrongTypedController>
         [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public ActionResult<IEnumerable<BookDTO>> GetByGenre(string genre)
         {
             if (string.IsNullOrWhiteSpace(genre))
                 return BadRequest("No se ha reconocido el género");
-
 
             IEnumerable<BookDTO> listBooks = _lib.GetByGenre(genre);
             if (listBooks == null || listBooks.Count() == 0)
                 return NotFound("Género no encontrado");
 
             return Ok(listBooks);
+        }
+
+
+        // GET: api/<LibraryStrongTypedController>
+        [HttpGet("{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public BookDTO Get(string id)
+        {
+            if (string.IsNullOrWhiteSpace(id))
+                return null;
+
+            BookDTO book = _lib.Get(id);            
+            return book;
         }
 
         /*

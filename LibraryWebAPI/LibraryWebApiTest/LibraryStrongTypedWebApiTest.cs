@@ -9,9 +9,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace LibraryStringTypedWebApiTest
+namespace LibraryStrongTypedWebApiTest
 {
-    public class LibraryStringTypedWebApiTest
+    public class LibraryStrongTypedWebApiTest
     {
 
         private LibraryStrongTypedController _libApi;
@@ -60,5 +60,28 @@ namespace LibraryStringTypedWebApiTest
             Assert.Positive(listaLibros.Count());
         }
 
+        [Test]
+        [Order(4)]
+        public void GetNullParam_Test()
+        {
+            BookDTO resp = _libApi.Get("");
+            Assert.IsNull(resp);
+        }
+
+        [Test]
+        [Order(4)]
+        public void GetNotFound_Test()
+        {
+            BookDTO resp = _libApi.Get("5ed23c3346f8a5acf7df2123");
+            Assert.IsNull(resp);
+        }
+
+        [Test]
+        [Order(5)]
+        public void Get()
+        {
+            BookDTO resp = _libApi.Get("5ed23c3346f8a5acf7df2ad5");
+            Assert.IsTrue(resp.BookName == "El nombre del viento");
+        }
     }
 }
