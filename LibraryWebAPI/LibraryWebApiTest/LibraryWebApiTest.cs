@@ -69,7 +69,7 @@ namespace LibraryWebApiTest
         [Order(5)]
         public void CreateBook_Test()
         {
-            IActionResult resp = _libApi.Create("La ciudad y la ciudad", "China Mieville", "Fantasy");
+            IActionResult resp = _libApi.Post("La ciudad y la ciudad", "China Mieville", "Fantasy");
             Assert.IsInstanceOf<OkObjectResult>(resp);
             OkObjectResult obj = (OkObjectResult)resp;
             BookDTO newBook = (BookDTO)obj.Value;

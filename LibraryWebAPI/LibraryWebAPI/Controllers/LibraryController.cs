@@ -72,7 +72,7 @@ namespace LibraryWebAPI.Controllers
         [HttpPost]
         [ApiConventionMethod(typeof(DefaultApiConventions),
                      nameof(DefaultApiConventions.Create))] // Convención básica de cómo se comporta un método create.
-        public IActionResult Create(string bookName, string author, string genre)
+        public IActionResult Post(string bookName, string author, string genre)
         {
             if (string.IsNullOrWhiteSpace(bookName))
                 return BadRequest();
