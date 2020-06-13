@@ -44,9 +44,9 @@ namespace LibraryWebApiTest
             IActionResult resp = _libApi.GetByGenre("Ci-fi");
             Assert.IsInstanceOf<OkObjectResult>(resp);
 
-            OkObjectResult obj = (OkObjectResult)resp;
+            ObjectResult obj = (ObjectResult)resp;
             IList<BookDTO> booklist = (IList<BookDTO>)obj.Value;
-            Assert.IsTrue(booklist.Count > 0);
+            Assert.Positive(booklist.Count);
         }
 
 
