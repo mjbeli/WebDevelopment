@@ -84,7 +84,7 @@ namespace LibraryWebAPI.Controllers
                 Genre = genre
             };
             _lib.CreateBook(myNewBook);
-            return Ok(value: myNewBook); // similar to return Ok(myNewBook); Indicates that the object returned is in the value tag of json
+            return Ok(value: myNewBook); // similar to return Ok(myNewBook); Indicates that the object returned is in the value tag of the json
         }
 
         [HttpDelete]
