@@ -40,7 +40,7 @@ namespace LibraryDAO.Test
             BookDTO b = lib.Get("11111c9e46f8a5acf7df2af0"); // Id no existe en BBDD
             Assert.True(b == null);
             b = lib.Get("5ed23c9e46f8a5acf7df2af0");
-            Assert.True(b != null && b.BookName == "Las estrellas son legión");
+            Assert.True(b != null && b.BookName == "Las estrellas son legión");           
         }
 
         [Fact]

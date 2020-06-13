@@ -54,6 +54,21 @@ namespace LibraryWebAPI.Controllers
             return Ok(listBooks);
         }
 
+        [HttpGet]
+        [ApiConventionMethod(typeof(DefaultApiConventions),
+                     nameof(DefaultApiConventions.Get))]
+        public IActionResult Get(string id)
+        {
+            if (string.IsNullOrWhiteSpace(id))
+                return BadRequest("Parámetro incorrecto");
+
+            BookDTO b = _lib.Get(id);
+            if (b == null)
+                return NotFound("Libro no encontrado");
+
+            return Ok(b);
+        }
+
         [HttpPost]
         [ApiConventionMethod(typeof(DefaultApiConventions),
                      nameof(DefaultApiConventions.Create))] // Convención básica de cómo se comporta un método create.
@@ -74,7 +89,7 @@ namespace LibraryWebAPI.Controllers
 
         [HttpDelete]
         [ApiConventionMethod(typeof(DefaultApiConventions),
-                     nameof(DefaultApiConventions.Delete))]
+                     nameof(DefaultApiConventions.Delete))] // Convención para el delete.
         public IActionResult Delete(string bookName)
         {
             if (string.IsNullOrWhiteSpace(bookName))
@@ -84,6 +99,22 @@ namespace LibraryWebAPI.Controllers
                 return NotFound();
 
             return Ok();
+        }
+
+        [HttpPut]
+        [ApiConventionMethod(typeof(DefaultApiConventions),
+                     nameof(DefaultApiConventions.Put))]
+        public IActionResult Put(string id, BookDTO book)
+        {
+            if (string.IsNullOrWhiteSpace(id) || book == null)
+                return BadRequest("Parámetros incorrectos");
+
+            long numUpdates = _lib.UpdateBook(id, book);
+
+            if (numUpdates == 0)
+                return NotFound("Libro no encontrado, no se ha actualizado");
+            else
+                return Ok(numUpdates);
         }
 
         /*
