@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using MongoDB.Bson;
 using Newtonsoft.Json;
 using NUnit.Framework;
+using System;
 using System.Collections.Generic;
 
 namespace LibraryWebApiTest
@@ -106,8 +107,8 @@ namespace LibraryWebApiTest
             OkObjectResult objResp = (OkObjectResult)resp;
             BookDTO bookToUpdate = (BookDTO)objResp.Value;
 
-            bookToUpdate.Author = "Patrick Rohtfuss";
-            bookToUpdate.Genre = "Epic Fantasy";       
+            bookToUpdate.Author = "Patrick Rohtfuss " + DateTime.Now.ToString();
+            bookToUpdate.Genre = "Fantasy";       
             
             resp = _libApi.Put(bookToUpdate.Id, bookToUpdate);
             Assert.IsInstanceOf<OkObjectResult>(resp);
