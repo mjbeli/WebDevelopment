@@ -13,23 +13,21 @@ namespace LibraryTest
 
     public class LibraryControllerTest : IClassFixture<WebApplicationFactory<LibraryWebAPI.Startup>>
     {
-        private readonly IHttpClientFactory _clientFactory;
-        public LibraryControllerTest(IHttpClientFactory factory)//WebApplicationFactory<LibraryWebAPI.Startup> factory)
+        private readonly WebApplicationFactory<LibraryWebAPI.Startup> _factory;
+        public LibraryControllerTest(WebApplicationFactory<LibraryWebAPI.Startup> factory)
         {
             // HttpClient is intended to be instantiated once and reused throughout the life of an application.
             // Instantiating an HttpClient class for every request will exhaust the number of sockets available under heavy loads.
             // https://docs.microsoft.com/es-es/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests
-            _clientFactory = factory;
+            _factory = factory;
         }
 
 
         [Fact]
         public async void GetByGenre_Cifi_Test()
         {
-            // Arrange
-            // So now we are using IHttpClientFactory and can create a client every time (.netCore will manage the socket connections and will use a pool)
-            // https://docs.microsoft.com/es-es/aspnet/core/fundamentals/http-requests?view=aspnetcore-3.1
-            var _client = _clientFactory.CreateClient();
+            // Arrange         
+            var _client = this._factory.CreateClient();
 
             // Act
             var response = await _client.GetAsync("/Library/GetByGenre/Ci-fi");

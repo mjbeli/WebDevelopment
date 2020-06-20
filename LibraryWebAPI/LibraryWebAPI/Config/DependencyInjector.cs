@@ -28,8 +28,7 @@ namespace LibraryWebAPI.Config
             var sampleValueFromAppSettings = config.GetValue<string>("EntradaConfigEjemplo");
 
             services.AddScoped<ILibraryDAO, LibraryDAO.LibraryDAO>(service => new LibraryDAO.LibraryDAO(dbConn, dbName, booksCollection));
-            services.AddHttpClient(); // To use IHttpClientFactory
-
+            
             return services;
         }
     }
