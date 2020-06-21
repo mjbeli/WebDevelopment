@@ -13,22 +13,20 @@ namespace LibraryTest
 
     public class LibraryControllerTest : IClassFixture<WebApplicationFactory<LibraryWebAPI.Startup>>
     {
-        private readonly WebApplicationFactory<LibraryWebAPI.Startup> _factory;
+        private readonly HttpClient _client;
         public LibraryControllerTest(WebApplicationFactory<LibraryWebAPI.Startup> factory)
         {
             // HttpClient is intended to be instantiated once and reused throughout the life of an application.
             // Instantiating an HttpClient class for every request will exhaust the number of sockets available under heavy loads.
             // https://docs.microsoft.com/es-es/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests
-            _factory = factory;
+            _client = factory.CreateClient();
         }
 
 
         [Fact]
         public async void GetByGenre_Cifi_Test()
         {
-            // Arrange         
-            var _client = this._factory.CreateClient();
-
+            // Arrange                     
             // Act
             var response = await _client.GetAsync("/Library/GetByGenre/Ci-fi");
 
