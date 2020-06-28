@@ -10,13 +10,27 @@
 <div id="app">
     <p>{{mensaje}}</p>
     <button v-on:click="reverseMensaje">Reverse</button>
-    <input v-model="mensaje"/>
+    <input v-model="mensaje" />
 
     <ol>
         <todo-item v-for="item in groceryList"
                    v-bind:todo="item"
-                   v-bind:key="item.id"></todo-item>        
+                   v-bind:key="item.id"></todo-item>
     </ol>
+
+    <p v-show="visibleMsg">Mensaje visible (o no)</p>
+    <button v-on:click="visibleMsg = !visibleMsg">Cambia visibilidad</button>
+
+    <p /><p />
+    <p>Valor de la variable: {{VariableModificada}}</p>
+    <p />
+    <label> El siguiente input usa v-model, modificación bidirecional</label>
+    <input v-model="VariableModificada" />
+    <p />
+    <label> El siguiente input usa v-bind, modificación unidirecional</label>
+    <input v-bind:value="VariableModificada" />
+    <p />
+    <button v-on:click="VariableModificada='reset'">Click para resetear</button>
 </div>
 
-<script src ="~/ScriptsApp/index.js"></script>
+<script src="~/ScriptsApp/index.js"></script>
