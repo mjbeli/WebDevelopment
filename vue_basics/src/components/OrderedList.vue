@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="hello">
     <ol>
       <li class="greenColor" v-for="item in itemList" v-bind:key="item.id">{{item.text}}</li>
     </ol>
@@ -17,7 +17,6 @@ export default {
 <style scoped>
 .greenColor {
   color: #42b983;
-  left:0px;
   
 }
 </style>
