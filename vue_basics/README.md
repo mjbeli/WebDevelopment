@@ -10,15 +10,13 @@ This project has been created using Vue CLI 3:
 npm install
 ```
 
-##### Compiles and hot-reloads for development
-```
-npm run serve
-```
+Compiles and hot-reloads for development: ```npm run serve```
 
-##### Compiles and minifies for production
-```
-npm run build
-```
+Compiles and minifies for production: ```npm run build```
+
+#### Consume an API
+
+Install vue-resource: ```npm install vue-resource --save```
 
 
 Customize configuration
