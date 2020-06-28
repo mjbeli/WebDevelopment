@@ -20,7 +20,10 @@ Install vue-resource: ```npm install vue-resource --save```
 In src/main.js add this:
 ```javascript
 import VueResource from 'vue-resource';
-Vue.use(VueResource);```
+Vue.use(VueResource);
+```
+
+
 
 Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
