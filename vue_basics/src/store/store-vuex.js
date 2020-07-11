@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
+import ModuleTareas from '../vuex-modules/tareas'
+
 Vue.use(Vuex)
 
 // In the component that uses this state, use computed for access getters 
@@ -46,5 +48,8 @@ export const store = new Vuex.Store({
             commit('incrementCounter', variable);
         }
     },
-    modules: {}
+    modules: { // Here we import the files containing vuex modules
+        ModuleTareas
+    }
+
 })
