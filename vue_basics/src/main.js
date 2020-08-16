@@ -2,9 +2,10 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import { store } from './store/store-vuex'
-import VueResource from 'vue-resource';
+import axios from "axios";
 
-Vue.use(VueResource);
+
+Vue.prototype.$http = axios; // now this.$http contains an instancie of axios, not vue-resource
 Vue.config.productionTip = false
 
 new Vue({

@@ -9,37 +9,32 @@
 </template>
 
 <script>
+import rickandmortyapi from '../source/RyM_Api';
+
 export default {
   name: 'RickMortyViewer',
   data () {
     return {
-      imageSource: String,
-      urlGetOneCharacter: 'https://rickandmortyapi.com/api/character/'
+      imageSource: String
     }
   },
   methods: {
     GetRemoteCharacter(){
-      let character = generateRandom();
-      let urlCharacter = this.urlGetOneCharacter + character;
-
-      this.$http.get(urlCharacter)
-            .then(result => {
+      let rymApi = new rickandmortyapi(); // encapsule the api call in a class
+      rymApi.GetRandomRemoteCharacter(30)
+              .then(result => {
                     this.response = result.data;
                     this.imageSource = this.response.image;
                 }, error => {
                   console.error(error);
                 });
-      }
+      
+    }
   },
-  created(){
-    this.GetRemoteCharacter(); // Again, it's mandatory to use "this. here
+  mounted(){      
+      this.GetRemoteCharacter(); // Again, it's mandatory to use "this. here
   }
 }
-
-function generateRandom()
-{
-  return Math.ceil(Math.random() * 10);
-};
 
 </script>
 
