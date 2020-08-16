@@ -19,11 +19,11 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ### Consume an API
 
-Install vue-resource: ```npm install vue-resource --save```
+Install axios: ```npm install axios```
 In src/main.js add this:
 ```javascript
-import VueResource from 'vue-resource';
-Vue.use(VueResource);
+import axios from "axios";
+Vue.prototype.$http = axios; // now this.$http contains an instancie of axios, not vue-resource
 ```
 
 
