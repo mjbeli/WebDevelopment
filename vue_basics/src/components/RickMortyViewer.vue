@@ -13,6 +13,13 @@ import rickandmortyapi from '../source/RyM_Api';
 
 export default {
   name: 'RickMortyViewer',
+  /*
+   In components, data it's a function. 
+   https://vuejs.org/v2/guide/components.html#data-Must-Be-a-Function
+   
+   A component’s data option must be a function, so that each instance of the component can maintain an independent copy of the returned 'data' object.
+   If Vue didn’t have this rule, updating one intance of the component would affect the 'data' of all other instances.
+  */
   data () {
     return {
       imageSource: String
