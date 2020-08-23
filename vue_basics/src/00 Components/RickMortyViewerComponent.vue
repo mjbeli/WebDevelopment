@@ -1,6 +1,8 @@
 <template>
-  <div class="hello">
-   <h6>Cada vez que le des al siguiente botón, deberías ver un personaje diferente de Rick y Morty.</h6>
+  <div>
+   <p>
+     Este es el componente RickMortyViewerComponent, desde el cual se llama a una api pública rest que devuelve una imagen de rick y morty aleatoria cada vez que se hace clic en un botón.     
+   </p>
    <button @click="GetRemoteCharacter()">Jo, tio</button>
   <div>
     <img :src="imageSource" />
@@ -10,6 +12,7 @@
 
 <script>
 import rickandmortyapi from '../source/RyM_Api';
+import RickMortyViewerComponent from '@/00 Components/RickMortyViewerComponent.vue';
 
 export default {
   name: 'RickMortyViewerComponent',
