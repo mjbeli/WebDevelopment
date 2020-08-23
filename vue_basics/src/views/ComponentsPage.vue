@@ -23,7 +23,7 @@ export default {
     // This is a way to define the selector for my component
     RickMortyPhotoComp: RickMortyViewerComponent 
     // Alternative I can define the component this way to use the same selector than the import name
-    // RickMortyViewerComponent // ES6 will transfrom this to RickMortyViewerComponent: RickMortyViewerComponent
+    // RickMortyViewerComponent // ES6 will transfrom this to RickMortyViewerComponent
   }
 }
 </script>
