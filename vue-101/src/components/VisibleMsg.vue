@@ -1,0 +1,33 @@
+<template>
+  <div class="hello">
+    <button @click="cambiaVisible()">Cambia visibilidad</button>
+    <p v-show="showMsg">{{mensajeMostrar}}</p>
+    <p>Le has dado {{contador}} veces al botoncito</p>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'VisibleMsg',
+  data () {
+      return {showMsg: true, contador: 0}
+  },
+  props: {
+    mensajeMostrar: String
+  },
+  methods: {
+    cambiaVisible()
+    {
+        this.showMsg = !this.showMsg; // This line could be directly inside @click attribute of html tag.
+        this.contador++; // Aquí es obligatorio poner el this para hacer referencia a los datos definidos en data() {}
+    }
+  }
+}
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+.color {
+  color: #42b983;
+}
+</style>

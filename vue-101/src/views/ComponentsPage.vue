@@ -8,13 +8,14 @@
     <mi-componente v-for="server in 5"> </mi-componente> <!-- Repeat 5 times this element-->
 
     <hr>
-    <RickMortyPhotoComp />
+
+    <!-- Thanks to webpack & ES6 we can use the component with '-' annotation and case insensitive -->
+    <rickmorty-photo-comp />
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import RickMortyViewerComponent from '@/00 Components/RickMortyViewerComponent.vue'
+import RickMortyViewerComponent from '../00 Components/RickMortyViewerComponent.vue'
 
 
 export default {
