@@ -7,7 +7,7 @@
 ```
 npm install vue-cli -g
 npm install -g @vue/cli-init
-´´´
+```
 
 ## Create the project
 ```
