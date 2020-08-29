@@ -4,8 +4,8 @@
     <quote>
       <h4 slot="title">{{ quoteTitle }}</h4>
       <p slot="phrase">{{ quote }}</p>
-      <p>From the parent, this paragraph don't has an slot assigned so it will be rendered in the deafult slot.</p>
-      <p slot="secondSubTitle"> This is written in the parent using slot named as secondSubTitle. The content has been overwriten.</p> 
+      <p>From the parent, this paragraph don't has a slot assigned so it will be rendered in the default slot.</p>
+      <p slot="secondSubTitle">This is written in the parent using slot named as secondSubTitle. The content has been overwriten.</p> 
     </quote>
     <hr>
     <hr>

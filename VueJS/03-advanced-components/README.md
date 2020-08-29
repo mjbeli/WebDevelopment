@@ -16,7 +16,7 @@ VueJs reserves 'slots' to pass components complex content from outside. In the c
 Automatically, we can write content inside the tag of our component wen using it like this:
 ```html
 <quote>
-    <h4>Mi cita</h4>
+    <h4>{{ quoteTitle }}</h4>
     <p>No son molinos, son gigantes.</p>
 </quote>
 ```

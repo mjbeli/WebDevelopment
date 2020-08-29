@@ -4,7 +4,7 @@
     In case the parent use slot attributes, this will be the default slot will be this -->
     <slot></slot>
 
-    <hr><hr><hr>
+    <hr><hr>
     <!-- Splitting the content -->
     <div>
       <slot name="title"></slot>
