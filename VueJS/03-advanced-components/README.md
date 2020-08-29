@@ -60,27 +60,9 @@ In the child component we can put content inside the <slot> tag and it will be r
 #### Dynamic Component
 
 <component> tag allows add to dynamic add component
-This ```is``` attribute has to content an string that it's equal to component selector. 
+The ```is``` attribute has to content an string that it's equal to component selector. 
 
-## Project setup
+```vue
+<component :is="selectedComponent">        
+</component>
 ```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
