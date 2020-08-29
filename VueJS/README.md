@@ -2,7 +2,7 @@
 
 Welcome! this is a series of little projects in Vue with the porpuose to show how it works. From basic to advanced features, the projects are created to show very focused functions.
 
-03-advanced-components: slots & dynamic components.
+[03-advanced-components:](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/03-advanced-components) slots & dynamic components.
 
 ### Project creation
 
@@ -17,6 +17,7 @@ npm install
 ```
 
 Compiles and hot-reloads for development: ```npm run serve```
+
 Compiles and minifies for production: ```npm run build```
 
 Customize configuration
