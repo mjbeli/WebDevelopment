@@ -7,12 +7,12 @@
 ```
 npm install vue-cli -g
 npm install -g @vue/cli-init
-´´´
+```
 
 ## Create the project
-```
+``` bash
 vue init webpack-simple vue-101
-´´´
+```
 
 ## Build Setup
 
