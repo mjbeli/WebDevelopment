@@ -2,7 +2,7 @@
 
 In this project we will see advance concepts of components.
 
-### Slots
+### 03.01 Slots
 VueJs reserves 'slots' to pass components complex content from outside. In the component we want to receive content we can use the reserved tag from Vue: <slot></slot>
 
 ```html
@@ -22,7 +22,7 @@ Automatically, we can write content inside the tag of our component wen using it
 ```
 The content inside the tag component will be rendered in the child.
 
-###### Compiles
+###### Compilation
 The styles that applies to the injected content will be the defined:
  - If it's defined in the parent, applies that style ignoring the styles in child.
  - If it isn't defined in the parent, applied the style in child.
@@ -56,12 +56,49 @@ In the child component we can put content inside the <slot> tag and it will be r
 </template>
 ```
 
-#### Dynamic Component
+### 03.02 Dynamic Component
 
-<component> tag allows add to dynamic add component
+```<component>``` tag allows add to dynamic add component
 The ```is``` attribute has to content an string that it's equal to component selector. 
 
-```vue
+```
 <component :is="selectedComponent">        
 </component>
+```
+
+###### Lifecycle of dymanic components
+
+How the is components behaviour?
+
+When a component is loaded using ```<component>``` tag, that component is created each time. In this example we have a counter in 'New' component with a counter starting at 0 and a button that increase that counter. If we load other component clicking in Author button and then click again to New button to load the New component, the counter start at 0 again.
+
+When a component is unload from ```<component>``` tag, it calls the destroy event of the lifecycle of Vue. 
+When a component is load in ```<component>``` tag, it calls the created event of the lifecycle of Vue.
+
+```javascript
+  created(){
+    console.log('Call created for New component');
+  },
+  destroyed(){
+    console.log('Call destroyed for New component');
+  }
+```
+
+To overwrite that default behaviour we can wrap the ```<component>``` tag under a ```<keep-alive>``` tag. So either created and destroyed doesn't call. Well, obviously the created event is called the first time a component is loaded
+
+```html
+<keep-alive>
+  <component :is="selectedComponent"></component>
+</keep-alive>
+```
+
+When using ```<keep-alive>``` tag, instead using created and destroyed hooks, we can use activated and deactivated:
+
+```html
+activated(){
+  console.log('Call activated in New component');
+},
+deactivated(){
+  console.log('Call deactivated in New component');
+}
 ```

@@ -15,9 +15,12 @@
       <button @click="selectedComponent='New'">New</button>
       <button @click="selectedComponent='Quote'">Quote</button>
       <p>Componente seleccionado: {{selectedComponent}}</p>
-      <component :is="selectedComponent">
-        <p>Default slot</p>
-      </component>
+
+      <keep-alive>
+        <component :is="selectedComponent">
+          <p>Default slot</p>
+        </component>
+      </keep-alive>
     </div>
   </div>
 </template>
