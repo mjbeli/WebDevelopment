@@ -40,7 +40,13 @@ In the parent we can assign that names to our injected content:
 <h2 slot="miRefName">blablabla</h2>
 ```
 
+###### Default slots
+In the child component we can put content inside the <slot> tag and it will ve rendered if the parent don't pass content for that particular slot.
 
+#### Dynamic Component
+
+<component> tag allows add to dynamic add component
+This ```is``` attribute has to content an string that it's equal to component selector. 
 
 ## Project setup
 ```

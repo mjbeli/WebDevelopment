@@ -4,24 +4,42 @@
     <quote>
       <h4 slot="title">{{ quoteTitle }}</h4>
       <p slot="phrase">{{ quote }}</p>
-      <p>This paragraph don't has an slot assigned so it will be renderen in the deafult slot.</p>
-      
+      <p>From the parent, this paragraph don't has an slot assigned so it will be rendered in the deafult slot.</p>
+      <p slot="secondSubTitle"> This is written in the parent using slot named as secondSubTitle. The content has been overwriten.</p> 
     </quote>
+    <hr>
+    <hr>
+    <hr>
+    <div>
+      <button @click="selectedComponent='Author'">Autor</button>
+      <button @click="selectedComponent='New'">New</button>
+      <button @click="selectedComponent='Quote'">Quote</button>
+      <p>Componente seleccionado: {{selectedComponent}}</p>
+      <component :is="selectedComponent">
+        <p>Default slot</p>
+      </component>
+    </div>
   </div>
 </template>
 
 <script>
 import QuoteComp from './components/Quote.vue'
+import Author from './components/Author.vue'
+import New from './components/New.vue'
+
 
 export default {
   name: 'App',
   components: {
-    Quote: QuoteComp
+    Quote: QuoteComp,
+    Author,
+    New
   },
   data: function (){
     return {
       quoteTitle: 'Mi cita',
-      quote: 'No son molinos, son gigantes.'
+      quote: 'No son molinos, son gigantes.',
+      selectedComponent: 'Quote' // This name must be igual than name imported in components section.
     }
   }
 }

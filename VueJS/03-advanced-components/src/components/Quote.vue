@@ -8,6 +8,8 @@
     <!-- Splitting the content -->
     <div>
       <slot name="title"></slot>
+      <slot name="subTitle">This it's written in the child. It will be shown as default</slot> 
+      <slot name="secondSubTitle">This will be shown as default</slot>      
     </div>
     <div>
       <slot name="phrase"></slot>
@@ -22,7 +24,6 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
 div{
@@ -48,4 +49,5 @@ This style will be apply because it isn`t defined in the parent.
 p {
   color: #42b983;
 }
+
 </style>
