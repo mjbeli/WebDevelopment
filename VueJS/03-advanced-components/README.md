@@ -33,15 +33,29 @@ Every Vue processing will be executed before passing the content to the componen
 
 We can  divide the content inside the child assigning names to de <slot> tag:
 ```html
-<slot name="miRefName"></slot>
+<template>
+  <div>
+    <slot name="miRefName"></slot>
+  </div>    
+</template>
 ```
 In the parent we can assign that names to our injected content:
 ```html
-<h2 slot="miRefName">blablabla</h2>
+<quote>
+    <h2 slot="miRefName">blablabla</h2>
+</quote>
+
 ```
 
 ###### Default slots
-In the child component we can put content inside the <slot> tag and it will ve rendered if the parent don't pass content for that particular slot.
+In the child component we can put content inside the <slot> tag and it will be rendered if the parent don't pass content for that particular slot.
+```html
+<template>
+  <div>
+    <slot name="subTitle">This it's written in the child. It will be shown as default if the parent don't specify subTitle slot</slot>
+  </div>    
+</template>
+```
 
 #### Dynamic Component
 
