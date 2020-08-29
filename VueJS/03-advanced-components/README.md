@@ -31,7 +31,15 @@ Every Vue processing will be executed before passing the content to the componen
 
 ###### Splitting slots
 
-We can 
+We can  divide the content inside the child assigning names to de <slot> tag:
+```html
+<slot name="miRefName"></slot>
+```
+In the parent we can assign that names to our injected content:
+```html
+<h2 slot="miRefName">blablabla</h2>
+```
+
 
 
 ## Project setup

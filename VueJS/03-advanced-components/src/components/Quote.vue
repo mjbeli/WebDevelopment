@@ -1,6 +1,18 @@
 <template>
   <div>
+    <!-- This will inject the content all together in case in the parent don't have slot attibutes defined.
+    In case the parent use slot attributes, this will be the default slot will be this -->
     <slot></slot>
+
+    <hr><hr><hr>
+    <!-- Splitting the content -->
+    <div>
+      <slot name="title"></slot>
+    </div>
+    <div>
+      <slot name="phrase"></slot>
+    </div>
+
   </div>    
 </template>
 

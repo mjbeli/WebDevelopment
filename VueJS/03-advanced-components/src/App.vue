@@ -2,8 +2,10 @@
   <div class="app">
     <img alt="Vue logo" src="./assets/logo.png" class ="smallLogo" >
     <quote>
-      <h4>{{ quoteTitle }}</h4>
-      <p>{{ quote }}</p>
+      <h4 slot="title">{{ quoteTitle }}</h4>
+      <p slot="phrase">{{ quote }}</p>
+      <p>This paragraph don't has an slot assigned so it will be renderen in the deafult slot.</p>
+      
     </quote>
   </div>
 </template>
