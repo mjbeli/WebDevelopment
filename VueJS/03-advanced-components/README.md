@@ -6,6 +6,7 @@ In this project we will see advance concepts of components.
 VueJs reserves 'slots' to pass components complex content from outside. In the component we want to receive content we can use the reserved tag from Vue: <slot></slot>
 
 ```html
+<!-- template for quote component. As you can see, it has a specific zone for content from the parent -->
 <template>
   <div>
     <slot></slot> <!-- This is a reserve space to inject what the component will receive. -->
@@ -15,6 +16,7 @@ VueJs reserves 'slots' to pass components complex content from outside. In the c
 
 Automatically, we can write content inside the tag of our component wen using it like this:
 ```html
+<!-- When we use quote components we can write code inside the tag that will be passed to the component and rendered in the slot. -->
 <quote>
     <h4>{{ quoteTitle }}</h4>
     <p>No son molinos, son gigantes.</p>
