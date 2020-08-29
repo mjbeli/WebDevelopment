@@ -2,7 +2,7 @@
 
 In this project we will see advance concepts of components.
 
-#### Slots
+### Slots
 VueJs reserves 'slots' to pass components complex content from outside. In the component we want to receive content we can use the reserved tag from Vue: <slot></slot>
 
 ```html
@@ -44,7 +44,6 @@ In the parent we can assign that names to our injected content:
 <quote>
     <h2 slot="miRefName">blablabla</h2>
 </quote>
-
 ```
 
 ###### Default slots
