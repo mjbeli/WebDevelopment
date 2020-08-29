@@ -5,12 +5,12 @@
       We can use mi-componente here without importing it (like we have done with others)
       because we already have registered it globally in main.js
     -->
-    <mi-componente v-for="server in 5"> </mi-componente> <!-- Repeat 5 times this element-->
+    <mi-componente v-for="server in 3"> </mi-componente> <!-- Repeat 5 times this element-->
 
     <hr>
 
     <!-- Thanks to webpack & ES6 we can use the component with '-' annotation and case insensitive -->
-    <rickmorty-photo-comp />
+    <RickMortyPhotoComp />    
   </div>
 </template>
 
