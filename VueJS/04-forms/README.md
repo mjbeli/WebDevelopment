@@ -1,24 +1,18 @@
 # 04-forms
 
-## Project setup
+This project has interesting material to work with forms in VueJS.
+
+#### Install bootstrapVue
+
+Asuming we already have Vue CLI installed:
+
 ```
-npm install
+npm install -g @vue/cli
+vue create <<project-name>>
+cd project-name
 ```
 
-### Compiles and hot-reloads for development
+This command install bootstrap-vue in our project:
 ```
-npm run serve
+vue add bootstrap-vue
 ```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
