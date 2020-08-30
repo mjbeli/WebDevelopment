@@ -12,7 +12,11 @@ vue create <<project-name>>
 cd project-name
 ```
 
-This command install bootstrap-vue in our project:
+This command will install bootstrap-vue in our project, including things like...
+ - execute npm command
+ - include ```import './plugins/bootstrap-vue'``` sentence in src/main.js
+ - create new js file for this plugin
+ 
 ```
 vue add bootstrap-vue
 ```
