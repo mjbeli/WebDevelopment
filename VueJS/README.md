@@ -1,11 +1,17 @@
-# vue_basics
+# VueJS Fundamentals
 
-This project has been created using Vue CLI 3:
+Welcome! this is a series of little projects in Vue with the porpuose to show how it works. From basic to advanced features, the projects are created to show very focused functions.
+
+[03-advanced-components:](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/03-advanced-components) slots & dynamic components.
+
+### Project creation
+
+These projects has been created using Vue CLI 3:
 
  - Install Vue CLI like this: ```npm install -g @vue/cli```
  - Create a project like this: ```vue create <<project_name>>```
 
-### Project setup
+###### Project setup
 ```
 npm install
 ```
