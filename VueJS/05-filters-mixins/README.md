@@ -64,7 +64,7 @@ export default {
 }
 ```
 
-The hooks (events) defined in the mixin will execute BEFORE the hooks defined inside the component.
+The hooks (events) defined in the mixin will execute BEFORE the hooks defined inside the component. So always the component has the last word and can overwrite anything.
 
 We can define a global mixin like this:
 ```javascript
@@ -79,3 +79,5 @@ Vue.mixin({
 ```
 
 IMPORTANT: try to use global mixin the least possible, because affects all Vue instances, including components of third parties.
+
+For hooks lifecycle: First global mixins, then local mixins (defined with the array), last hook of the component.
