@@ -1,5 +1,29 @@
 # 05-filters-mixins
 
+
+**IMPORTANTE**
+> En Vue 3 los filtros desaparecen.
+
+```
+<!-- before -->
+{{ msg | format }}
+
+<!-- after -->
+{{ format(msg) }}
+```
+
+Motivos:
+ - La funcionalidad que dan los filtros pueden ser fácilmente replicadas con funciones o propiedades computadas.
+ - Los filtros requieren una micro sintaxis propia que rompe con la filosofía de que todas las expresiones son Javascript, por lo tanto tienen un coste en aprendizaje e implementación.
+ - Agregan complejidad al soporte del IDE (de nuevo, porque no es javascript).
+
+> En Vue 3 los mixins siguen soportados pero se consideran inseguros.
+
+Los mixins se consideran un antipatrón:
+  - Conflictos entre nombres
+  - Dependencias implícitas: los componentes pueden usar propiedades de los mixins pero también ocurre al revés, un mixin puede asumir que el componente tiene una propiedad ¿y si queremos cambiar el nombre de una propiedad? ¿tendremos que buscar en todos los mixins por si se usa esa propiedad?.
+  
+ 
 ### 05.01 Filters
 
 Filters apply on a outcome and trasnform the data. No the data itself, only transform what the user sees.
