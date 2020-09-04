@@ -17,18 +17,6 @@ const routes = [{
         name: 'Home',
         component: Home // component we want to load when visited the path. We need to import de component.
     }
-    /*
-    ,    
-    {
-        path: '/about',
-        name: 'About',
-        // route level code-splitting
-        // this generates a separate chunk (about.[hash].js) for this route
-        // which is lazy-loaded when the route is visited.
-        component: () =>
-            import ('../views/About.vue')
-    }
-    */
 ]
 
 // This is the unique router instance of the application. After this, all is about switching components.

@@ -1,17 +1,19 @@
 # 06-routing
 
-### 06.01 Setup
+### 06.01 Setup & start
 
 Using npm:
-´´´
+
+```
 npm install --save vue-router
-´´´
+```
 
 Using Vue CLI:
 ```
 vue add router
 ```
-The last one will add the necesary code  in main.js and also will overwrite your App.vue.
+The last one will add the necesary code in main.js and also will overwrite your App.vue.
+
 
 ### 06.02 Basics
 
