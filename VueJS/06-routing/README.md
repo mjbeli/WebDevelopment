@@ -1,24 +1,19 @@
 # 06-routing
 
-## Project setup
-```
-npm install
-```
+### 06.01 Setup
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+Using npm:
+´´´
+npm install --save vue-router
+´´´
 
-### Compiles and minifies for production
+Using Vue CLI:
 ```
-npm run build
+vue add router
 ```
+The last one will add the necesary code  in main.js and also will overwrite your App.vue.
 
-### Lints and fixes files
-```
-npm run lint
-```
+### 06.02 Basics
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+The place where the router will load the components it's in the tag '<router-view></router-view>'
+Is this example in our document App.vue
