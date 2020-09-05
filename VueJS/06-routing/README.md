@@ -129,11 +129,14 @@ This way the active styles will be applied to the <li> element instead of <a>
 methods: {
     navigateToHome(){            
         // This push add the route to the stack navigation so it's preserve the behaviour of the
-        // back and forward buttons.
-        this.$router.push('/'); // We also pass an object to push.
+        // back and forward buttons. 
+        // this.$router.push('/'); 
+        this.$router.push({ name: 'Home' }); // We can also pass an object to push.
     }
 }
 ```
+
+The object we can pass to push method is the same that will use to generate dynamic links. It can receive path, name and params attributes.
 
 ### 06.05 Parameters
 
@@ -185,4 +188,47 @@ export default {
     /****/
 }
 ```
+
+### 06.06 Nested routes
+
+We can add sub-routes in a component, for example add user detail and user edit as child of user component.
+
+> Inside routes variable that define the routes of the application 
+```javascript
+{
+    path: '/user',
+    name: 'UserList',
+    component: User,
+    // children property is an array of routes that will be sub-routes of '/user' route
+    children: [
+            // If the path in a subroute starts with a '/' it will be appended directly after the domain. 
+            // If don't starts with '/' it will be appended to the parent route '/user'
+            { path: '', component: UserStart },
+            { path: 'us/:id', component: UserDetail },
+            { path: 'us/:id/edit', component: UserEdit }
+        ]
+    }
+```
+
+We need a place to load the components defined in the sub-routes, because the ```<router-view></router-view>``` tag indicates the place where the root routes is loaded, not nested routes.
+
+Well, the only thing is to put the same tag in the component of the parent route. So the nested routes will be loader there. You will see that when the parent component is showed and the route match with a children route, the component of that children route will be loaded in the place where router-view tag was placed.
+
+### 06.07 Create dymanic links
+
+If whe assign a name to a route like this:
+```javascript
+{ path: 'us/:id/edit', name: 'UserEdit', component: UserEdit, props: true }
+```
+
+We can referer that name in any router-link to generate a link:
+```html
+<!-- attribute to needs the colon to receive an object -->
+<router-link 
+        tag="button" 
+        :to="{ name: 'UserEdit', params: { id: id} }">
+        Edit User</router-link>
+```
+
+The ```to``` attribute can receive an object with a set of parameters that VueJs will recognoize. The name attrib refers to the name given in the routes var and the params is an object of key-vcalue pairs where the key is the parameter in the path of the router ```us/:id/edit``` and the value is what we want to assign (in this case a prop).
 

@@ -20,6 +20,9 @@
             <b-navbar-brand>
                 <router-link to="/user/3327">User 3327</router-link>
             </b-navbar-brand>
+            <b-navbar-brand>
+                <router-link to="/user">List of users</router-link>
+            </b-navbar-brand>
         </b-navbar>
 </div>
 </template>
