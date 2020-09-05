@@ -8,7 +8,8 @@ Vue.use(VueRouter)
 
 // This constant it's an array of objects. Each object will be a route defined by several specific attributes.
 const routes = [{
-        path: '/user', // The path of the route.
+        path: '/user/:id', // The path of the route. Will match with /user/something
+        props: true,
         name: 'User',
         component: User // component we want to load when visited the path. We need to import de component.
     },

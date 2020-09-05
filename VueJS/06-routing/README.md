@@ -134,3 +134,55 @@ methods: {
     }
 }
 ```
+
+### 06.05 Parameters
+
+Add dinamyc parameters to an url like this:
+
+```javascript
+
+const routes = [{
+        path: '/user/:id', // Will match with /user/something
+        name: 'User',
+        component: User 
+    }
+    /* ...*/
+]
+```
+
+From now the route ```/user``` will not match, so it will stop working. We must update the links like this:
+```html
+<router-link to="/user/10">User</router-link>
+```
+
+To retreive the id parameter in the component:
+```javascript
+data(){
+    return {
+        localId: this.$route.params.id // Watch Out: this is de route object, different from this.$router
+    }
+}
+```
+
+Be careful! when navigate to the same component but only changes the route, the component it's not recreated. So if we first access to, for example, ```/user/10``` and then to ```/user/23``` the ```this.localId``` won't change.
+
+To avoid this problem and, honestly, to a better reading code, we can receive a dynamic parameter as a prop this way:
+
+```javascript
+const routes = [{
+        path: '/user/:id', // Will match with /user/something
+        props: true,
+        name: 'User',
+        component: User 
+    }
+    /* ...*/
+]
+```
+
+```javascript
+export default {
+    props: ['id'],
+    /****/
+}
+```
+

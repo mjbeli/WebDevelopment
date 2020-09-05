@@ -15,7 +15,10 @@
                 <router-link to="/">Home</router-link>
             </b-navbar-brand>
             <b-navbar-brand>
-                <router-link to="/user">User</router-link>
+                <router-link to="/user/10">User 10</router-link>
+            </b-navbar-brand>
+            <b-navbar-brand>
+                <router-link to="/user/3327">User 3327</router-link>
             </b-navbar-brand>
         </b-navbar>
 </div>

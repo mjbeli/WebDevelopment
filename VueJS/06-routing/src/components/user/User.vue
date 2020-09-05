@@ -2,6 +2,9 @@
 <div>
     <h1>The User Page</h1>
     <hr>
+    <p>
+        This is the receive ID: {{ id }}
+    </p>
     <!-- we could have done this using router-link, but the purpouse ist's to navigate from code-->
     <button @click="navigateToHome" class="btn btn-secondary">Home</button> 
 </div>
@@ -9,6 +12,7 @@
 </template>
 <script>
 export default {
+    props: ['id'],
     methods: {
         navigateToHome(){
             // Inside the Vue instance (this) the objects starting with $ usually tell us it's an
