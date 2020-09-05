@@ -51,6 +51,9 @@ Is this example this tag is in our document App.vue
 How to add routes in src/router/index.js
 
 ```javascript
+import User from '../components/user/User.vue'
+import Home from '../components/Home.vue'
+
 const routes = [{
         path: '/user', // The path of the route.
         name: 'User',
@@ -92,3 +95,42 @@ const router = new VueRouter({
 Note: our localhost in webpack it's automatically configured to return always index.html so it will work well with history mode. It will be necessary to configure our production server.
 Doc: https://router.vuejs.org/guide/essentials/history-mode.html
 
+### 06.04 Navigation
+
+##### Links
+Instead using anchor tag <a>, let's use router-link provide for VueJs:
+
+```html
+<!-- 
+    <a class="nav-link" href="#">Active</a> 
+    If we use <a> tag, the link will send a request to the server, then the server
+    will be a behaviour that we expected and the touter will handle the request,
+    but in first place, it's useless to leave the application to go to the server.
+    Instead using <a> we can use an alternativo provided for VueJs: <router-link></router-link>
+    This tag will produce an <a> tag a the end but with a click listener attached to it that
+    ovewrites the default behaviour of send a request to the server.
+-->
+    <router-link to="/">Home</router-link>
+```
+
+Specifing the tag attribute to router-link we can define the element we want to render. By the default the rendered element will be <a> but we can define as <li> like this:
+
+```html
+<router-link to="/" tag="li"><a>Home</a></router-link>
+```
+
+This way the active styles will be applied to the <li> element instead of <a>
+
+##### Code
+
+> In <script> of our component:
+
+```javascript
+methods: {
+    navigateToHome(){            
+        // This push add the route to the stack navigation so it's preserve the behaviour of the
+        // back and forward buttons.
+        this.$router.push('/'); // We also pass an object to push.
+    }
+}
+```

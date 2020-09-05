@@ -1,4 +1,22 @@
 <template>
+<div>
     <h1>The User Page</h1>
+    <hr>
+    <!-- we could have done this using router-link, but the purpouse ist's to navigate from code-->
+    <button @click="navigateToHome" class="btn btn-secondary">Home</button> 
+</div>
 
 </template>
+<script>
+export default {
+    methods: {
+        navigateToHome(){
+            // Inside the Vue instance (this) the objects starting with $ usually tell us it's an
+            // object provided by anothe package, in this case vue-router.
+            // This push add the route to the stack navigation so it's preserve the behaviour of the
+            // back and forward buttons.
+            this.$router.push('/'); 
+        }
+    }
+}
+</script>
