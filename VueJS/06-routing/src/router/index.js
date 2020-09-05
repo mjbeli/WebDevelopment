@@ -21,7 +21,8 @@ const routes = [{
 
 // This is the unique router instance of the application. After this, all is about switching components.
 const router = new VueRouter({
-    routes
+    routes,
+    mode: 'history' // the default mode is 'hash'
 })
 
 export default router // export the const router defined early.
