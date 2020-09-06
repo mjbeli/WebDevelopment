@@ -104,22 +104,22 @@ Instead using anchor tag <a>, let's use router-link provide for VueJs:
 <!-- 
     <a class="nav-link" href="#">Active</a> 
     If we use <a> tag, the link will send a request to the server, then the server
-    will be a behaviour that we expected and the touter will handle the request,
+    will be a behaviour that we expected and the router will handle the request,
     but in first place, it's useless to leave the application to go to the server.
-    Instead using <a> we can use an alternativo provided for VueJs: <router-link></router-link>
+    Instead using <a> we can use an alternative provided for VueJs: <router-link></router-link>
     This tag will produce an <a> tag a the end but with a click listener attached to it that
     ovewrites the default behaviour of send a request to the server.
 -->
     <router-link to="/">Home</router-link>
 ```
 
-Specifing the tag attribute to router-link we can define the element we want to render. By the default the rendered element will be <a> but we can define as <li> like this:
+Specifing the tag attribute to router-link we can define the element we want to render. By the default the rendered element will be ```<a>``` but we can define as ```<li>``` like this:
 
 ```html
 <router-link to="/" tag="li"><a>Home</a></router-link>
 ```
 
-This way the active styles will be applied to the <li> element instead of <a>
+This way the active styles will be applied to the ```<li>``` element instead of ```<a>```
 
 ##### Code
 
