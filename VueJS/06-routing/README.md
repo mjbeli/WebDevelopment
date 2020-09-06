@@ -313,7 +313,7 @@ const routes = [
 ]
 ```
 
-### 06.08 Guards
+### 06.09 Guards
 
 We can pass a function to ```router.beforeEach()``` and it will be execute before each router action. Inside this function we can use:
  - ```next();``` to indicate that the router keep navigating to the destiny.
@@ -399,7 +399,7 @@ export default {
 </script>
 ```
 
-### 06.09 Lazy loads with webpack
+### 06.10 Lazy loads with webpack
 
 If we want a component only be loaded when it's needed, instead of a traditional import:
 ```javascript
