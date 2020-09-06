@@ -128,8 +128,7 @@ This way the active styles will be applied to the ```<li>``` element instead of 
 ```javascript
 methods: {
     navigateToHome(){            
-        // This push add the route to the stack navigation so it's preserve the behaviour of the
-        // back and forward buttons. 
+        // This push add the route to the stack navigation so it's preserve the behaviour of the back and forward buttons. 
         // this.$router.push('/'); 
         this.$router.push({ name: 'Home' }); // We can also pass an object to push.
     }
