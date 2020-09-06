@@ -138,6 +138,47 @@ methods: {
 
 The object we can pass to push method is the same that will use to generate dynamic links. It can receive path, name and params attributes.
 
+
+##### Navigate to anchors
+
+Imagine we have an element like this at the bottom of our component:
+
+```html
+<p id="data">Some data at the bottom of the page</p>
+```
+
+The default behavior of the browser let us to navigate to this element accessing to the url:
+```
+http://localhost:8080/user/us/1/edit?locale=en&q=100#data
+```
+
+When generate the link with router-link we can pass an attrib. called hash:
+
+```html
+<router-link tag="button" 
+            :to="{ 
+                name: 'UserEdit', 
+                params: { id: id }, 
+                query: { locale: 'en', q: 100 },
+                hash: '#data'
+                }">
+            Edit User</router-link>
+```
+
+We can define a function into router object to define scroll behaviour. The function expect to return coordinades or a selector to scroll.
+
+``` javascript
+const router = new VueRouter({
+    routes,
+    mode: 'history', 
+    scrollBehavior(to, from, savedPosition){ /* savedPosition determine if the browser saves the position of the scroll so when back to previous page scroll to de position */
+        if(to.hash){
+            return { selector: to.hash }; // scroll to selector in hash attrib.
+        }
+    }
+})
+```
+
 ### 06.05 Parameters
 
 Add dinamyc parameters to an url like this:
@@ -189,6 +230,23 @@ export default {
 }
 ```
 
+##### Query parameters
+
+The attib. 'to' can receive another object in 'query' to define query parameters in the url:
+```html
+<!-- attribute 'to' needs the colon to receive an object -->
+<router-link 
+        tag="button" 
+        :to="{ name: 'UserEdit', params: { id: id }, query: { locale: 'en', q: 100 } }">
+        Edit User</router-link>
+```
+
+In the component we can access these query parameters using $route object:
+```html
+<p> Locale: {{ $route.query.locale }}</p>
+<p> q: {{ $route.query.q }}</p>
+```
+
 ### 06.06 Nested routes
 
 We can add sub-routes in a component, for example add user detail and user edit as child of user component.
@@ -216,19 +274,133 @@ Well, the only thing is to put the same tag in the component of the parent route
 
 ### 06.07 Create dymanic links
 
-If whe assign a name to a route like this:
+If we assign a name to a route like this:
 ```javascript
 { path: 'us/:id/edit', name: 'UserEdit', component: UserEdit, props: true }
 ```
 
 We can referer that name in any router-link to generate a link:
 ```html
-<!-- attribute to needs the colon to receive an object -->
+<!-- attribute 'to' needs the colon to receive an object -->
 <router-link 
         tag="button" 
-        :to="{ name: 'UserEdit', params: { id: id} }">
+        :to="{ name: 'UserEdit', params: { id: id } }">
         Edit User</router-link>
 ```
 
-The ```to``` attribute can receive an object with a set of parameters that VueJs will recognoize. The name attrib refers to the name given in the routes var and the params is an object of key-vcalue pairs where the key is the parameter in the path of the router ```us/:id/edit``` and the value is what we want to assign (in this case a prop).
+The ```to``` attribute can receive an object with a set of parameters that VueJs will recognoize. The name attrib refers to the name given in the routes var and the params is an object of key-value pairs where the key is the parameter in the path of the router ```us/:id/edit``` and the value is what we want to assign (in this case a prop).
+
+### 06.08 Redirections
+
+> In index.js where url are specified
+
+```javascript
+const routes = [
+    /* bla bla bla */
+    // { path: '/redirect', redirect: '/user' } // this redirects the url /redirect to /user
+    { path: '/redirect', redirect: { name: 'Home' } } // In this object we can add parameters, component, props true,... 
+]
+```
+
+To capture all the url that doesn't exists and rdirecto to a 404 page:
+```javascript
+const routes = [
+    /* bla bla bla */
+    {
+        path: '*', // Match with anything that hasn't been handle in previous routes
+        redirect: { name: 'Home' } // In this object we can add parameters, component, props true,...
+    }
+]
+```
+
+### 06.08 Guards
+
+We can pass a function to ```router.beforeEach()``` and it will be execute before each router action. Inside this function we can use:
+ - ```next();``` to indicate that the router keep navigating to the destiny.
+ - ```next(false);``` to indicate the router to abort the navigation and stay where we are.
+ - ```next({ name: 'Home', props: true });``` to indicate the router to navigate to the tipical object that define a route.
+
+ Watch out! the beforeEach() executes in every router action, so use it carefully.
+
+```javascript
+const router = new VueRouter({
+    routes,
+    mode: 'history'
+});
+
+
+router.beforeEach(
+    (to, from, next) {
+        console.log ('be careful, this calls in each router action');
+        next(); // Important! don't forget the next() to continue 
+                // the router navigation after some checks.
+    }
+);
+```
+
+To protecto only certain route, we can use the ```beforeEnter``` attrib. when defining a route. The function receive the same as beforeEach:
+
+```javascript
+const routes = [
+        {
+        path: '', 
+        name: 'Home',
+        component: Home,
+        beforeEnter: (to, from, next) => {
+            next();
+        }
+    }
+    ]
+```
+
+Also we can implement a guard in the component itself using a new event provide for the router called beforeRouteEnter(). It's like a lifecycle hook.
+
+```javascript
+<script>
+export default {
+    data(){
+        return {
+            data: 'my data'
+        }
+    },
+    beforeRouteEnter(to, from, next){
+        // if here we don't call next(); this component won't be loaded
+        // this.data --> this is not available here, because this component 
+        // it's not loaded or created yet. 
+        // Only have access to the component from and the route destiny you are navigating.
+        next();
+        // we can pass a callback that will be execute after the component has been created:
+        next( vi => {
+            vi.data; // here it's possible to access to the Vue instance.
+        });
+    }
+}
+</script>
+```
+
+To check if an user can leave a route, the only place to check it's inside the component we want to leave, that's becouse in a global level it might be late to check, the navigation would be started it's journey.
+
+The same way, to allow the navigation we must call next() method.
+
+```javascript
+<script>
+export default {
+    data(){
+        return {
+            data: 'my data'
+        }
+    },
+    beforeRouteLeave(to, from, next){
+        // if here we don't call next(); this component won't be leaved
+        // this.data --> this is available here.        
+        next();        
+    }
+}
+</script>
+```
+
+
+
+
+
 

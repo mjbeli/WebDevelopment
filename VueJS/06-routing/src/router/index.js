@@ -33,13 +33,28 @@ const routes = [{
             { path: 'us/:id', component: UserDetail, props: true },
             { path: 'us/:id/edit', name: 'UserEdit', component: UserEdit, props: true }
         ]
+    },
+    {
+        path: '/redirect',
+        redirect: { name: 'Home' } // In this object we can add parameters, component, props true,...
+    },
+    {
+        path: '*', // Match with anything that hasn't been handle in previous routes
+        redirect: { name: 'Home' } // In this object we can add parameters, component, props true,...
     }
 ]
 
 // This is the unique router instance of the application. After this, all is about switching components.
 const router = new VueRouter({
     routes,
-    mode: 'history' // the default mode is 'hash'
+    mode: 'history', // the default mode is 'hash'
+    scrollBehavior(to, /*from,*/ savedPosition) {
+        if (savedPosition)
+            return savedPosition; // savedPosition determine if the browser saves the position of the scroll so when back to previous page scroll to de position 
+        if (to.hash)
+            return { selector: to.hash }; // scroll to selector in hash attrib.
+        return { x: 0, y: 0 }; // top of the screen.
+    }
 })
 
 export default router // export the const router defined early.
