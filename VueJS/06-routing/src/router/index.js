@@ -1,11 +1,42 @@
 /* THIS FILE WAS AUTOMATICALY GENERATY WHEN INSTALING RUOTER USING VUE CLI: vue add router */
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import Home from '../components/Home.vue'
+/*
+Instead of using traditional imports, let's use lazy load so this components will be 
+loaded only when needed. 
 import User from '../components/user/User.vue'
 import UserStart from '../components/user/UserStart.vue'
 import UserDetail from '../components/user/UserDetail.vue'
 import UserEdit from '../components/user/UserEdit.vue'
-import Home from '../components/Home.vue'
+*/
+
+/*
+This is the way webpack uses lazy load. In case using other bundler, maybe you must change this syntax.
+*/
+// User is a ES6 function where pass resolve callback.
+// First argument: when webpack needs to resolve dependency to User.vue component, then
+// execute the callback in second argument, in this case the resolve.
+const User = resolve => {
+    require.ensure(['../components/user/User.vue'],
+        () => { resolve(require('../components/user/User.vue')) });
+};
+
+const UserStart = resolve => {
+    require.ensure(['../components/user/UserStart.vue'],
+        () => { resolve(require('../components/user/UserStart.vue')) });
+};
+
+const UserDetail = resolve => {
+    require.ensure(['../components/user/UserDetail.vue'],
+        () => { resolve(require('../components/user/UserDetail.vue')) });
+};
+
+const UserEdit = resolve => {
+    require.ensure(['../components/user/UserEdit.vue'],
+        () => { resolve(require('../components/user/UserEdit.vue')) });
+};
+
 
 Vue.use(VueRouter)
 

@@ -338,7 +338,7 @@ router.beforeEach(
 );
 ```
 
-To protecto only certain route, we can use the ```beforeEnter``` attrib. when defining a route. The function receive the same as beforeEach:
+To protect only certain route, we can use the ```beforeEnter``` attrib. when defining a route. The function receive the same as beforeEach:
 
 ```javascript
 const routes = [
@@ -397,6 +397,25 @@ export default {
     }
 }
 </script>
+```
+
+### 06.09 Lazy loads with webpack
+
+If we want a component only be loaded when it's needed, instead of a traditional import:
+```javascript
+import User from '../components/user/User.vue'
+```
+
+Use this:
+
+```javascript
+// User is a ES6 function where pass resolve callback.
+// First argument: when webpack needs to resolve dependency to User.vue component, then
+// execute the callback in second argument, in this case the resolve.
+const User = resolve => {
+    require.ensure(['../components/user/User.vue'],
+        () => { resolve(require('../components/user/User.vue')) });
+};
 ```
 
 
