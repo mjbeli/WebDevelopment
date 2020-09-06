@@ -15,26 +15,39 @@ import UserEdit from '../components/user/UserEdit.vue'
 This is the way webpack uses lazy load. In case using other bundler, maybe you must change this syntax.
 */
 // User is a ES6 function where pass resolve callback.
-// First argument: when webpack needs to resolve dependency to User.vue component, then
+// require.ensure is a function with 2 or 3 arguments that will be recognize by webpack:
+// First argument --> when webpack needs to resolve dependency to User.vue component, then
 // execute the callback in second argument, in this case the resolve.
 const User = resolve => {
-    require.ensure(['../components/user/User.vue'],
-        () => { resolve(require('../components/user/User.vue')) });
+    require.ensure(
+        ['../components/user/User.vue'],
+        () => { resolve(require('../components/user/User.vue')) }
+        // ,'user0' optional parameter for group different bundles.
+    );
 };
 
 const UserStart = resolve => {
-    require.ensure(['../components/user/UserStart.vue'],
-        () => { resolve(require('../components/user/UserStart.vue')) });
+    require.ensure(
+        ['../components/user/UserStart.vue'],
+        () => { resolve(require('../components/user/UserStart.vue')) }
+        // ,'user0' optional parameter for group different bundles.
+    );
 };
 
 const UserDetail = resolve => {
-    require.ensure(['../components/user/UserDetail.vue'],
-        () => { resolve(require('../components/user/UserDetail.vue')) });
+    require.ensure(
+        ['../components/user/UserDetail.vue'],
+        () => { resolve(require('../components/user/UserDetail.vue')) }
+        // ,'user0' optional parameter for group different bundles.
+    );
 };
 
 const UserEdit = resolve => {
-    require.ensure(['../components/user/UserEdit.vue'],
-        () => { resolve(require('../components/user/UserEdit.vue')) });
+    require.ensure(
+        ['../components/user/UserEdit.vue'],
+        () => { resolve(require('../components/user/UserEdit.vue')) }
+        // ,'user0' optional parameter for group different bundles.
+    );
 };
 
 

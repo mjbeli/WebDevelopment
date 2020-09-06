@@ -410,15 +410,34 @@ Use this:
 
 ```javascript
 // User is a ES6 function where pass resolve callback.
-// First argument: when webpack needs to resolve dependency to User.vue component, then
+// require.ensure is a function with 2 or 3 arguments that will be recognize by webpack:
+// First argument --> when webpack needs to resolve dependency to User.vue component, then
 // execute the callback in second argument, in this case the resolve.
 const User = resolve => {
-    require.ensure(['../components/user/User.vue'],
-        () => { resolve(require('../components/user/User.vue')) });
+    require.ensure(
+        ['../components/user/User.vue'],
+        () => { resolve(require('../components/user/User.vue')) }
+    );
 };
 ```
 
+We can define diferent components inside the same bundle by giving another argument witch it's a name. Webapck will load all components that share the same name when need one of them:
 
+```javascript
+const User = resolve => {
+    require.ensure(
+        ['../components/user/User.vue'],
+        () => { resolve(require('../components/user/User.vue')) },
+        'user'
+    );
+};
+
+const UserStart = resolve => {
+    require.ensure(['../components/user/UserStart.vue'],
+        () => { resolve(require('../components/user/UserStart.vue')) },
+        'user');
+};
+```
 
 
 
