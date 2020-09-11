@@ -8,7 +8,10 @@
     <!-- we could have done this using router-link, but the purpouse ist's to navigate from code-->
     <button @click="navigateToHome" class="btn btn-secondary">Home</button> 
     <hr>
-    <router-view></router-view> <!-- here loads the sub-routes of this component -->
+    <!--<keep-alive> When using keep alive, the components loaded in that router-view aren't created or destroyed anymore and share the data-->
+        <router-view></router-view> <!-- here loads the sub-routes of this component -->
+    <!--</keep-alive>-->
+
 </div>
 
 </template>

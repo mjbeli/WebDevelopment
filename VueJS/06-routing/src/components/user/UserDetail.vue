@@ -11,10 +11,30 @@
                     hash: '#data' 
                     }">
                 Edit User</router-link>
+    
+    <p>Valor del contador interno de este componente: {{counter}}</p>
+    <button @click="counter++;">Incrementa contador </button>
 </div>
 </template>
 <script>
 export default {
-    props: ['id']
+    props: ['id'],
+    data(){
+        return {
+            counter: 0
+        }
+    },
+    created(){
+        console.log('Evento created de UserDetail');
+    },
+    destroyed(){
+        console.log('Evento destroyed de UserDetail');
+    },
+    activated(){
+        console.log('Evento activated de UserDetail');
+    },
+    deactivated(){
+        console.log('Evento deactivated de UserDetail');
+    }
 }
 </script>
