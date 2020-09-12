@@ -10,7 +10,8 @@ export const store = new Vuex.Store({
     // Our store has a central state --> this name must be 'state' in order to vuex detect it.
     // Inside this object we can defined any variable we want to save in cental management.
     state: {
-        counter: 0
+        counter: 0,
+        value: 0
     },
     getters: {
         // All getters are functions that receive the state of the store. This is doing by Vuex.
@@ -21,7 +22,10 @@ export const store = new Vuex.Store({
             return state.counter;
         },
         stringCounter: state => {
-            return state.counter + 'Clicks';
+            return state.counter + ' Clicks';
+        },
+        value: state => {
+            return state.value;
         }
     },
     mutations: {
@@ -31,6 +35,9 @@ export const store = new Vuex.Store({
         },
         decrement: state => {
             state.counter--;
+        },
+        uploadValue: (state, payload) => {
+            state.value = payload;
         }
     },
     actions: {
@@ -43,15 +50,18 @@ export const store = new Vuex.Store({
         decrement: context => {
             context.commit('decrement');
         },
-        asyncIncrement: (context, payload) => {
+        asyncIncrement: (context, payload) => { // With 1 parameter (max allowed)
             setTimeout(() => {
                 context.commit('increment', payload.by);
             }, payload.duration);
         },
-        asyncDecrement: context => {
+        asyncDecrement: context => { // Without parameters
             setTimeout(() => {
                 context.commit('decrement');
             }, 1000);
+        },
+        updateValue: (context, payload) => {
+            context.commit('updateValue', payload);
         }
     }
 });

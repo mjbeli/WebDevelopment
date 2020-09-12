@@ -361,6 +361,26 @@ actions: {
 }
 ```
 
+### 06.04 v-model with cental state
 
+In case we want to stablish a double binding (v-model) on a variable that it's in central vuex state, only a computed property won't work because the default behaviour of computed properties is return values. We must define the getter and the setter for the computed property as shown bellow:
+
+```html
+    <!--computed properties only returns a value, for use v-model the computed prperty must have set (in addition to traditional get) -->
+    <input type="text" v-model="computedValue">
+```
+
+```javascript
+computed: {
+    computedValue: { // computed property with setter and getter is an object, not a function.
+        get(){
+            return this.$store.getters.value; // normal usage of a computed property.
+        },
+        set(value){
+            this.$store.dispatch('updateValue', value); // setter for modify the central state of the application.
+        }
+    }
+}
+```
 
 

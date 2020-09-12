@@ -8,7 +8,12 @@
                 <app-counter></app-counter>
                 <app-another-result></app-another-result>
                 <app-another-counter></app-another-counter>
-
+                <hr>
+                <hr>
+                <hr>
+                <!--computed properties only returns a value, for use v-model the computed prperty must have set (in addition to traditional get) -->
+                <input type="text" v-model="computedValue"> 
+                <p>{{value}}</p>
             </div>
         </div>
     </div>
@@ -26,6 +31,16 @@
             appResult: Result,
             appAnotherResult: AnotherResult,
             appAnotherCounter: AnotherCounter
+        },
+        computed: {
+            computedValue: {
+                get(){
+                    return this.$store.getters.value; // normal usage of a computed property.
+                },
+                set(value){
+                    this.$store.dispatch('updateValue', value); // setter for modify the central state of the application.
+                }
+            }
         }
     }
 </script>
