@@ -2,6 +2,9 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 
+// Import modules like this:
+// import counter from './modules/counter';
+
 // Register vuex plugin
 Vue.use(Vuex);
 
@@ -64,4 +67,9 @@ export const store = new Vuex.Store({
             context.commit('updateValue', payload);
         }
     }
+    /*
+    , modules {
+        counter
+    }
+    */
 });
