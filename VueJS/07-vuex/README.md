@@ -1,6 +1,6 @@
 # 07-vuex
 
-### 06.01 Setup & basics
+### 07.01 Setup & basics
 
 Using a centalized state means use a shared memory, or store, that will have all the common data of our application. That central store can be accessed from any site of our application, every component is able to modify the data and others component will be able to read the data.
 
@@ -84,7 +84,7 @@ Reading the central state from a component:
 </script>
 ```
 
-### 06.02 Getters
+### 07.02 Getters
 
 The getters are used to get a state from the store, perfom any operation or calculation and return the result. The idea is to put the shared code to access a state in a getter and then use that getter in differents components.
 
@@ -117,7 +117,7 @@ This is how we access to the getters from a component:
 </script>
 ```
 
-##### 06.02.01 Helpers for Getters
+##### 07.02.01 Helpers for Getters
 
 It's possible that if we have a lot of states and a lot of getters the code start to growing so fast in our component like this:
 ```javascript
@@ -183,7 +183,7 @@ After that add the new preset to -babelrc file:
 }
 ```
 
-### 06.03 Mutations
+### 07.03 Mutations
 
 When we have several components that can change the central state it can be difficult to tack wich component do a change, and again, it's probably that we must repeate the same code in diferent components if the change implies logic operation.
 
@@ -245,7 +245,7 @@ Use helpers to avoid repeating code!
 
 *Important* Mutations are synchronous, always change the state instantly. So if we want an async operation (like reach the server), we must use Actions!
 
-### 06.03 Actions
+### 07.04 Actions
 
 Actions are asynchronous. It's an extra piece that can run asynchronous task and then execute a mutation to change the state. We only commit the mutation once the async task it's done, so the changes in our state happen synchronously but we can perform asnc task before doing the change.
 
@@ -298,19 +298,11 @@ Using actions:
 </script>
 ```
 
-### 06.04 Arguments to Mutations & Actions
+### 07.05 Arguments to Mutations & Actions
 
 In our termplate
 ```html
 <button class="btn btn-primary" @click="increment(100)">Increment</button>
-```
-
-Calling directly an action with a paramenter:
-```javascript
-    // inside methods
-    increment(by){
-        this.$store.dispatch('increment', by);
-    }
 ```
 
 Using mapActions to call the dispatch with parameters won't change anythig:
@@ -351,6 +343,14 @@ Using mapActions to call the dispatch with parameters won't change anythig:
     ...mapActions(['asyncIncrement', 'asyncDecrement'])
 ```
 
+Calling directly an action with a paramenter:
+```javascript
+    // inside methods
+    increment(by){
+        this.$store.dispatch('increment', payload);
+    }
+```
+
 ```javascript
 actions: {
     asyncIncrement: (context, payload) => {
@@ -361,12 +361,12 @@ actions: {
 }
 ```
 
-### 06.04 v-model with cental state
+### 07.06 v-model with cental state
 
 In case we want to stablish a double binding (v-model) on a variable that it's in central vuex state, only a computed property won't work because the default behaviour of computed properties is return values. We must define the getter and the setter for the computed property as shown bellow:
 
 ```html
-    <!--computed properties only returns a value, for use v-model the computed prperty must have set (in addition to traditional get) -->
+    <!--computed properties only returns a value, for use v-model the computed property must have set (in addition to traditional get) -->
     <input type="text" v-model="computedValue">
 ```
 
@@ -383,13 +383,13 @@ computed: {
 }
 ```
 
-### 06.04 Patterns in store
+### 07.07 Patterns in store
 
-##### 06.04.01 Modules
+##### 07.07.01 Modules
 
 Modules is the way we can divide our central management store into different files, so we can maintain the different parts of our vuex store isolated. Actually, the central store reamins being unique, this technique allow us to divide the code.
 
-> File /store/modules/counter
+> NEW File /store/modules/counter.js
 ```javascript
 const state = {
     // Variables of state
@@ -427,7 +427,7 @@ Now we have to merge these variables with our central state.
 
 ```javascript
 // Import modules like this:
-// import counter from './modules/counter';
+import counter from './modules/counter';
 
 export const store = new Vuex.Store({
     // state, getters, mutations, actions...
@@ -438,7 +438,7 @@ export const store = new Vuex.Store({
     }
 })
 ```
-> 06.04.01 Namespaces
+> Namespaces
 
 It's important to keep in mind that we must remain the names of our store uniques. That's mean that the variable states, getters, mutations and actions must have an unique name.
 
@@ -448,9 +448,9 @@ https://github.com/vuejs/vuex/releases/tag/v2.1.0
 
 
 
-##### 06.04.02 Splitting central code
+##### 07.07.02 Splitting central code
 
-Another way to modularize our code it's to split the code in central store in different files. This isn't a logical split like in modules, we are talking here about take our central coda that has no sense to encapsulate in a module and split it in different files.
+Another way to modularize our code it's to split the code of central store.js in different files. This isn't a logical split like in modules, we are talking here about take our central code that has no sense to encapsulate in a module and split it in different files.
 
 > In file /store/getters.js
 
