@@ -117,7 +117,7 @@ This is how we access to the getters from a component:
 </script>
 ```
 
-##### 07.02.01 Helpers for Getters
+#### 07.02.01 Helpers for Getters
 
 It's possible that if we have a lot of states and a lot of getters the code start to growing so fast in our component like this:
 ```javascript
@@ -385,7 +385,7 @@ computed: {
 
 ### 07.07 Patterns in store
 
-##### 07.07.01 Modules
+#### 07.07.01 Modules
 
 Modules is the way we can divide our central management store into different files, so we can maintain the different parts of our vuex store isolated. Actually, the central store reamins being unique, this technique allow us to divide the code.
 
@@ -447,8 +447,7 @@ For ensure that in large applications we can use namespaces so the names can dup
 https://github.com/vuejs/vuex/releases/tag/v2.1.0
 
 
-
-##### 07.07.02 Splitting central code
+#### 07.07.02 Splitting central code
 
 Another way to modularize our code it's to split the code of central store.js in different files. This isn't a logical split like in modules, we are talking here about take our central code that has no sense to encapsulate in a module and split it in different files.
 
