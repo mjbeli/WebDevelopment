@@ -39,7 +39,7 @@ export const store = new Vuex.Store({
         decrement: state => {
             state.counter--;
         },
-        uploadValue: (state, payload) => {
+        updateValue: (state, payload) => {
             state.value = payload;
         }
     },

@@ -13,7 +13,7 @@
                 <hr>
                 <!--computed properties only returns a value, for use v-model the computed prperty must have set (in addition to traditional get) -->
                 <input type="text" v-model="computedValue"> 
-                <p>{{value}}</p>
+                <p>{{computedValue}}</p>
             </div>
         </div>
     </div>
