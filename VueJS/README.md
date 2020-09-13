@@ -40,11 +40,11 @@ Welcome! this is a series of little projects in Vue with the porpuose to show ho
   
  * [07-vuex](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/06-routing#06-routing)
 
-  * [07.01 Setup & basics](https://github.com/mjbeli/WebDevelopment/blob/master/VueJS/07-vuex/README.md#0701-setup--basics)
+   * [07.01 Setup & basics](https://github.com/mjbeli/WebDevelopment/blob/master/VueJS/07-vuex/README.md#0701-setup--basics)
   
   * [07.02 Getters](https://github.com/mjbeli/WebDevelopment/blob/master/VueJS/07-vuex/README.md#0702-getters)
   
-   * [07.02.01 Helpers for Getters](https://github.com/mjbeli/WebDevelopment/blob/master/VueJS/07-vuex/README.md#070201-helpers-for-getters)
+    * [07.02.01 Helpers for Getters](https://github.com/mjbeli/WebDevelopment/blob/master/VueJS/07-vuex/README.md#070201-helpers-for-getters)
   
   * [07.03 Mutations](https://github.com/mjbeli/WebDevelopment/blob/master/VueJS/07-vuex/README.md#0703-mutations)
   
@@ -56,9 +56,9 @@ Welcome! this is a series of little projects in Vue with the porpuose to show ho
   
   * [07.07 Patterns in store](https://github.com/mjbeli/WebDevelopment/blob/master/VueJS/07-vuex/README.md#0707-patterns-in-store)
   
-   * [07.07.01 Modules](https://github.com/mjbeli/WebDevelopment/blob/master/VueJS/07-vuex/README.md#070701-modules)
+    * [07.07.01 Modules](https://github.com/mjbeli/WebDevelopment/blob/master/VueJS/07-vuex/README.md#070701-modules)
   
-   * [07.07.02 Splitting central code](https://github.com/mjbeli/WebDevelopment/blob/master/VueJS/07-vuex/README.md#070702-splitting-central-code)
+    * [07.07.02 Splitting central code](https://github.com/mjbeli/WebDevelopment/blob/master/VueJS/07-vuex/README.md#070702-splitting-central-code)
   
      
 ### Project creation
