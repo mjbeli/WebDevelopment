@@ -21,6 +21,18 @@ export default {
         this.showMsg = !this.showMsg; // This line could be directly inside @click attribute of html tag.
         this.contador++; // Aquí es obligatorio poner el this para hacer referencia a los datos definidos en data() {}
     }
+  },
+  created(){
+    console.log('dentro de created');
+  },
+  destroyed(){
+    console.log('dentro de destroyed');
+  },
+  activated(){
+    console.log('dentro de activated');
+  },
+  deactivated(){
+    console.log('dentro de deactivated');
   }
 }
 </script>

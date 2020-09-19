@@ -7,9 +7,15 @@
       <router-link to="/ComponentsCom">Comp. Comunication</router-link>
 
     </div>
+    <keep-alive >
     <router-view/>
+    </keep-alive>
   </div>
 </template>
+<script>
+
+
+</script>
 
 <style>
 #app {
