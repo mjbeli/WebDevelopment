@@ -206,3 +206,40 @@ If we omit the mode attrib. the 2 elements will start the transitions at the sam
 </transition>
 ```
 
+### 08.07 Javascript hooks
+
+We can animate elements using these javascript hooks:
+```html
+<!-- In methods section we'll have this.beforeEnter(elto), this.enter(elto, done), this.afterEnter(elto), etc... -->
+<transition 
+    @before-enter="beforeEnter" 
+    @enter="enter"
+    @after-enter="afterEnter"
+    @enter-cancelled="enterCancelled"
+    @before-leave=beforeLeave
+    @leave="leave"
+    @after-leave="afterLeave"
+    @leave-cancelled="leaveCancelled"
+    :css="false" > 
+    <!-- Element to animate -->
+</transition>
+```
+
+You can combine CSS animation/transition and javascript hooks. 
+When using only javascript hooks, consider using ```:css="false"``` attrib. to indicate Vue no management the transition.
+When using only javascript hooks, inside ```event``` and ```leave``` events you must call ```done();``` (note it's a parameter) to inform Vue the animation it's finished.
+
+### 08.08 Animating dynamic components
+
+The same way we animated html elements we can animate dynamic components:
+
+```html
+<button class="btn btn-primary" 
+        @click="selectedComponent == 'sucess-alert' ? 
+                selectedComponent='danger-alert' : 
+                selectedComponent = 'sucess-alert'">
+    Toggle Component</button>
+<transition name="fade" mode="out-in">
+    <component :is="selectedComponent"></component>
+</transition>
+```

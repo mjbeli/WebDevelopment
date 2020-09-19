@@ -25,18 +25,36 @@
                     <div class="alert alert-info" v-if="show" key="info">This is some info</div>
                     <div class="alert alert-warning" v-else key="warning">This is some Warning!</div>
                 </transition>
+                <hr>
+                <hr>
+                <button class="btn btn-primary" 
+                        @click="selectedComponent == 'sucess-alert' ? 
+                                selectedComponent='danger-alert' : 
+                                selectedComponent = 'sucess-alert'">
+                Toggle Component</button>
+                <br>
+                <br>
+                <transition name="fade" mode="out-in">
+                    <component :is="selectedComponent"></component>
+                </transition>
+                    
             </div>
         </div>
     </div>
 </template>
 
 <script>
+    import dangerAlert from './components/DangerAlert'
+    import sucessAlert from './components/SuccessAlert'
+
     export default {
         data() {
             return {
-                show: true
+                show: true,
+                selectedComponent: 'sucess-alert'
             }
-        }
+        },
+        components:{ dangerAlert, sucessAlert }
     }
 </script>
 
