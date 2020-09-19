@@ -8,6 +8,10 @@
                 <transition name="fade"> <!-- Vue will attach CSS classes: fade-enter, fade-enter-active, fade-leave & fade-leave-active -->
                     <dir class="alert alert-info" v-if="show">This is some info</dir>
                 </transition>
+                <br><br>
+                <transition name="slide"> <!-- Vue will attach CSS classes: fade-enter, fade-enter-active, fade-leave & fade-leave-active -->
+                    <dir class="alert alert-info" v-if="show">This is some info</dir>
+                </transition>
                     
             </div>
         </div>
@@ -31,7 +35,7 @@
     }
 
     .fade-enter-active { /* Enter the DOM: CSS attached for the whole element at animation time */
-        transition: opacity 1s;
+        transition: opacity 0.7s;
         /* opacity: 1 */ 
         /* Maybe you will be tempted to put here the destiny value of opacity. 
         Wrong! remember the opacity 0 only it's determined for the first frame, after the first frame
@@ -45,5 +49,43 @@
     .fade-leave-active { /* Leave the DOM: CSS attached for the whole element at animation time */
         transition: opacity 1s; /* Here we are telling to change opacity during 1 sec. until the opacity value will be 0*/
         opacity: 0;             /* again: destiny value for opacity property */
+    }
+
+
+
+
+
+    .slide-enter {
+        /* transform: translateY(30px); This it's not necessary because it's defined in keyframe animation */
+    }
+
+    .slide-enter-active { 
+        animation: slide-in 1s ease-out forwards; /* slide-in is the name of keyframe animation */
+    }
+
+    .slide-leave { 
+        /* again it's not necessary because the stating position it's defined in keyframe animation */
+    }
+
+    .slide-leave-active { 
+        animation: slide-out 1s ease-out forwards;
+    }
+
+    @keyframes slide-in {
+        from {
+            transform: translateY(30px); /* Start of the animation: +30px in Y axis (vertical) */
+        }
+        to {
+            transform: translateY(0); /* End of the animation, the real position defined for the element in our document */
+        }
+    }
+
+    @keyframes slide-out {
+        from {
+            transform: translateY(0); /* Start of the animation, the real position defined for the element in our document */
+        }
+        to {
+            transform: translateY(30px); /* End of the animation: +30px in Y axis (vertical) */            
+        }
     }
 </style>

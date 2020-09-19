@@ -1,6 +1,6 @@
 # 08-animations
 
-### 08.01 Transitions Setup
+### 08.01 CSS Transitions
 
 ```html
 <transition></transition>
@@ -24,7 +24,7 @@ If the transition has a name CSS classes are attached adding some sufix to that 
   - ```*-leave```:
   - ```*-leave-active```: duration and final state.
 
-  If the transition hasn't a name the default names are v-enter, v-enter-active, v-leave and v-leave-active.
+If the transition hasn't a name the default names are v-enter, v-enter-active, v-leave and v-leave-active.
 
 ```html
 <transition name="fade"> <!-- Vue will attach CSS classes: fade-enter, fade-enter-active, fade-leave & fade-leave-active -->
@@ -61,4 +61,47 @@ Here we are telling to change opacity during 1 sec. until the opacity value will
     transition: opacity 1s; /* duration */
     opacity: 0;             /* destiny value for opacity */
 }
+```
+
+### 08.02 CSS Animations
+
+Animations in Vue are very similar to transitions:
+
+```html
+<transition name="slide"> <!-- Vue will attach CSS classes: fade-enter, fade-enter-active, fade-leave & fade-leave-active -->
+    <dir class="alert alert-info" v-if="show">This is some info</dir>
+</transition>
+```
+
+```CSS    
+    .slide-enter {
+        /* transform: translateY(30px); This it's not necessary because it's defined in keyframe animation */
+    }
+    .slide-enter-active { 
+        animation: slide-in 1s ease-out forwards; /* slide-in is the name of keyframe animation */
+    }
+    .slide-leave { 
+        /* again it's not necessary because the stating position it's defined in keyframe animation */
+    }
+    .slide-leave-active { 
+        animation: slide-out 1s ease-out forwards;
+    }
+
+    @keyframes slide-in {
+        from {
+            transform: translateY(30px); /* Start of the animation: +30px in Y axis (vertical) */
+        }
+        to {
+            transform: translateY(0); /* End of the animation, the real position defined for the element in our document */
+        }
+    }
+
+    @keyframes slide-out {
+        from {
+            transform: translateY(0); /* Start of the animation, the real position defined for the element in our document */
+        }
+        to {
+            transform: translateY(30px); /* End of the animation: +30px in Y axis (vertical) */            
+        }
+    }
 ```
