@@ -84,7 +84,7 @@ Here we are telling to change opacity during 1 sec. until the opacity value will
 Animations in Vue are very similar to transitions:
 
 ```html
-<transition name="slide"> <!-- Vue will attach CSS classes: fade-enter, fade-enter-active, fade-leave & fade-leave-active -->
+<transition name="slide"> <!-- Vue will attach CSS classes: slide-enter, slide-enter-active, slide-leave & slide-leave-active -->
     <div class="alert alert-info" v-if="show">This is some info</div>
 </transition>
 ```
@@ -242,4 +242,43 @@ The same way we animated html elements we can animate dynamic components:
 <transition name="fade" mode="out-in">
     <component :is="selectedComponent"></component>
 </transition>
+```
+
+### 08.09 Animating list
+
+It works the same way as animating individual elements, the only difference it's we'll use the ```<transition-group>``` component:
+
+```html
+<ul class="list-group">
+    <transition-group name="slide">
+        <li class="list-group-item" 
+            v-for="(number, index) in numbers" 
+            :key="number" 
+            @click="removeItem(index)"
+            style="cursor: pointer"> {{ number }} </li>
+    </transition-group>
+</ul>
+```
+
+*Important* For transition-group we always have to specify a ```key``` attrib., so Vue can identify the element to animate. It's the same problem when we have 2 div elements inside the transition tag.
+
+```transition-group``` tag will rendered a new tag in the final html, by default it's the ```<span>```, but we can ovewrite the generated tag using tag attrib. ```<tansition-group tag="div">```.
+
+In order to animate the entire group of elements, transition-group give us access to a new css class: ```*-move```. This class is attached to every element that change its place, for example because we add or remove an item.
+
+> In style
+```css
+.slide-move{  /* For transition-group */
+    transition: transform 1s; /* Telling to Vue: when the transition of an element changes, animated it for 1 sec.*/
+}
+```
+
+In this example, in order to make the remove element to work we need to add position absolute to ```*-leave-active``` so the position will change when removing an element, so the transition will be dispached:
+```css
+.slide-leave-active { 
+    animation: slide-out 1s ease-out forwards;
+    transition: opacity 1s;
+    opacity: 0;
+    position: absolute; /* Add for transition-group animate removing element */
+}
 ```

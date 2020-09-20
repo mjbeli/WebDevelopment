@@ -11,7 +11,7 @@
                 </transition>
                 <br><br>
                 <p>Transition & animation together</p>
-                <transition name="slide"> <!-- Vue will attach CSS classes: fade-enter, fade-enter-active, fade-leave & fade-leave-active -->
+                <transition name="slide"> <!-- Vue will attach CSS classes: slide-enter, slide-enter-active, slide-leave & slide-leave-active -->
                     <div class="alert alert-info" v-if="show">This is some info</div>
                 </transition>
                 <br><br>
@@ -37,7 +37,20 @@
                 <transition name="fade" mode="out-in">
                     <component :is="selectedComponent"></component>
                 </transition>
-                    
+                <hr>
+                <hr>
+                <button class="btn btn-primary" @click="addItem">Add Item</button>
+                <br><br>
+                <ul class="list-group">
+                    <transition-group name="slide">
+                        <li class="list-group-item" 
+                            v-for="(number, index) in numbers" 
+                            :key="number" 
+                            @click="removeItem(index)"
+                            style="cursor: pointer">{{number}}</li>
+                    </transition-group>
+                </ul>
+                <br><br><br><br>    
             </div>
         </div>
     </div>
@@ -51,10 +64,20 @@
         data() {
             return {
                 show: true,
-                selectedComponent: 'sucess-alert'
+                selectedComponent: 'sucess-alert',
+                numbers: [1, 2, 3, 4, 5]
             }
         },
-        components:{ dangerAlert, sucessAlert }
+        components:{ dangerAlert, sucessAlert },
+        methods:{
+            addItem(){
+                const pos = Math.floor(Math.random() * this.numbers.length);
+                this.numbers.splice(pos, 0, this.numbers.length +1);
+            },
+            removeItem(index){
+                this.numbers.splice(index,1);
+            }
+        }
     }
 </script>
 
@@ -103,6 +126,12 @@
         animation: slide-out 1s ease-out forwards;
         transition: opacity 1s;
         opacity: 0;
+        position: absolute; /* Add for transition-group animate removing element */
+    }
+
+   
+    .slide-move{  /* For transition-group */
+        transition: transform 1s; /* Here we are telling Vue: when the transition of an element changes, animated it for 1 sec.  */
     }
 
     @keyframes slide-in {
