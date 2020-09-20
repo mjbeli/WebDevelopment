@@ -61,6 +61,12 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
    * [08.07 Javascript hooks](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/08-animations#0807-javascript-hooks)
    * [08.08 Animating dynamic components](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/08-animations#0808-animating-dynamic-components)
    * [08.09 Animating list](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/08-animations#0809-animating-list)
+* [09-axios](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/09-axios#09-axios)
+   * [09.01 Basics setup](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/09-axios#0901-basics-setup)
+   * [09.02 Doing basic request](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/09-axios#0902-doing-basic-request)
+   * [09.03 Global configuration](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/09-axios#0903-global-configuration)
+   * [09.04 Interceptors](https://github.com/mjbeli/WebDevelopment/blob/master/VueJS/09-axios/README.md#0904-interceptors)
+   * [09.05 Axios custom instances](https://github.com/mjbeli/WebDevelopment/blob/master/VueJS/09-axios/README.md#0905-axios-custom-instances)
      
 
 
