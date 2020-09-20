@@ -105,3 +105,22 @@ To delete interceptors use eject and the interceptor ID that is returned in the 
 axios.interceptors.request.eject(reqInterceptorId);
 axios.interceptors.response.eject(resInterceptorId);
 ```
+
+### 09.04 Axios custom instances
+
+Instead of using always the same axios instance we can create an instance like this:
+
+```javascript
+import axios from 'axios';
+
+const myAxiosInstance = axios.create({
+    baseURL: 'New URL BASE'
+});
+
+myAxiosInstance.defaults.headers.common['SOMETHING'] = 'someValue';
+
+export default myAxiosInstance; 
+// Now we can use myAxiosInstance anywhere in our application like this: 
+// import axiosInstance from 'pathToFile/FileName';
+```
+
