@@ -73,7 +73,7 @@ Setting header:
 axios.defaults.headers.common['Authorizarion'] = 'MyAuthTokenSendedInEveryRequest';
 ```
 
-### 09.03 Interceptors
+### 09.04 Interceptors
 
 Interceptor are functions that should be executed in each request that leaves the application or every response that returns to the application.
 
@@ -106,7 +106,7 @@ axios.interceptors.request.eject(reqInterceptorId);
 axios.interceptors.response.eject(resInterceptorId);
 ```
 
-### 09.04 Axios custom instances
+### 09.05 Axios custom instances
 
 Instead of using always the same axios instance we can create an instance like this:
 
