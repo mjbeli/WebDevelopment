@@ -63,15 +63,4 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
    * [08.09 Animating list](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/08-animations#0809-animating-list)
      
 
-### Consume an API
-
-Install axios: ```npm install axios```
-In src/main.js add this:
-```javascript
-import axios from "axios";
-Vue.prototype.$http = axios; // now this.$http contains an instancie of axios, not vue-resource
-```
-
-
-
 
