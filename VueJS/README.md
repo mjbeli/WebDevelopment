@@ -2,6 +2,26 @@
 
 Welcome! this is a series of little projects in Vue with the porpuose to show how it works. From basic to advanced features, the projects are created to show very focused functions.
 
+### Project creation
+
+These projects has been created using Vue CLI 3:
+
+ - Install Vue CLI like this: ```npm install -g @vue/cli```
+ - Create a project like this: ```vue create <<project_name>>```
+
+###### Project setup
+```
+npm install
+```
+
+Compiles and hot-reloads for development: ```npm run serve```
+
+Compiles and minifies for production: ```npm run build```
+
+Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
+
+### Index-content
 * [03-advanced-components:](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/03-advanced-components) slots & dynamic components. 
   * [03.01 Slots](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/03-advanced-components#0301-slots)  
   * [03.02 Dynamic Component](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/03-advanced-components#0302-dynamic-component)
@@ -31,36 +51,16 @@ Welcome! this is a series of little projects in Vue with the porpuose to show ho
    * [07.07 Patterns in store](https://github.com/mjbeli/WebDevelopment/blob/master/VueJS/07-vuex/README.md#0707-patterns-in-store)
      * [07.07.01 Modules](https://github.com/mjbeli/WebDevelopment/blob/master/VueJS/07-vuex/README.md#070701-modules)
      * [07.07.02 Splitting central code](https://github.com/mjbeli/WebDevelopment/blob/master/VueJS/07-vuex/README.md#070702-splitting-central-code)
-  
+* [08-animations](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/08-animations#08-animations)
+   * [08.01 Basics setup](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/08-animations#0801-basics-setup)  
+   * [08.02 CSS Transitions](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/08-animations#0802-css-transitions)
+   * [08.03 CSS Animations](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/08-animations#0803-css-animations)
+   * [08.04 CSS Transitions & Animations together](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/08-animations#0804-css-transitions--animations-together)
+   * [08.05 Animation initial load](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/08-animations#0805-animation-initial-load)
+   * [08.06 Transition between elements](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/08-animations#0806-transition-between-elements)
+   * [08.07 Javascript hooks](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/08-animations#0807-javascript-hooks)
+   * [08.08 Animating dynamic components](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/08-animations#0808-animating-dynamic-components)
+   * [08.09 Animating list](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/08-animations#0809-animating-list)
      
-### Project creation
-
-These projects has been created using Vue CLI 3:
-
- - Install Vue CLI like this: ```npm install -g @vue/cli```
- - Create a project like this: ```vue create <<project_name>>```
-
-###### Project setup
-```
-npm install
-```
-
-Compiles and hot-reloads for development: ```npm run serve```
-
-Compiles and minifies for production: ```npm run build```
-
-Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
-
-### Consume an API
-
-Install axios: ```npm install axios```
-In src/main.js add this:
-```javascript
-import axios from "axios";
-Vue.prototype.$http = axios; // now this.$http contains an instancie of axios, not vue-resource
-```
-
-
 
 
