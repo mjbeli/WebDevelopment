@@ -67,6 +67,12 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
    * [09.03 Global configuration](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/09-axios#0903-global-configuration)
    * [09.04 Interceptors](https://github.com/mjbeli/WebDevelopment/blob/master/VueJS/09-axios/README.md#0904-interceptors)
    * [09.05 Axios custom instances](https://github.com/mjbeli/WebDevelopment/blob/master/VueJS/09-axios/README.md#0905-axios-custom-instances)
+* [10-composition-api](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/10-composition-api#10-composition-api)
+   * [10.01 Introduction](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/10-composition-api#1001-introduction)
+   * [10.02 Reactive data](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/10-composition-api#1002-reactive-data)
+     * [10.02.01 ref](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/10-composition-api#100201-ref)
+     * [10.02.02 ref & complex objects](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/10-composition-api#100202-ref--complex-objects)
+     * [10.02.03 Reactive](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/10-composition-api#100203-reactive)
      
 
 
