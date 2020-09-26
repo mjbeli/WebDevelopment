@@ -5,7 +5,7 @@ Ensure to get the lastes version of VueCLI with this command:
 npm install -g @vue/cli
 ```
 
-Then you can create a project with vue create and select create a Vue3 application in the options:
+Then you can create a Vue3 project with VueCLI selecting it in the options:
 ```
 vue create project-name
 ```
