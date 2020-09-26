@@ -39,7 +39,7 @@ export default {
     // setup() always return an object:
     return {
         userName: usName, // this exposes to the DOM a variable called 'userName' that it's usName inside setup() function.
-        user // exposes the object as reactive
+        user // exposes the object as reactive, if we exposes the attributes the Dom won't be updated.
     };
   }
 

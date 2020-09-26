@@ -124,9 +124,10 @@ Reactive function it's like ref (create a reative object) but with two main diff
  - It only can be used with complex object (if you want a simple variable to be reactive you must use ref).
  - It hasn't the warp object, so you can access the attributes without accessing .value
 
+Note we import the reactive function from Vue as earlier we imported ref.
 
 ```javascript
-import { ref } from 'vue'; // this is mandatory
+import { reactive } from 'vue'; // this is mandatory
 
 export default {
   setup(){ 
@@ -139,7 +140,8 @@ export default {
     }, 3000);
     
     return {
-        // expose all the reactive object to the DOM
+        // expose all the reactive object to the DOM, 
+        // again if we exposes the attributes the Dom won't be updated with changes. Attributes aren't reactive!
         user: user
     };
   }
