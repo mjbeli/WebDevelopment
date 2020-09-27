@@ -73,6 +73,11 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
      * [10.02.01 ref](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/10-composition-api#100201-ref)
      * [10.02.02 ref & complex objects](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/10-composition-api#100202-ref--complex-objects)
      * [10.02.03 Reactive](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/10-composition-api#100203-reactive)
+   * [10.03 Methods](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/10-composition-api#1003-methods)
+   * [10.03 Methods](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/10-composition-api#1003-methods)
+   * [10.04 v-model in composition API](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/10-composition-api#1004-v-model-in-composition-api)
+   * [10.05 Computed properties](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/10-composition-api#1005-computed-properties)
+   * [10.06 Watchers](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/10-composition-api#1006-watchers)
      
 
 
