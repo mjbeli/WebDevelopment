@@ -78,6 +78,16 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
    * [10.04 v-model in composition API](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/10-composition-api#1004-v-model-in-composition-api)
    * [10.05 Computed properties](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/10-composition-api#1005-computed-properties)
    * [10.06 Watchers](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/10-composition-api#1006-watchers)
+   * [10.07 Components & props](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/10-composition-api#1007-components--props)
+     * [10.07.01 Send props to component](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/10-composition-api#100701-send-props-to-component)
+     * [10.07.02 Receive props in component API](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/10-composition-api#100702-receive-props-in-component-api)
+   * [10.08 Context in setup](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/10-composition-api#1008-context-in-setup)
+   * [10.09 Provide & inject](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/10-composition-api#1009-provide--inject)
+   
+     
+     
+   
+   
      
 
 
