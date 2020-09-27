@@ -331,3 +331,188 @@ watch(() => user.name, // First argument it's a getter
         console.log('newValue: ' + newValue);
     });
 ```
+
+### 10.07 Components & props
+
+#### 10.07.01 Send props to component
+
+Assume we've created a new component UserData.vue using options API and with 2 props like this:
+```Vue
+<template>
+    <h2>{{ userName }}</h2>
+    <h3> {{ age }} </h3>
+</template>
+<script>
+export default {
+    props: ['userName', 'age'],
+    computed: {
+      userName(){
+        // Traditional API, some code
+      }
+    }
+}
+</script>
+```
+
+We can use the component in this way. Note that we are just passing exposes refs to the component as usual:
+> In App.vue
+```Vue
+<template>  
+  <section class="container">    
+    <user-data :user-name="userName" :age="userAge"></user-data>
+  </section>
+</template>
+<script>
+import UserData from './components/UserData';
+import { ref } from 'vue';
+
+export default {
+  components: { UserData },
+  setup(){
+    const usName = ref('Belizón'); 
+    const usAge = ref(21);
+
+    setTimeout(() => {
+      usName.value = 'New Name';
+    }, 3000);
+
+    return {
+        userName: usName, userAge: usAge
+    };
+  }
+}
+</script>
+```
+
+#### 10.07.02 Receive props in component API
+
+Setup it's a function that accepts 2 parameters the first one it's props paramenter, it's an object with attrib. that are the same as props name. If the component don't receive props, the props object will be empty.
+
+```Vue
+<template>
+    <h3>{{ userData }}</h3>    
+</template>
+<script>
+import { computed } from 'vue';
+
+export default {
+    props: ['userName', 'age'],
+
+    setup(props){ 
+        const userData = computed(function(){
+            return props.userName + ' ' + props.age;
+        });
+        return { userData };
+    }
+}
+</script>
+```
+
+By default all props are reactive, so when a prop change Vue will re-execute all the code that depends on props. In this case the computed property will fire.
+
+If instead of having a computed property we've got something like this:
+
+```Vue
+<script>
+export default {
+    props: ['userName', 'age'],
+
+    setup(props){ 
+        const userData = props.userName + ' ' + props.age;
+        return { userData };
+    }
+}
+</script>
+```
+
+The changes will not be updated to the template.
+
+### 10.08 Context in setup
+
+We cann't emit custom events using ```this.$emit(...)``` due to this. object isn't available. We can send a custom event using the second parameter setup function receives: context.
+
+context it's an object with 3 attrib:
+ - attrs: properties that we didn't define as properties 
+ - emit: we can emit custom events with context.emit('save-data', 1);
+ - slots: grant access to slots defined in the component.
+
+ ```Vue
+<script>
+export default {
+    props: ['userName', 'age'],
+
+    setup(props context){ 
+         context.emit('save-data', 1);
+        return { userData };
+    }
+}
+</script>
+```
+
+### 10.09 Provide & inject
+
+Remember provide & inject are an alternative way to pass information between elements without using props. In the case we want to pass data from a parent component to a nested child component (several levels nested), instead of using repeated props all around several components we can use ```provide``` in the parent component and use ```inject``` in the nested child to receive them.
+
+Doc: https://v3.vuejs.org/guide/component-provide-inject.html#working-with-reactivity
+
+```provide()``` it's a function we can call in the parent component to send values.
+```inject()``` it's a function we can call in the child component to retreive values.
+
+```Vue
+<template>  
+  <section class="container">    
+    <user-data :user-name="userName"></user-data>
+  </section>
+</template>
+<script>
+import UserData from './components/UserData';
+import { ref, provide } from 'vue';
+
+export default {
+  components: { UserData },
+  setup(){
+    const usName = ref('Belizón'); 
+    const usAge = ref(21);
+
+    // 2 arguments: first one it's a key of our choice, the second it's de value we want to send to the child
+    provide('userAge', usAge);
+
+    setTimeout(() => { // modifying injected ref from parent
+        usAge.value = 23; 
+    }, 3000);
+
+    return {
+        userName: usName, userAge: usAge
+    };
+  }
+}
+</script>
+```
+
+> In the child component:
+
+```Vue
+<template>
+    <h3>{{ userData }}</h3>    
+</template>
+<script>
+import UserData from './components/UserData';
+import { ref, inject } from 'vue';
+
+export default {
+    props: ['userName'],
+    
+    setup(props){ 
+        const injectedAge = inject('userAge'); // use the same key that was used in the provide function!
+        
+        const userData = computed(function(){
+            return props.userName + ' ' + injectedAge.value; // can use injected values as a normal ref (with .value)
+        });
+               
+        return {
+            userData, injectedAge // can exposes to DOM injected refs as usual
+        }
+    }
+}
+</script>
+```

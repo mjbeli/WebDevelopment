@@ -15,10 +15,17 @@
       <input type="text" placeholder="Last Name" v-model="secondName"> 
     </div>
   </section>
+
+  <section class="container"> 
+    <p>Data passed to another component as props</p>   
+    <user-data :user-name="userName"></user-data>
+  </section>
 </template>
 
 <script>
-import { reactive, ref, computed, watch } from 'vue';
+import UserData from './components/UserData';
+
+import { reactive, ref, computed, watch, provide } from 'vue';
 
 export default {
   setup(){ // here goes data, methods, computed and watchers
@@ -26,9 +33,14 @@ export default {
     // 'ref()' creates a reactive variable, and stored it into a constant.
     // We can pass the initial value as an argument.
     const usName = ref('Belizón'); 
+    const usAge = ref(21);
     
     // 'reactive()' makes an object reactive. Don't need to access value to change the attributes.
     const user = reactive({ name: 'Belizón', age: 17 });
+
+    // 2 arguments: first one it's a key of our choice, the second it's de value we want to send to the child
+    provide('userAge', usAge);
+
 
     const firstName = ref('');
     const secondName = ref('');
@@ -46,6 +58,10 @@ export default {
         user.age = '18';
     }, 3000);
 
+    setTimeout(() => {
+        usAge.value = 23; // modifying injected ref from parent
+    }, 3000);
+    
     // Defining a function that will be exposed like a method in options API
     function setNewAge(){
       user.age= 22;
@@ -85,7 +101,8 @@ export default {
         firstName, secondName,
         computedUserName
     };
-  }
+  },
+  components: { UserData }
 
 };
 </script>
