@@ -1,6 +1,9 @@
 <template>
   <div>
     {{message}}
+
+    <p>Learn more <a v-bind:href="vueLink">about Vue</a>.</p>
+    <p>Learn more <a :href="vueLink">about Vue</a>.</p>
   </div>
 </template>
 
@@ -10,7 +13,8 @@ export default {
   name: 'App',
   data(){
     return {
-      message: 'hello world!'
+      message: 'hello world!',
+      vueLink: 'https://vuejs.org/'
     }
   }
   
