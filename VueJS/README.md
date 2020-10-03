@@ -26,9 +26,13 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
   * [01.01 Interpolation](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/01-essentials#0101-interpolation)  
   * [01.02 v-bind](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/01-essentials#0102-v-bind)  
   * [01.03 methods](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/01-essentials#0103-methods)  
-    * [01.03.01 Accessing data from methods](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/01-essentials#010301-accessing-data-from-methods)  
+    * [01.03.01 How methods works](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/01-essentials#010301-how-methods-works)
+    * [01.03.02 Accessing data from methods](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/01-essentials#010302-accessing-data-from-methods)  
   * [01.04 v-html](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/01-essentials#0104-v-html)  
   * [01.05 v-on](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/01-essentials#0105-v-on)  
+  * [01.06 v-once](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/01-essentials#0106-v-once)
+  * [01.07 event modifiers](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/01-essentials#0107-event-modifiers)
+  
 * [03-advanced-components:](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/03-advanced-components) slots & dynamic components. 
   * [03.01 Slots](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/03-advanced-components#0301-slots)  
   * [03.02 Dynamic Component](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/03-advanced-components#0302-dynamic-component)
