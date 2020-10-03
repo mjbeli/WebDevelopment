@@ -169,10 +169,16 @@ List of event modifiers: https://v3.vuejs.org/guide/events.html#event-modifiers
 </form>
 ```
 
-'.stop' prevent the event propagation.
+`@click.stop` prevent the event propagation.
+
 `@click.right` --> listen to the right button click mouse event instead the left (default).
+
 `@click.middle` --> listen to the middle button click mouse event instead the left (default).
+
 `@keyup.enter` --> fired when pressed enter key.
+
 `@keyup.ctrl` --> fired when pressed control key.
+
 `@keyup.shift` --> fired when pressed shift key.
-`@keyup.page-down` --> fired when pressed shift key.
+
+`@keyup.page-down` --> fired when pressed arrow down key.
