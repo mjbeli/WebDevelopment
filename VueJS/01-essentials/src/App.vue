@@ -18,11 +18,12 @@
 
     <br>
     <hr>
-    <form>
-      <input type="text"> 
-      <button>sign up</button>
-    </form>
-
+    <p v-once>Initial counter value: {{ counter }} </p>
+    <br>
+    <hr>
+    <input type="text" v-model="myNameData">
+    <button @click="resetName">Reset</button>
+    {{myNameData}}
   </div>
 </template>
 
@@ -34,19 +35,19 @@ export default {
       message: 'hello world!',
       vueLink: 'https://vuejs.org/',
       msg1: 'Learn Vue', msg2: 'Master Vue',
-      counter: 0
+      counter: 3,
+      myNameData:''
     }
   },
   methods: {
     outputGoal(){
-      const randomNumber = Math.random();
-      if(randomNumber < 0.5)
-        return this.msg1;
-      else
-        return this.msg2;
+      return (Math.random() < 0.5 ? this.msg1 : this.msg2);
     },
     add(num) {
       this.counter+=num;
+    },
+    resetName(){
+      this.myNameData='';
     }
   }  
 }
