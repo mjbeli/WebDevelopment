@@ -132,7 +132,7 @@ export default {
 
 The same way we can bind data with v-bind directive, we can attach a function to an event using the ```v-on``` directive. The event to witch we want to attach will be specified after de colon ```:```. Inside the event we can write simple Javascript expressions, including call a function defined in methods option.
 
-The events we can subscribe are any events of html elements like: click, mouseenter, mouseleave, ...
+The events we can subscribe are any events of html elements like: click, mouseenter, mouseleave, keyup, keydown, ...
 This directive has a shortcut ```@click=""```
 
 
@@ -158,3 +158,21 @@ export default {
   {{ counter }} <!-- This counter will update automatically. This is the magic of Vue reactivity! -->
 </div>
 ```
+
+### 01.06 event modifiers
+
+List of event modifiers: https://v3.vuejs.org/guide/events.html#event-modifiers
+
+`.prevent` modifier prevent the default browser behaviour, for forms that's mean not sending an http request to the server
+```html
+<form @submit.prevent="submitForm">
+</form>
+```
+
+'.stop' prevent the event propagation.
+`@click.right` --> listen to the right button click mouse event instead the left (default).
+`@click.middle` --> listen to the middle button click mouse event instead the left (default).
+`@keyup.enter` --> fired when pressed enter key.
+`@keyup.ctrl` --> fired when pressed control key.
+`@keyup.shift` --> fired when pressed shift key.
+`@keyup.page-down` --> fired when pressed shift key.

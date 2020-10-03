@@ -16,6 +16,13 @@
     <button @click="counter--">Reduce</button>
     {{ counter }} 
 
+    <br>
+    <hr>
+    <form>
+      <input type="text"> 
+      <button>sign up</button>
+    </form>
+
   </div>
 </template>
 
