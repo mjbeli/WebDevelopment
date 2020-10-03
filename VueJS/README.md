@@ -22,6 +22,13 @@ Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ### Index-content
+* [01-essentials:](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/01-essentials#01-essentials) 
+  * [01.01 Interpolation](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/01-essentials#0101-interpolation)  
+  * [01.02 v-bind](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/01-essentials#0102-v-bind)  
+  * [01.03 methods](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/01-essentials#0103-methods)  
+    * [01.03.01 Accessing data from methods](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/01-essentials#010301-accessing-data-from-methods)  
+  * [01.04 v-html](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/01-essentials#0104-v-html)  
+  * [01.05 v-on](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/01-essentials#0105-v-on)  
 * [03-advanced-components:](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/03-advanced-components) slots & dynamic components. 
   * [03.01 Slots](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/03-advanced-components#0301-slots)  
   * [03.02 Dynamic Component](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/03-advanced-components#0302-dynamic-component)
