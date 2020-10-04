@@ -32,7 +32,10 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
   * [01.05 v-on](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/01-essentials#0105-v-on)  
   * [01.06 v-once](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/01-essentials#0106-v-once)
   * [01.07 event modifiers](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/01-essentials#0107-event-modifiers)
-  
+  * [01.08 v-model](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/01-essentials#0108-v-model)
+  * [01.09 computed properties](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/01-essentials#0109-computed-properties)
+  * [01.10 watchers](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/01-essentials#0110-watchers)
+  * [01.11 v-bind with class attribute](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/01-essentials#0111-v-bind-with-class-attribute)
 * [03-advanced-components:](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/03-advanced-components) slots & dynamic components. 
   * [03.01 Slots](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/03-advanced-components#0301-slots)  
   * [03.02 Dynamic Component](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/03-advanced-components#0302-dynamic-component)
