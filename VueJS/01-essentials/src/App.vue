@@ -30,10 +30,23 @@
     <button @click="resetName">Reset</button>
     {{myNameData}}
 
-    <!-- fullName it's a computed property, but use it like a property data, 
+    <!-- In case fullName it's a computed property, but use it like a property data, 
         don't call it like a function (even when it's actually a function).
         Vue will execute the computed function when its dependencies (reactive data) change. -->
     <p>{{ fullName }}</p> 
+
+
+    <br>
+    <hr>    
+    <button @click="addCounterToArray">Add counter to array</button>
+    <br>
+    ArrayVar: {{arrayVar}}
+    <br>
+    complexObject.lastCounter: {{complexObject.lastCounter}}
+    <br>
+    myArrayVarComputedProperty: {{myArrayVarComputedProperty}}
+    <br>
+    myComplexObjectComputedProp: {{myComplexObjectComputedProp}}
   </div>
 </template>
 
@@ -47,20 +60,44 @@ export default {
       msg1: 'Learn Vue', msg2: 'Master Vue',
       counter: 3,
       myNameData:'',
-      nameData: ''
+      nameData: '',
+      arrayVar: [],
+      complexObject: { lastCounter: 3 }
     }
   },
-  computed: {
-    // fullName(){
-    //   if(this.myNameData === '')
-    //     return '';
-    //   return this.myNameData + ' ApellidoData';
-    // }
+  computed: {  
+    fullName(){
+      if(this.myNameData === '')
+        return '';
+      return this.myNameData + ' ApellidoData';
+    },
+    myArrayVarComputedProperty(){
+      console.log('Dentro de computed arrayVar');      
+      return 'Este es el valor del array '  + this.arrayVar;
+    },
+    myComplexObjectComputedProp(){
+      console.log('Dentro de computed ComplexObject');      
+      return 'Este es el valor del atrib '  + this.complexObject.lastCounter;
+    }
   },
   watch: {
     // Same name as property data, this function will be executed whenever nameData changes.
     nameData(newValue){ // Second parameter optional: oldValue
       this.myNameData= newValue + ' ApellidoData';
+    },
+    arrayVar: {
+      deep: true,
+      handler(value){
+        console.log('Dentro de watcher arrayVar');
+        console.log('value ', value);
+      }
+    },
+    complexObject:{
+      deep: true,
+      handler(value){
+        console.log('Dentro de watcher complexObject');
+        console.log('value ', value);
+      }
     }
   },
   methods: {
@@ -72,6 +109,10 @@ export default {
     },
     resetName(){
       this.myNameData = '';
+    },
+    addCounterToArray(){
+      this.arrayVar.push(this.counter);
+      this.complexObject.lastCounter = this.counter;
     }
   }  
 }

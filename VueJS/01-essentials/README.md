@@ -279,9 +279,33 @@ export default {
 
 The different between using a function in methods or a computed property is not in the behaviour (the output will be the same). It's in the performance. The function method will recalcule every time there is a change in the application (like modifying a counter that isn't related with our `fullName`). Instead, computed properties will recalculate only when any of its dependencies changes.
 
-By default, computed properties must return something.
+In general, you can use methods for handling events and computed property for output something to the screen. Computed properties are specially useful when we want to calculate some output value dynamically. 
 
-In general, you can use methods for handling events and computed property for output something to the screen. Computed properties are specially usefull when we want to calculare some output value dynamically. 
+Computed properties works as we can expect with arrays and objects. That means that when we have a dependency with an array or an object in a computed property will be recalculated when the content of any changes.
+
+
+#### 01.09.01 setters for computed properties
+
+Doc: https://v3.vuejs.org/guide/computed.html#computed-setter
+
+By default, computed properties are getter-only, must return something, but we can provide a setter in this way:
+
+```javascript
+computed: {
+  fullName: {    
+    get() { 
+      return this.firstName + ' ' + this.lastName
+    },    
+    set(newValue) {
+      const names = newValue.split(' ');
+      this.firstName = names[0];
+      this.lastName = names[names.length - 1];
+    }
+  }
+}
+```
+
+Now we can use the computed property as a data property but for setting fullname and doing `this.fullname = 'My Name'` will set the firstName as 'My' and the second name as 'Name'.
 
 ### 01.10 watchers
 
@@ -307,7 +331,56 @@ export default {
 </script>
 ```
 
-This example could be achieve with a computed property but watchers are usefull when we want to run some code in reaction of a property change (send an http request, store something in vuex,...). Typically for non-data update.
+This example could be achieve with a computed property but watchers are useful when we want to run some code in reaction of a property change (send an http request, store something in vuex,...). Typically for non-data update.
+
+#### 01.10.01 watch arrays and objects
+
+You can notice that watchers doesn't work as we espected with arrays and objects. We can watch arrays and objects, but the watcher function won't fire when the content of arrays and objects changes!
+
+Well, each watch function has a `deep` property that can be set to `true`. When using `deep` the functions itself will be defines in the handler:
+
+```javascript
+data(){
+  return {      
+    arrayVar: [], complexObject: { lastCounter: 3 }
+  }
+},
+watch: {
+  arrayVar: {
+      deep: true,
+      handler(value){
+      console.log('Dentro de watcher arrayVar');
+      console.log('value ', value);
+    }
+  },
+  complexObject:{
+    deep: true,
+    handler(value){
+      console.log('Dentro de watcher complexObject');
+      console.log('value ', value);
+    }
+  }   
+}
+```
+
+It seems the handler function only receives the newValue as first parameter (not oldValue in second parameter).
+
+#### 01.10.02 execute watcher in load
+
+Watcher only fires when the data changes, but there is a way to execute a watcher in the first load using the inmediate property:
+
+```javascript
+watch: {
+  arrayVar: {
+      immediate: true, // Will fire as soon as the component is created
+      handler(value){ // the code of the watcher
+      console.log('Dentro de watcher arrayVar');
+      console.log('value ', value);
+    }
+  }   
+}
+```
+
 
 ### 01.11 v-bind with class attribute
 
