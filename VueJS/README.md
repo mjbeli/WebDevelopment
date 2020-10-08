@@ -52,6 +52,8 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
   * [06.03 Hash Vs History](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/06-routing#0603-hash-vs-history)
   * [06.04 Navigation](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/06-routing#0604-navigation)
   * [06.05 Parameters](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/06-routing#0605-parameters)
+     * [06.05.01 Query parameters](https://github.com/mjbeli/WebDevelopment/blob/master/VueJS/06-routing/README.md#060501--query-parameters)
+     * [06.05.02 Optional parameters](https://github.com/mjbeli/WebDevelopment/blob/master/VueJS/06-routing/README.md#060502--optional-parameters)    
   * [06.06 Nested routes](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/06-routing#0606-nested-routes)
   * [06.07 Create dymanic links](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/06-routing#0607-create-dymanic-links)
   * [06.08 Redirections](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/06-routing#0608-redirections)
