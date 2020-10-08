@@ -193,7 +193,7 @@ const routes = [{
 ]
 ```
 
-From now the route ```/user``` will not match, so it will stop working. We must update the links like this:
+Now the route ```/user``` will not match, so it will stop working. We must update the links like this:
 ```html
 <router-link to="/user/10">User</router-link>
 ```
@@ -229,7 +229,7 @@ export default {
 }
 ```
 
-##### Query parameters
+#### 06.05.01  Query parameters
 
 The attib. 'to' can receive another object in 'query' to define query parameters in the url:
 ```html
@@ -244,6 +244,28 @@ In the component we can access these query parameters using $route object:
 ```html
 <p> Locale: {{ $route.query.locale }}</p>
 <p> q: {{ $route.query.q }}</p>
+```
+
+#### 06.05.02  Optional parameters
+
+We can add optional parameters to an URL using the '?' character at the end, like this:
+
+```javascript
+const routes = [{
+        path: '/user/:id/:optionalParam?', // Will match with /user/something
+        props: true,
+        name: 'User',
+        component: User 
+    }
+    /* ...*/
+]
+```
+
+```javascript
+export default {
+    props: ['id', 'optionalParam'],
+    /****/
+}
 ```
 
 ### 06.06 Nested routes
