@@ -401,7 +401,7 @@ Ok, so we can use `v-bind` or `:` to bind our class attribute to a method or com
 </div>
 ```
 
-```javascript
+```vue
 <script>
 export default {
   data() {
@@ -419,3 +419,110 @@ export default {
 Note that we can combine a traditional and hardcoded class attribute with a binding class attribute. Vue atomatically resolve the binding and merge the result with the hardcoded class attribute so at the end we will have the 2 styles.
 
 Now let`s analize the binding class attribute. We are using here an special annotation that Vue give us. It's an json object where the first its the CSS name style we want to apply and the second its a boolean expression. If the boolean expression its true, the css style will apply.
+
+### 01.12 v-if
+
+With this directive, the html tag only is added to the DOM if the condition it's true. As a Vue directive, we can put between the double quotes a simple Javascript expression or make reference to a computed/data property or a method (always the method returns true or false).
+
+All the child elements of the html tag will be added to the DOM, or not, depending on the condition.
+
+We can use the `v-else` directive to alternative add a html tag to the DOM if the condition of the `v-if` is false. Just as a regular else expression in any other language. It's mandatory that the gtml tag that has the `v-else` directive it's located inmediatly after the tag with the `v-if` expression.
+
+```vue
+<template>
+  <p v-if="goals.length==0">No goals added </p>
+  <ul v-else>
+    <li>Goal</li>
+  </ul>
+</template>
+<script>
+export default {
+  data() {
+    goals: []
+  }
+}
+</script>
+```
+
+We can use the `v-else-if="..."` directive to implement... well.. the else if statment.
+
+### 01.12 v-show
+
+The `v-show` directive indicates if an html tag (and all its childrens) are visible in the final html page. The element with `v-show` is always added to the DOM, but if the condition returns false the style property 'display' is set to 'none'.
+
+This directive doesn't works with v-else or v-else-if, so if we have multiple alternatives we must to use multiples `v-show` directives. 
+
+```vue
+<template>
+  <p v-show="goals.length == 0">No goals added </p>
+  <ul v-show="goals.length > 0">
+    <li>Goal</li>
+  </ul>
+</template>
+<script>
+export default {
+  data() {
+    goals: []
+  }
+}
+</script>
+```
+
+Adding or removing elements to the DOM using `v-if` can have a cost performance, but in the other hand if we uses lots of `v-show` we'll have elements in the DOM that we really don't need. A possible informal rule to apply one or other is: uses `v-if` by default and uses `v-show` if the element changes its visibility a lot.
+
+### 01.13 v-for
+
+The `v-for` directive allow us to repeat a element 'n' times. As always, inside the double quotes we can put a javascript expression. In the scope of the html tag that holds the `v-for`, thats means between the open and clos of the tag and inside the tag itself, we can access the variables of the iteration.
+
+*Important!* To help Vue manage the items in a list we must define a key. Strange bugs can happend when we are adding and deleting items from a list dinamically, and it happends because Vue don't create and delete the items the way we expect. Vue take the dynamic elements in each item (the variables in curly braces) and replace it into the new position in the list in the DOM, but Vue don't replace the static elements (like charaters in an input element or statid labels). So in order to help Vue with this and that the static elements will be replace we must provide a the `key` attribute. It isn't a html attribute, its a Vue attribute.
+
+We need something that identify each item in a `v-for` (so its a good idea to v-bind the key). In case you are temptet to use the index, remember the index doesn't belong to the content of each item, the first index will have always index 0, even if we change it. Here we aren't using a real unique identifier.
+
+```vue
+<template>
+  <ul>
+    <li v-for="goal in goals" :key="goal">{{ goal }}</li>
+  </ul>
+  <ul>
+    <!-- In each iteration we can have more than just the item, we can have the index. -->
+    <li v-for="(goal, index) in goals" :key="goal">{{ index + 1 }} - {{ goal }}</li>
+  </ul>
+</template>
+<script>
+export default {
+  data() {
+    goals: []
+  }
+}
+</script>
+```
+
+We can loop throught an object using v-for:
+```vue
+<template>
+  <!-- 
+    Iterates throught each property.
+    The first property its the value, the second its the key and the third its the index.
+  -->
+  <ul>
+    <li v-for="(value) in {name:'John Doe', age: 77}" :key="value">{{ value }}</li>     
+  </ul>
+  <ul>
+    <li v-for="(value, key) in {name:'John Doe', age: 77}" :key="value">{{ key }}: {{ value }}</li>     
+  </ul>
+  <ul>
+    <li v-for="(value, key, index) in {name:'John Doe', age: 77}" :key="value">{{ key }}: {{ value }} - {{ index }}</li> 
+  </ul>
+</template>
+```
+
+We can loop throught a range of numbers:
+
+```vue
+<template>
+  <!-- Iterates throught a range of numbers -->
+  <ul>
+    <li v-for="num in 10" :key="num">{{ num }}</li> 
+  </ul>
+</template>
+```

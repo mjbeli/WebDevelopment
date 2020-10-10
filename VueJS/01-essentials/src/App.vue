@@ -47,6 +47,35 @@
     myArrayVarComputedProperty: {{myArrayVarComputedProperty}}
     <br>
     myComplexObjectComputedProp: {{myComplexObjectComputedProp}}
+
+    <!-- v-if -->
+    <br>
+    <hr>    
+    <p v-if="goals.length==0">No goals added </p>
+    <ul v-else>
+      <li v-for="(goal, index) in goals" :key="goal" @click="removeGoal(index)">{{ index + 1 }} - {{ goal }}</li>
+    </ul>
+    <input type="text" v-model="enteredGoal"/>
+    <button @click="addGoal">Add goal</button>
+    <br>
+    <!-- 
+    Iterates throught each property.
+    The first property its the value, the second its the key and the third its the index.
+    -->
+    <ul>
+      <li v-for="(value) in {name:'John Doe', age: 77}" :key="value">{{ value }}</li>     
+    </ul>
+    <ul>
+      <li v-for="(value, key) in {name:'John Doe', age: 77}" :key="value">{{ key }}: {{ value }}</li>     
+    </ul>
+    <ul>
+      <li v-for="(value, key, index) in {name:'John Doe', age: 77}" :key="value">{{ key }}: {{ value }} - {{ index }}</li> 
+    </ul>
+
+    <!-- Iterates throught a range of numbers -->
+    <ul>
+      <li v-for="num in 10" :key="num">{{ num }}</li> 
+    </ul>
   </div>
 </template>
 
@@ -62,7 +91,9 @@ export default {
       myNameData:'',
       nameData: '',
       arrayVar: [],
-      complexObject: { lastCounter: 3 }
+      complexObject: { lastCounter: 3 },
+      enteredGoal: '',
+      goals: []
     }
   },
   computed: {  
@@ -113,6 +144,13 @@ export default {
     addCounterToArray(){
       this.arrayVar.push(this.counter);
       this.complexObject.lastCounter = this.counter;
+    },
+    addGoal(){
+      this.goals.push(this.enteredGoal);
+    },
+    removeGoal(idx)
+    {
+      this.goals.splice(idx,1);
     }
   }  
 }
