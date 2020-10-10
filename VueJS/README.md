@@ -39,6 +39,8 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
     * [01.10.01 watch arrays and objects](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/01-essentials#011001-watch-arrays-and-objects)
     * [01.10.02 execute watcher in load](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/01-essentials#011002-execute-watcher-in-load)  
   * [01.11 v-bind with class attribute](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/01-essentials#0111-v-bind-with-class-attribute)
+  * [01.12 v-show](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/01-essentials#0112-v-show)
+  * [01.13 v-for](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/01-essentials#0113-v-for)
 * [03-advanced-components:](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/03-advanced-components) slots & dynamic components. 
   * [03.01 Slots](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/03-advanced-components#0301-slots)  
   * [03.02 Dynamic Component](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/03-advanced-components#0302-dynamic-component)
