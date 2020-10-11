@@ -1,10 +1,11 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <!-- In Vue 3 you can have more than one root element-->
+  <!-- This html code will be injected in all sites where we use the component -->
+  <h3>My agenda</h3>  
+  <div></div>  
 </template>
 
 <script>
-
 export default {
   name: 'App',
   data() {
