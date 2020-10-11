@@ -526,3 +526,33 @@ We can loop throught a range of numbers:
   </ul>
 </template>
 ```
+
+### 01.14 refs
+
+The `ref` attribute is a way to retreive the value from a DOM element in the moment we need it, instead of retreive it all the time. Instead using an event listener or v-model we can use this non html attribute. We pass to the ref an unique string that will be the internal identifier, it isn't a property, just a string that will be the key to retreive the value after.
+
+We can add `ref` attribute to any html element: input, p, text areas, sections, headers,...
+
+`this.$refs` it's an object accesible from our javascript code that it's full of key-value pairs, where the key is the identifier we use in de html attribute ref.
+
+```vue
+<template>
+  <input type="text" ref="userText" />
+  <button @click="setText">Set Text</button>
+</template>
+<script>
+export default {
+  data() {
+      message: ''
+  },
+  methods: {
+    // all $ variables are specials properties provided by Vue.
+    setText(){
+      // this.$refs.userText object points to the input html element.
+      // Now we are retreiving the value of the input in this event, whereas v-model retreive it at every keystroke.
+      this.message = this.$refs.userText.value; 
+    }
+  }
+}
+</script>
+```
