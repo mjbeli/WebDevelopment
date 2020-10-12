@@ -26,22 +26,22 @@ export default {
 
 The template and style sections remains the same, the props, emits events, components also remains the same. The hooks looks differents!
 
-*Important* Inside this new ```setup()``` function we cann't access to the typical Vue config object ```this.``` to access data, methods and so on. 
+*Important* Inside this new `setup()` function we can't access to the typical Vue config object `this.` to access data, methods and so on. 
 
-```setup()``` it's a function executed by Vue very early in the process. Even before the initialization of the component.
+`setup()` it's a function executed by Vue very early in the process. Even before the initialization of the component.
 
 
 ### 10.02 Reactive data
 
 #### 10.02.01 ref
 
-```ref``` it's a function we can call inside of ```setup()``` that creates a reactive object that Vue will manage. Actually, ref wrapped the variable into an object so we must work with them in a special way:
+`ref` it's a function we can call inside of `setup()` that creates a reactive object that Vue will manage. Actually, ref wrapped the variable into an object so we must work with them in a special way:
  - We can use the variables creates with ref into templates as the usual way after exposes them. Vue will automatically access to the value of the wrapped object.
- - We can use the variable into setup but accessing wto the value ```data.value```
+ - We can use the variable into setup but accessing to the value `data.value`
  - Vue can watch the ref variable (not neccesary to watch the value).
  - Vue can create computed propertis from refs.
 
-```setup()``` it's a function executed by Vue very early in the process. Even before the initialization of the component. Therefore, the data created must be stored in a typical variable or const vanilla javascript.
+`setup()` it's a function executed by Vue very early in the process. Even before the initialization of the component. Therefore, the data created must be stored in a typical variable or const vanilla javascript.
 
 ```javascript
 import { ref } from 'vue'; // this is mandatory
@@ -59,7 +59,7 @@ export default {
         usName.value = 'New Name';
     }, 3000);
 
-    // Every things we want to be available in the DOM (in our template section).
+    // For everything we want to be available in the DOM (in our template section).
     // we need an extra step: return an object with all we want to expose to the template.
     // setup() always return an object:
     return {
@@ -81,7 +81,12 @@ We can access the value from the DOM this way:
 
 Imagine we have a complex object we want to be reactive. It's important the way we exposes the object to the template so Vue can keep track of the changes.
 
-```javascript
+```vue
+<template>     
+    <h2>{{ user.name }}</h2> <!-- user is reactive, so the changes in it's attributes will be updated in the DOM-->
+    <h2>{{ user.age }}</h2>
+</template>
+<script>
 import { ref } from 'vue'; // this is mandatory
 
 export default {
@@ -107,16 +112,8 @@ export default {
     };
   }
 };
+</script>
 ```
-
-In the template:
-```html
-<template>     
-    <h2>{{ user.name }}</h2> <!-- user is reactive, so the changes in it's attributes will be updated in the DOM-->
-    <h2>{{ user.age }}</h2>
-</template>
-```
-
 
 #### 10.02.03 Reactive
 
@@ -126,7 +123,12 @@ Reactive function it's like ref (create a reative object) but with two main diff
 
 Note we import the reactive function from Vue as earlier we imported ref.
 
-```javascript
+```vue
+<template>     
+    <h2>{{ user.name }}</h2> <!-- user is reactive, so the changes in it's attributes will be updated in the DOM-->
+    <h2>{{ user.age }}</h2>
+</template>
+<script>
 import { reactive } from 'vue'; // this is mandatory
 
 export default {
@@ -141,19 +143,12 @@ export default {
     
     return {
         // expose all the reactive object to the DOM, 
-        // again if we exposes the attributes the Dom won't be updated with changes. Attributes aren't reactive!
+        // again if we exposes the attributes the DOM won't be updated with changes. Attributes aren't reactive!
         user: user
     };
   }
 };
-```
-
-In the template:
-```html
-<template>     
-    <h2>{{ user.name }}</h2> <!-- user is reactive, so the changes in it's attributes will be updated in the DOM-->
-    <h2>{{ user.age }}</h2>
-</template>
+</script>
 ```
 
 ### 10.03 Methods
@@ -239,7 +234,19 @@ export default {
 
 ### 10.05 Computed properties
 
-```javascript
+The computed properties are defined as a const, because the `computed` function returns a reactive object. Therefore, the computed properties can be used in the methods accesing to its `.value` attribute. By default, as in Vue option API the computed properties are getters.
+
+```vue
+<template>
+  <section class="container">    
+    <h2>{{ computedUserName }}</h2>    
+    <div>
+      <input type="text" placeholder="First Name" v-model="firstName">
+      <input type="text" placeholder="Last Name" v-model="secondName"> 
+    </div>
+  </section>
+</template>
+<script>
 import { ref, computed } from 'vue'; // this is mandatory
 
 export default {
@@ -262,23 +269,30 @@ export default {
     }; 
   }
 };
+</script>
 ```
 
-```html
-<section class="container">    
-    <h2>{{ computedUserName }}</h2>    
-    <div>
-      <input type="text" placeholder="First Name" v-model="firstName">
-      <input type="text" placeholder="Last Name" v-model="secondName"> 
-    </div>
-  </section>
+For make a computed property a getter and a setter, the computed function instead receiving a function receive an object with get and set key (both values are the function to apply):
+
+```javascript
+const count = ref(1)
+const plusOne = computed({
+  get: () => count.value + 1,
+  set: val => {
+    count.value = val - 1
+  }
+})
+
+plusOne.value = 1 // using setter into a computed property.
+console.log(count.value) // 0
 ```
 
 ### 10.06 Watchers
 
-The wathers can also applied to ref and reactive, let's use here an example with ref:
+The watchers can also applied to ref and reactive, let's use here an example with ref:
 
-```javascript
+```vue
+<script>
 import { ref, watch } from 'vue'; // this is mandatory
 
 export default {
@@ -303,6 +317,7 @@ export default {
     }; 
   }
 };
+</script>
 ```
 
 We can have multiple dependencies using an array in the first argument of the watch function. The function will be executed when any of the dependencies chenges:
@@ -319,7 +334,6 @@ watch([usAge, usName],
 );
 ```
 
-As in Vue2, you can`t watch the contains of an array or an object:
 
 ```javascript
 // Inside setup 
@@ -327,9 +341,37 @@ const user = reactive({ name: 'Belizón', age: 17 });
 
 watch(() => user.name, // First argument it's a getter
     function(newValue, oldValue){
-        console.log('oldValue: ' + oldValue);
+      console.log('oldValue: ' + oldValue);
         console.log('newValue: ' + newValue);
     });
+```
+
+In Vue2, you must use `deep: true` to watch an object, but now you can directly watch an object:
+
+```javascript
+// Inside setup 
+const user = reactive({ name: 'Belizón', age: 17 });
+
+watch(user,
+    function(newValue, oldValue){
+        console.log('oldValue user.name: ' + oldValue.name);
+        console.log('oldValue user.age: ' + oldValue.age);
+        console.log('newValue user.name: ' + newValue.name);
+        console.log('newValue user.age: ' + newValue.age);
+    });
+```
+
+Also we can watch an array:
+
+```javascript
+// Inside setup 
+const reactiveArray = reactive(['1', '2']);
+// watch an array
+watch(reactiveArray,
+function(newValue, oldValue){
+    console.log('oldValue reactiveArray: ' + oldValue);
+    console.log('newValue reactiveArray: ' + newValue);
+});
 ```
 
 ### 10.07 Components & props
@@ -347,7 +389,7 @@ export default {
     props: ['userName', 'age'],
     computed: {
       userName(){
-        // Traditional API, some code
+        // Traditional option API, some code
       }
     }
 }
@@ -429,7 +471,7 @@ The changes will not be updated to the template.
 
 ### 10.08 Context in setup
 
-We cann't emit custom events using ```this.$emit(...)``` due to this. object isn't available. We can send a custom event using the second parameter setup function receives: context.
+We can't emit custom events using `this.$emit(...)` due to this. object isn't available. We can send a custom event using the second parameter setup function receives: context.
 
 context it's an object with 3 attrib:
  - attrs: properties that we didn't define as properties 
@@ -455,8 +497,8 @@ Remember provide & inject are an alternative way to pass information between ele
 
 Doc: https://v3.vuejs.org/guide/component-provide-inject.html#working-with-reactivity
 
-```provide()``` it's a function we can call in the parent component to send values.
-```inject()``` it's a function we can call in the child component to retreive values.
+`provide()` it's a function we can call in the parent component to send values.
+`inject()` it's a function we can call in the child component to retreive values.
 
 ```Vue
 <template>  

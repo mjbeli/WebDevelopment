@@ -1,6 +1,6 @@
 # 02-components
 
-### 01.01 Introduction
+### 02.01 Introduction
 
 Components are reusable pieces of html with connected data and logic. This pieces can be reuses over the application or over the pages. Each data and logic of a instance it's independent from other intances. A component encapsulate structure, content and logic into small reusable pieces.
 
@@ -19,7 +19,7 @@ import App from './App.vue'
 createApp(App).mount('#app')
 ```
 
-As you can see in the App.vue file, we've got 3 sections: template (html code), script (javascript) and styles (css) that encapsulate all the component behaviour, content and styling:
+As you can see in the .vue files, we've got 3 sections: template (html code), script (javascript) and styles (css) that encapsulate all the component behaviour, content and styling:
 
 ```vue
 <template>
@@ -59,4 +59,26 @@ export default {
   margin-top: 60px;
 }
 </style>
+```
+
+Every component is like a small vue app, and in the script tag will expect the same config object like a vue app. Also, this is the object that we'll export to share the component, that why most cases start with `export default {};`. A main difference is that we don't specify the template inside the config object, but inside the template tag.
+
+### 02.02 Using components
+
+We can register an element globally in the `main.js` file this way:
+
+```javascript
+import { createApp } from 'vue';
+import App from './App.vue';
+import FriendContact from './components/FriendContact.vue';
+
+const app = createApp(App);
+app.component('friend-contact', FriendContact);
+app.mount('#app');
+```
+
+Now we can use friend-contact component from any site of our application:
+
+```vue
+
 ```

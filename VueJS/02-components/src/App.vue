@@ -2,7 +2,10 @@
   <!-- In Vue 3 you can have more than one root element-->
   <!-- This html code will be injected in all sites where we use the component -->
   <h3>My agenda</h3>  
-  <div></div>  
+  <div>
+    <friend-contact> </friend-contact>    
+    <friend-contact> </friend-contact>    
+  </div>  
 </template>
 
 <script>

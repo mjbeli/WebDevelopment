@@ -20,6 +20,14 @@
     <p>Data passed to another component as props</p>   
     <user-data :user-name="userName"></user-data>
   </section>
+
+  <section class="container">
+    <button @click="setAge">SetAge function</button>
+  </section>
+
+  <section class="container">
+    <button @click="AddArray">AddArray function</button>
+  </section>
 </template>
 
 <script>
@@ -36,11 +44,11 @@ export default {
     const usAge = ref(21);
     
     // 'reactive()' makes an object reactive. Don't need to access value to change the attributes.
-    const user = reactive({ name: 'Belizón', age: 17 });
+    const user = reactive({ name: 'Belizón', age: 17 });    
+    const reactiveArray = reactive(['1', '2']);
 
     // 2 arguments: first one it's a key of our choice, the second it's de value we want to send to the child
     provide('userAge', usAge);
-
 
     const firstName = ref('');
     const secondName = ref('');
@@ -63,9 +71,14 @@ export default {
     }, 3000);
     
     // Defining a function that will be exposed like a method in options API
-    function setNewAge(){
+    function setNewAge(){      
       user.age= 22;
+      console.log('computedUserName: ' + computedUserName.value); // Accessing computed property from a method
     }    
+
+    function AddArray(){      
+      reactiveArray.push(3);
+    }  
 
     // Call computed function that receives a function as an argument
     // Computed variables are refs, so we can access to computedUserName.value
@@ -78,20 +91,40 @@ export default {
 
     // the first argument of watch function it's the dependency of the watch, 
     // when has Vue to execute the watcher function. The second argument it's the function we want to execute.
-    watch(usName,  // whenever usName changes, this function it's executed
+    watch(usName,  // whenever usName changes, this function is executed
       function(newValue, oldValue){ // this function receives automatically this 2 arguments
+        console.log('Watching a ref variable.');
         console.log('newValue usName: ' + newValue);  // Don't need .value
         console.log('oldValue usName: ' + oldValue); 
     });
 
     watch(() => user.name,
     function(newValue, oldValue){
+        console.log('Watching a reactive variable.');
         console.log('oldValue: ' + oldValue);
         console.log('newValue: ' + newValue);
     });
+
+    // watch an object
+    watch(user,
+    function(newValue, oldValue){
+        console.log('Watching a reactive object.');
+        console.log('oldValue user.name: ' + oldValue.name);
+        console.log('oldValue user.age: ' + oldValue.age);
+        console.log('newValue user.name: ' + newValue.name);
+        console.log('newValue user.age: ' + newValue.age);
+    });
+
+    // watch an array
+    watch(reactiveArray,
+    function(newValue, oldValue){
+        console.log('Watching a reactive array.');
+        console.log('oldValue reactiveArray: ' + oldValue);
+        console.log('newValue reactiveArray: ' + newValue);
+    });
     
 
-    // Every things we want to be available in the DOM (in our template section).
+    // For everythings we want to be available in the DOM (in our template section).
     // we need an extra step: return an object with all we want to expose to the template.
     // setup() always return an object:
     return {
@@ -99,7 +132,8 @@ export default {
         user, // exposes the object as reactive, if we exposes the attributes the Dom won't be updated.
         setAge: setNewAge, // exposes the function the same way we exposes the data, this is a pointer to the function.
         firstName, secondName,
-        computedUserName
+        computedUserName,
+        AddArray
     };
   },
   components: { UserData }
