@@ -175,7 +175,7 @@ export default {
 </script>
 ```
 
-#### 02.03.02 Validating props
+#### 02.03.03 Validating props
 
 To provide more information about props using by a component we can use alternatives ways of declaring it.
 
