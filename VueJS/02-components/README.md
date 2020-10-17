@@ -265,7 +265,7 @@ export default {
 </script>
 ```
 
-### 02.04.01 Documenting events
+#### 02.04.01 Documenting events
 
 We can add a new entry to the config object to document our component. So other developers can see which events can emit a component without reading all the code searching for emits.
 
