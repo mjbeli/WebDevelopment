@@ -1,10 +1,15 @@
 <template>
   <!-- In Vue 3 you can have more than one root element-->
-  <!-- This html code will be injected in all sites where we use the component -->
   <h3>My agenda</h3>  
   <div>
-    <friend-contact> </friend-contact>    
-    <friend-contact> </friend-contact>    
+    <friend-contact v-for="friend in friends" 
+                    :key="friend.id" 
+                    :id="friend.id" 
+                    :name="friend.name" 
+                    :phone="friend.telephone" 
+                    :email="friend.email" 
+                    :isFavourite="friend.isFavourite" 
+                    @evt-toggle-favourite="changeFavourite" > </friend-contact>    
   </div>  
 </template>
 
@@ -16,17 +21,26 @@ export default {
       friends: [
         {
           id: 'aa',
-          name: 'aa',
+          name: 'aaa',
           telephone: '12345',
-          email: 'aa@invent.com'
+          email: 'aa@invent.com', 
+          isFavourite: false
           },
           {
-          id: 'bb',
-          name: 'bb',
+          id: 'bbb',
+          name: 'bbb',
           telephone: '67890',
-          email: 'bb@invent.com'
+          email: 'bb@invent.com', 
+          isFavourite: true
         }
       ]
+    }
+  },
+  methods: {
+    changeFavourite(friendId){
+      console.log('change the favourite mark! ' + friendId);
+      let myFriend = this.friends.find(friend => friend.id === friendId);
+      myFriend.isFavourite = !myFriend.isFavourite;
     }
   }
 }
