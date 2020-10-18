@@ -25,8 +25,8 @@ export default {
           telephone: '12345',
           email: 'aa@invent.com', 
           isFavourite: false
-          },
-          {
+        },
+        {
           id: 'bbb',
           name: 'bbb',
           telephone: '67890',
@@ -41,6 +41,13 @@ export default {
       console.log('change the favourite mark! ' + friendId);
       let myFriend = this.friends.find(friend => friend.id === friendId);
       myFriend.isFavourite = !myFriend.isFavourite;
+    }
+  },
+  provide: {
+    friendToProvide: {
+      id: 'cc',
+      name: 'ccc',
+      telephone: '52850'
     }
   }
 }

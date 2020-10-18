@@ -294,3 +294,96 @@ export default {
 }
 </script>
 ```
+
+### 02.05 Provide & inject
+
+Imagine we have a component structure where component A is father of component B and B is father of component C: A --> B --> C. And that C uses props and events of A. This can lead us to a pass-through props scenario where A pass data to B and B pass data to C doing nothing with them. 
+
+The alternative is to use the provide and inject pattern. This is a pattern you can use to provide data in one place and inject that data in other place. Add `provide` option to the config object, inside this option you can define objects that will be storaged automatically.
+
+*Important!* Abuse of provide & inject can be a bad thing because adds some complexity reading the code. You can see in the father that you are providing some data and the you must to dig into the components tree to see where the data is injecting. And the other it's true, if you're reading a child component and see some injecting data, you must search the place where thats data it's providing. So this mechanism obscure the code: use provide and inject wisely.
+
+```vue
+<script>
+export default {    
+  /***/
+  provide: {
+      friendToProvide: { id: 'cc', name: 'ccc', telephone: '52850' }
+  },
+  /***/
+}
+</script>
+```
+
+An alternative way to provide data is to define `provide` as a function and us a key in our data object config:
+```vue
+<script>
+export default {    
+  /***/
+  data(){
+    return { friendC: { id: 'cc', name: 'ccc', telephone: '52850' } };
+  },
+  provide(){ // this function must return and object, like data()
+    return {
+      friendToProvide: this.friendC
+    };
+  },
+  /***/
+}
+</script>
+```
+
+In the component we need the data we 'listen' the provided data. In the config object of the component we can add the inject option, that is an array that receive the keys of the provided data we need to recover:
+
+```vue
+<script>
+export default {    
+    /***/
+    inject: ['friendToProvide'],
+    /***/
+  }
+}
+</script>
+```
+
+*Important!* You can only inject a key that has been provided in a highest level of component, thats means in a parent component. You can't provide and inject between neighbors, it's must exists a parent-child relation.
+
+##### Provide & inject functions
+
+We can provide and inject events just providing and inkecting the method we can to dispatch at the event:
+
+> Provide in the father
+```vue
+<script>
+export default {    
+  /***/  
+  provide(){ // this function must return and object, like data()
+    return {
+      functionProvided: this.myInternalFunction // Don't execute here, just appoint the function
+    };
+  },
+  methods: {
+    myInternalFunction(param){
+       // Do something
+    }
+  }
+  /***/
+}
+</script>
+```
+
+> Provide in a child
+```vue
+<template>
+  <button @click="functionProvided(param)">button text</button>
+</template>
+<script>
+export default {    
+    /***/
+    props: ['param'],
+    inject: ['functionProvided'], // We expect that functionProvided is a function, obviously
+    /***/
+  }
+}
+</script>
+```
