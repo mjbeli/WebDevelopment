@@ -51,6 +51,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
     * [02.03.03 Validating props](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/02-components#020303-validating-props)
   * [02.04 Events to parent](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/02-components#0204-events-to-parent)
     * [02.04.01 Documenting events](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/02-components#020401-documenting-events)
+  * [02.05 Provide & inject](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/02-components#0205-provide--inject)    
 * [03-advanced-components:](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/03-advanced-components) slots & dynamic components. 
   * [03.01 Slots](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/03-advanced-components#0301-slots)  
   * [03.02 Dynamic Component](https://github.com/mjbeli/WebDevelopment/tree/master/VueJS/03-advanced-components#0302-dynamic-component)
