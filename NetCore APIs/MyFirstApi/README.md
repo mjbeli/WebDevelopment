@@ -87,3 +87,20 @@ Also this class attribute affect to the binding attributes: when a post method r
         return Ok();
     }
 ```
+
+##### 1.02.03 Actions
+
+If the method it's colled Get, Post, Delete,... automatically the verb used to calls that actions are the specified by its name. For example an action called Post will need an http post request.
+
+The same for actions for witch names strats with Get, Post, Put... for example the action `PutProduct(Product p)` will need an http Put request.
+
+Alternaty, we can explicity indicate the http needed for an action using method attributes. For example `[HttpGet]` indicate the action uses Get verb.
+
+```C#
+// This uses Post even if the name starts with Get...
+[HttpPost]
+public WeatherForecast GetMyWeatherForecast(int id) 
+{
+        
+}
+```
