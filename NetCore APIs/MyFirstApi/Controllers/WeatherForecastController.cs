@@ -35,5 +35,17 @@ namespace MyFirstApi.Controllers
             })
             .ToArray();
         }
+
+
+
+        [HttpPost]
+        public IActionResult Post([FromBody] WeatherForecast b)
+        {
+            if(!b)
+            return BadRequest("No");
+
+            var obj = new WeatherForecast();
+            return Ok(obj);
+        }
     }
 }
