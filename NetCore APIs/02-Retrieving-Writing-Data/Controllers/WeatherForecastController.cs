@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-namespace MyFirstApi.Controllers
+namespace _02_Retrieving_Writing_Data.Controllers
 {
     [ApiController]
     [Route("[controller]")]
@@ -34,18 +34,6 @@ namespace MyFirstApi.Controllers
                 Summary = Summaries[rng.Next(Summaries.Length)]
             })
             .ToArray();
-        }
-
-
-
-        [HttpPost]
-        public IActionResult Post([FromBody] WeatherForecast b)
-        {
-            if(b == null)
-                return BadRequest("No");
-
-            var obj = new WeatherForecast();
-            return Ok(obj);
         }
     }
 }
