@@ -119,6 +119,7 @@ public class WeatherForecastController : ControllerBase
     { }
 }
 ```
+
 Indicate a parameter in the URL.
 ```C#
 [ApiController]
@@ -127,6 +128,22 @@ public class WeatherForecastController : ControllerBase
     // This action receives the id explicity as part of the URL,
     // the value of the placeholder will be put in a variable called "id"
     [Route("/WeatherForecast/{id}")] 
+    public WeatherForecast GetMyWeatherForecast(int id) 
+    { }
+}
+```
+
+We can also indicate that an action receives a parameter in the argument of the verb attribute class:
+```C#
+[ApiController]
+[Route("/[controller]")] // Use the controller name
+public class WeatherForecastController : ControllerBase
+{
+    // This action will be executed when the URL it's like
+    // /WeatherForecast/GetMyWeatherForecast/123
+    // Note the Route class attribute indicates the name of the controller and the
+    // HttpGet verb indicates the action receives a parameter named id.
+    [HttpGet("{id}")] 
     public WeatherForecast GetMyWeatherForecast(int id) 
     { }
 }
