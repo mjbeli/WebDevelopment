@@ -27,7 +27,7 @@ Contrains:
  * Code on demand: you can return code that will be execute on the client (in addition to return data).
 
 
- #### 1.02 Controllers & Actions
+#### 1.02 Controllers & Actions
 
 ##### 1.02.01 ControllerBase
 
@@ -100,7 +100,37 @@ Alternaty, we can explicity indicate the http needed for an action using method 
 // This uses Post even if the name starts with Get...
 [HttpPost]
 public WeatherForecast GetMyWeatherForecast(int id) 
+{ }
+```
+
+
+#### 1.03 Routing
+
+For routing we can use `[Route]` attribute in class or methods. The attribute just need the URI.
+
+This route marks all the enpoint in the class accesible using `/WeatherForecast/GetMyWeatherForecast` :
+```C#
+[ApiController]
+[Route("/[controller]")] // Use the controller name
+//[Route("/WeatherForecast")] the same as above
+public class WeatherForecastController : ControllerBase
 {
-        
+    public WeatherForecast GetMyWeatherForecast(int id) 
+    { }
 }
 ```
+Indicate a parameter in the URL.
+```C#
+[ApiController]
+public class WeatherForecastController : ControllerBase
+{
+    // This action receives the id explicity as part of the URL,
+    // the value of the placeholder will be put in a variable called "id"
+    [Route("/WeatherForecast/{id}")] 
+    public WeatherForecast GetMyWeatherForecast(int id) 
+    { }
+}
+```
+
+An optional parameter in the URL: `[Route("/WeatherForecast/{id?}")]`
+
