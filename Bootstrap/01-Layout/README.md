@@ -23,21 +23,21 @@ All containers add 15px of padding in both sides left and rigth. When adding row
 </div>
 ```
 
-```.container``` and ```.container-sm``` 100% of width if screen is < 576px.
-```.container-md``` 100% of width until 768px.
-```.container-lg``` 100% of width until 992px.
-```.container-xl``` 100% of width until 1140px.
-```.container-fluid``` always will fill with 100% of width.
+ - ```.container``` and ```.container-sm``` 100% of width if screen is < 576px.
+ - ```.container-md``` 100% of width until 768px.
+ - ```.container-lg``` 100% of width until 992px.
+ - ```.container-xl``` 100% of width until 1140px.
+ - ```.container-fluid``` always will fill with 100% of width.
 
 #### 01.01.02  Row & Col
 
 row class inside a container.   
-By default, create a row inside a container with -15px each side, left and right and col are created with a padding of. Adding `no-glutters` delete that margin and the columns padding.
+By default, create a row inside a container with -15px each side, left and right and col are created with a padding of. Adding `no-gutters` delete that margin and the columns padding.
 
-Sample of a grid with row and col (note that the padding inside each column it's been ignored and the margin of the rows are being applied due to no-glutters):
+Sample of a grid with row and col (note that the padding inside each column it's been ignored and the margin of the rows are being applied due to no-gutters):
 ```html
     <div class="container-fluid">
-        Rows & col with no-glutters
+        Rows & col with no-gutters
         <div class="row no-gutters border border-primary">
             <div class="col-2 border border-secondary">
                 Colum
@@ -53,7 +53,7 @@ Sample of a grid with row and col (note that the padding inside each column it's
 ```
 ![img1](./img/RowCol-noglutters.JPG)
 
-When we don't use `no-glutters`, the margin of the rows are ignored and the apdding of the columns are appplied:
+When we don't use `no-gutters`, the margin of the rows are ignored and the apdding of the columns are appplied:
 ![img2](./img/RowCol-normal.JPG)
 
 
