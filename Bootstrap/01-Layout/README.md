@@ -79,4 +79,136 @@ We can use `row row-cols-N` to fit in each row N columns at maximun, here an exa
         </div>
     </div>
 ```
-![img2](./img/rowcol2.JPG)
+![img3](./img/rowcol2.JPG)
+
+Can add `row row-cols-SIZE-N` where size == sm, md, lg, xl and N is the number of columns in each row.
+
+Example where we show 1, 2, 3, 4 columns in each row depending on the screen size:
+`row-cols-1` --> width < 576px (when width ≥ 576px, fit all columns it can)
+`row-cols-sm-2` --> width ≥ 576px
+`row-cols-md-3` --> width ≥ 768px
+`row-cols-lg-4` --> width ≥ 992px
+`row-cols-xl-5` --> width ≥ 1200px
+
+```html
+    <div class="container-fluid">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 border border-primary">
+            <div class="col border border-secondary">
+                Colum1
+            </div>
+            <div class="col border border-secondary">
+                Colum2
+            </div>
+            <div class="col border border-secondary">
+                Colum3
+            </div>
+            <div class="col border border-secondary">
+                Colum4
+            </div>
+            <div class="col border border-secondary">
+                Colum5
+            </div>
+        </div>
+    </div>
+```
+
+#### 01.01.03  Offset
+In order to move the position of a column in the grid we can use the offset `offset-SIZE-N` where size == sm, md, lg, xl and N can take 1-11.
+
+```html
+    <div class="container-fluid">
+        <div class="row border border-primary">
+            <div class="col-4 border border-secondary">Normal col-4 div</div>
+            <div class="col-4 offset-4 border border-secondary">This div has an offset-4, so include in the left 4 columns. </div>
+        </div>
+        <div class="row border border-primary">
+            <div class="col-6 offset-3 border border-secondary">This div has an offset-3, so include in the left 3 columns. (a way to align in the center)</div>
+        </div>
+    </div>
+```
+
+![img4](./img/colOffset.JPG)
+
+#### 01.01.04  Order
+
+Can apply class `order-SIZE-N` to columns to define the order of the columns inside a row. To apply differents order with differents width can apply a class like `class="col order-sm-3 order-md-2"`.
+
+```html
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col order-sm-3 order-md-2">This is first col with order sm-3 and md-2</div>
+            <div class="col order-sm-1 order-md-3">This is second col with order sm-1 and md-3</div>
+            <div class="col order-sm-2 order-md-1">This is third col with order sm-2 and md-1</div>
+        </div>
+    </div>
+```
+>Important!
+To avoid weird behaviour, apply order in all columns of a row. If you apply order only in some columns can apply or not depending on the case.
+
+### 01.02 Alignment
+
+#### 01.02.01  Vertical Align
+
+To align all columns in the grid, there are a few classes you can add to the row:
+
+`align-items-start`
+`align-items-center`
+`align-items-end`
+
+```html
+    <div class="container-fluid">
+        <div class="row align-items-end">
+            <div class="col-2 border border-secondary">Column1</div>
+            <div class="col-2 border border-secondary">Column2</div>
+            <div class="col-2 border border-secondary">Column3</div>
+        </div>
+    </div>
+```
+![img4](./img/VerticalAlign.JPG)
+
+
+To use individual alignment of the columns can apply the new classes to the column:
+
+`align-self-start`
+`align-self-center`
+`align-self-end`
+
+```html
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-2 align-self-start border border-secondary">Column1</div>
+            <div class="col-2 align-self-center border border-secondary">Column2</div>
+            <div class="col-2 align-self-end border border-secondary">Column3</div>
+        </div>
+    </div>
+```
+![img5](./img/VerticalAlignSelf.JPG)
+
+
+#### 01.02.02  Horizontal Align
+
+To align all columns in the grid, there are a few classes you can add to the row.
+>Important!
+To apply this classes, make sure you use `col-N`, because doesn´t work with `col` classes.
+
+`justify-content-start`
+`justify-content-center`
+`justify-content-end`
+`justify-content-around` (try to put the same space betwwen all columns)
+`justify-content-between` (put extra space between columns)
+
+```html
+    <div class="container-fluid">
+        <div class="row justify-content-center bg-light">
+            <div class="col-2 border border-secondary">Column1</div>
+            <div class="col-2 border border-secondary">Column2</div>
+            <div class="col-2 border border-secondary">Column3</div>
+        </div>
+    </div>
+```
+![img5](./img/HorizontalAlignment.JPG)
+
+
+
+
+
