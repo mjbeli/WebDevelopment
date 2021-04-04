@@ -209,6 +209,90 @@ To apply this classes, make sure you use `col-N`, because doesn´t work with `co
 ![img5](./img/HorizontalAlignment.JPG)
 
 
+### 01.03 Position
+
+#### 01.03.01 Position
+
+These classes remove the element from the flow of the document.
+ - `fixed-top` 
+ - `fixed-bottom`
+ - `sticky-top`
+
+```html
+    <h5>sticky-top</h5>
+    <div class="container bg-danger">
+        <div class="sticky-top bg-info">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin scelerisque tortor eget ex dignissim, et gravida mauris commodo. Praesent pharetra sodales posuere. Aliquam mi justo, dapibus a lobortis quis, egestas a mauris. In finibus rutrum tincidunt.
+            Pellentesque eget auctor enim, eu vulputate lectus. Aliquam sit amet odio pulvinar, egestas lectus ac, euismod enim. Maecenas id condimentum nulla. Mauris auctor risus finibus mauris eleifend feugiat. Aenean consectetur nibh quis turpis iaculis
+            vehicula.
+        </div>
+        <div>
+            ... lorem ipsum ...
+        </div>
+    </div>
+```
+
+fixed-bottom sample:
+ ![img6](./img/fixedBottom.JPG)
+
+fixed-top sample:
+ ![img7](./img/fixedTop.JPG)
+
+ sticky-top sample (in this case the normal flow is respected at the begining except when the position div reaches the top document):
+ ![img8](./img/StickyTop.JPG)
+ 
+ 
+
+#### 01.03.02 Display properties
+
+Open bootstrap to flexbos classes.
+
+`d-SIZE-TYP`
+
+Where TYPE display property can be:
+ - `none`
+ - `inline`
+ - `inline-block`
+ - `block`
+ - `table`
+ - `table-row`
+ - `table-cell`
+ - `flex`
+ - `inline-flex`
+
+`d-block` applies to each element and has 100% width, it appears to be an entire row.
+```html
+    <h5>d-block</h5>
+    <div class="container bg-danger">
+        <div class="d-block"> item d-block 1</div>
+        <div class="d-block"> item d-block 2</div>
+        <div class="d-block"> item d-block 3</div>
+    </div>
+```
+![img9](./img/dblock.JPG)
+
+`d-inline` applies to each element and put each element next to the other, take the width to show the element:
+```html
+    <h5>d-inline</h5>
+    <div class="container bg-danger">
+        <div class="d-inline border border-primary"> This is item d-inline 1</div>
+        <div class="d-inline border border-primary"> item d-inline 2</div>
+        <div class="d-inline border border-primary"> d-inline 3</div>
+    </div>
+```
+![img10](./img/dInline.JPG)
+
+
+### 01.03 Flex containers
+
+To display elements as flex start introducing the main flex cointainer element:
+`d-SIZE(-inline)-flex`
+
+By default, flex elements are block-level elements, thats means each element will has 100% width an appears to be a row. We can put optionally the inline keyword `d-inline-flex` to put each element next to others .
+
+The commmon point is that `d-flex` and `d-inline-flex` transform each children in flex items.
+
+
 
 
 
