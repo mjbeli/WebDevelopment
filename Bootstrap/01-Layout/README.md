@@ -288,11 +288,82 @@ Where TYPE display property can be:
 To display elements as flex start introducing the main flex cointainer element:
 `d-SIZE(-inline)-flex`
 
-By default, flex elements are block-level elements, thats means each element will has 100% width an appears to be a row. We can put optionally the inline keyword `d-inline-flex` to put each element next to others .
+By default, `d-flex` flex elements are block-level elements, thats means each element will has 100% width an appears to be a row. We can put optionally the inline keyword `d-inline-flex` to put each element next to others.
 
 The commmon point is that `d-flex` and `d-inline-flex` transform each children in flex items.
 
+### 01.03.01 Direction 
+
+Adding `flex(-SIZE)-DIR` to a flex container you can specify the direction as shown bellow:
+- `flex-row` --> each item is a row, option by default when using d-flex
+- `flex-column` --> each item is a column
+- `flex-row-reverse`
+- `flex-column-reverse`
+
+```html
+    <h5>Direction d-flex flex-column</h5>
+    <div class="container-fluid bg-info">
+        <div class="d-flex flex-column">
+            <div>Element 1</div> <div>Element 2</div> <div>Element 3</div> <div>Element 4</div>
+        </div>
+    </div>
+```
+
+![img11](./img/FlexDirection.JPG)
+
+### 01.03.02 Order 
+
+Use `order(-SIZE)-ORD` to specify the order of the elements. A number between 1-12.
+
+### 01.03.03 Justifing 
+
+Use `justify-content(-SIZE)-ALG`:
+- `justify-content-start` --> element in left and extra space at the right
+- `justify-content-end` --> element in right and extra space at the left
+- `justify-content-center` --> center content horizontally
+- `justify-content-around` --> try to put the same space betwwen all columns
+- `justify-content-between` --> put extra space between columns
+
+```html
+    <h5>Justify d-flex justify-content-between</h5>
+    <div class="container-fluid bg-info">
+        <div class="d-flex justify-content-between">
+            <div>Element 1</div> <div>Element 2</div> <div>Element 3</div> <div>Element 4</div>
+        </div>
+    </div>
+```
+
+![img12](./img/FlexJustify.JPG)
 
 
+### 01.03.04 Warp
 
+Controls whether the elements wrap in the relation space in their container. `flex(-SIZE)-wrap(-reverse)`
 
+ - `flex-wrap` --> the elements will be put in other line when it doesn't fit in the space
+ - `flex-nowrap` --> option by default, all the content will fit one row
+
+```html
+    <h5>Warp d-flex flex-nowrap</h5>
+    <div class="container-fluid bg-info">
+        <div class="d-flex flex-nowrap">
+            <div>Element 1 sdadasderewwre</div>
+            <div>Element 2 dfsfsdfdsfdsf</div>
+            <div>Element 3 dfrfvfvddsfsdfsdfdsfdsf</div>
+            <div>Element 4 fsfesffdsfeweweddddddddddsd</div>
+        </div>
+    </div>
+```
+
+![img12](./img/FlexWarp.JPG) 
+
+### 01.03.05 Vertical align
+
+`align-content(-SIZE)-ALG`
+
+ - `align-content-start`
+ - `align-content-end`
+ - `align-content-center`
+ - `align-content-around`
+ - `align-content-between`
+ - `align-content-streech` --> make the elements fit within the container vertically.
