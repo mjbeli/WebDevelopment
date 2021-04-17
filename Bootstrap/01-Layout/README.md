@@ -283,7 +283,7 @@ Where TYPE display property can be:
 ![img10](./img/dInline.JPG)
 
 
-### 01.03 Flex containers
+### 01.04 Flex containers
 
 To display elements as flex start introducing the main flex cointainer element:
 `d-SIZE(-inline)-flex`
@@ -292,7 +292,7 @@ By default, `d-flex` flex elements are block-level elements, thats means each el
 
 The commmon point is that `d-flex` and `d-inline-flex` transform each children in flex items.
 
-### 01.03.01 Direction 
+### 01.04.01 Direction 
 
 Adding `flex(-SIZE)-DIR` to a flex container you can specify the direction as shown bellow:
 - `flex-row` --> each item is a row, option by default when using d-flex
@@ -311,11 +311,11 @@ Adding `flex(-SIZE)-DIR` to a flex container you can specify the direction as sh
 
 ![img11](./img/FlexDirection.JPG)
 
-### 01.03.02 Order 
+### 01.04.02 Order 
 
 Use `order(-SIZE)-ORD` to specify the order of the elements. A number between 1-12.
 
-### 01.03.03 Justifing 
+### 01.04.03 Justifing 
 
 Use `justify-content(-SIZE)-ALG`:
 - `justify-content-start` --> element in left and extra space at the right
@@ -336,7 +336,7 @@ Use `justify-content(-SIZE)-ALG`:
 ![img12](./img/FlexJustify.JPG)
 
 
-### 01.03.04 Warp
+### 01.04.04 Warp
 
 Controls whether the elements wrap in the relation space in their container. `flex(-SIZE)-wrap(-reverse)`
 
@@ -357,7 +357,7 @@ Controls whether the elements wrap in the relation space in their container. `fl
 
 ![img12](./img/FlexWarp.JPG) 
 
-### 01.03.05 Vertical align
+### 01.04.05 Vertical align
 
 `align-items(-SIZE)-ALG`
 
@@ -388,9 +388,9 @@ Controls whether the elements wrap in the relation space in their container. `fl
 ![img12](./img/FlexVerticalAlign.JPG) 
 
 
-### 01.04 Individual Flex elements
+### 01.05 Individual Flex elements
 
-### 01.04.01 Individual vertical align
+### 01.05.01 Individual vertical align
 
 `align-items(-SIZE)-ALG`
 
@@ -415,7 +415,7 @@ Controls whether the elements wrap in the relation space in their container. `fl
 ![img13](./img/FlexIndividualVerticalAlign.JPG) 
 
 
-### 01.05 Floating elements
+### 01.06 Floating elements
 
 `float(-SIZE)-SIDE`
 
@@ -452,7 +452,7 @@ Nothe that with clearfix the gb-info div appears as expected:
 ![img13](./img/FloatWithClearFix.JPG) 
 
 
-### 01.06 Visibility
+### 01.07 Visibility
 
 `invisible` --> the element will not appear but it will still take the space it will normally takes
 `visible` --> It's visible to screen readers (accesibility).
@@ -461,7 +461,7 @@ Remember that, in addition, the `d-none` class set the display property to none 
 
 Combining `d-none visible` makes an element invisible but visible to screen readers.
 
-### 01.06 Sizing
+### 01.08 Sizing
 
 `SIZE-AMT`
 
@@ -474,7 +474,7 @@ Where SIZE:
  - `vh-100` --> viewPort height: total height of the screen, the total amount of only can put 100 (not allow 25, 50)
 
 
-### 01.07 Borders
+### 01.09 Borders
 
 `border(-SIDE)(-COL)(-0)`
 
@@ -485,7 +485,7 @@ Where COL:
  - `primary`, `secondary`, `success`, `danger`, `warning`, `info`, `light`, `dark`, `white`
 
 
-### 01.07.02 Rounded borders
+### 01.09.01 Rounded borders
 
 `rounded(-SIDE)(-SHA)(-SIZ)`
 
