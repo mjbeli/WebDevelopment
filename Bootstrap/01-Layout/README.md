@@ -250,15 +250,15 @@ Open bootstrap to flexbos classes.
 `d-SIZE-TYP`
 
 Where TYPE display property can be:
- - `none`
- - `inline`
- - `inline-block`
- - `block`
- - `table`
- - `table-row`
- - `table-cell`
- - `flex`
- - `inline-flex`
+ - `d-none`
+ - `d-inline`
+ - `d-inline-block`
+ - `d-block`
+ - `d-table`
+ - `d-table-row`
+ - `d-table-cell`
+ - `d-flex`
+ - `d-inline-flex`
 
 `d-block` applies to each element and has 100% width, it appears to be an entire row.
 ```html
@@ -359,11 +359,144 @@ Controls whether the elements wrap in the relation space in their container. `fl
 
 ### 01.03.05 Vertical align
 
-`align-content(-SIZE)-ALG`
+`align-items(-SIZE)-ALG`
 
- - `align-content-start`
- - `align-content-end`
- - `align-content-center`
- - `align-content-around`
- - `align-content-between`
- - `align-content-streech` --> make the elements fit within the container vertically.
+ - `align-items-start`
+ - `align-items-end`
+ - `align-items-center`
+ - `align-items-around`
+ - `align-items-between`
+ - `align-items-streech` --> make the elements fit within the container vertically.
+
+ ```html
+     <h5>d-flex align-items-center: aligns all elements inside a flex container</h5>
+    <div class="container-fluid ">
+        <div class="bg-info d-flex align-items-center" style="height: 100px;">
+            <div>Element 1 sdadasderewwre</div> <div>Element 2 dfsfsdfdsfdsf</div>
+            <div>Element 3 dfrfvfvddsfsdfsdfdsfdsf</div> <div>Element 4 fsfesffdsfeweweddddddddddsd</div>
+        </div>
+    </div>
+    <h5>d-flex align-items-end: aligns all elements at the bottom inside a flex container</h5>
+    <div class="container-fluid ">
+        <div class="bg-info d-flex align-items-end" style="height: 100px;">
+            <div>Element 1 sdadasderewwre</div> <div>Element 2 dfsfsdfdsfdsf</div>
+            <div>Element 3 dfrfvfvddsfsdfsdfdsfdsf</div> <div>Element 4 fsfesffdsfeweweddddddddddsd</div>
+        </div>
+    </div>
+```
+
+![img12](./img/FlexVerticalAlign.JPG) 
+
+
+### 01.04 Individual Flex elements
+
+### 01.04.01 Individual vertical align
+
+`align-items(-SIZE)-ALG`
+
+ - `align-items-start`
+ - `align-items-end`
+ - `align-items-center`
+ - `align-items-baseline`
+ - `align-items-streech` --> option by default, make the elements fit within the container vertically.
+
+ ```html
+    <h5>d-flex align-self: align individual elements inside a flex container</h5>
+    <div class="container-fluid ">
+        <div class="bg-info d-flex" style="height: 200px;">
+            <div class="bg-warning align-self-end">Element 1</div>
+            <div class="bg-warning align-self-start">Element 2</div>
+            <div class="bg-warning align-self-stretch">Element 3</div>
+            <div class="bg-warning">Element 4</div>
+        </div>
+    </div>
+```
+
+![img13](./img/FlexIndividualVerticalAlign.JPG) 
+
+
+### 01.05 Floating elements
+
+`float(-SIZE)-SIDE`
+
+ - `float-left`
+ - `float-right`
+ - `float-none`
+
+When floating elements, the parent div loose the track of floated elements. To fix this, use clearfix in the parent element.
+With no `clearfix` note that the bg-info div don't appear (that's because detect zero children and has no height and width):
+
+ ```html
+<h5>Floating elements without clearfix</h5>
+    <div class="container-fluid ">
+        <div class="bg-info">
+            <div class="float-left">Element 1</div>
+            <div class="float-left">Element 2</div>
+            <div class="float-right">Element 3</div>
+        </div>
+    </div>
+```
+![img13](./img/FloatNoClearFix.JPG) 
+
+Nothe that with clearfix the gb-info div appears as expected:
+ ```html
+<h5>Floating elements with clearfix</h5>
+    <div class="container-fluid ">
+        <div class="bg-info clearfix">
+            <div class="float-left">Element 1</div>
+            <div class="float-left">Element 2</div>
+            <div class="float-right">Element 3</div>
+        </div>
+    </div>
+```
+![img13](./img/FloatWithClearFix.JPG) 
+
+
+### 01.06 Visibility
+
+`invisible` --> the element will not appear but it will still take the space it will normally takes
+`visible` --> It's visible to screen readers (accesibility).
+
+Remember that, in addition, the `d-none` class set the display property to none (it won't appear).
+
+Combining `d-none visible` makes an element invisible but visible to screen readers.
+
+### 01.06 Sizing
+
+`SIZE-AMT`
+
+Where SIZE:
+ - `w`, `h`
+ - `mw`
+ - `mh-100` --> max height, the total amount of only can put 100 (not allow 25, 50)
+ - `mw-100` --> max width, the total amount of only can put 100 (not allow 25, 50)
+ - `vw-100` --> viewPort width: total width of the screen, the total amount of only can put 100 (not allow 25, 50)
+ - `vh-100` --> viewPort height: total height of the screen, the total amount of only can put 100 (not allow 25, 50)
+
+
+### 01.07 Borders
+
+`border(-SIDE)(-COL)(-0)`
+
+Where SIDE:
+ - `top`, `right`, `bottom`, `left`
+
+Where COL:
+ - `primary`, `secondary`, `success`, `danger`, `warning`, `info`, `light`, `dark`, `white`
+
+
+### 01.07.02 Rounded borders
+
+`rounded(-SIDE)(-SHA)(-SIZ)`
+
+Where SIDE:
+ - `top`, `right`, `bottom`, `left`
+
+Where SHA:
+ - `circle`, `pill`
+
+Where SIZ:
+ - `0`, `sm`, `lg`
+
+
+
