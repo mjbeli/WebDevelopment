@@ -122,7 +122,7 @@ In the nex sample, the menu will be viewed as a row from sizes greater than sm:
 ![img6](./img/NavFlexColumn.JPG)
 
 
- ### 02.02 Navbar
+### 02.02 Navbar
 
 #### 02.02.01 Navbar classes
 `navbar` class goes on the main container, by deafult the elements inside will stack (top one on another) so we need to add `navbar-expand-SIZE` to control when the navbar is going to expand (go to horizontal).
@@ -197,15 +197,90 @@ With the `nav-link` class you can use classes:
 ```
 ![img8](./img/navbarBrand.JPG)
 
+#### 02.02.05 Dropdown menu
+
+Add the class `dropdown` to an element (usually a div or list item if using list navigation). The dropdown will be align with this element.
+
+`dropdown -toggle` class that added to the link show a little triangle to indicate that the element has a dropdown.
+
+In addition, `data-toggle` attribute can be used to activated the dropdown. `data-toggle="dropdown"`.
+
+Set a container with `dropdown-menu`, and then insert a series of links inside that container. Each link has `dropdown-item` class (for accessibility devices add id and aria attributes).
+
+```html
+<nav class="navbar bg-dark navbar-dark navbar-expand-sm">
+    <div class="navbar-nav">
+        <a href="#" class="nav-item nav-link active">Link 1</a>
+        <div class="dropdown">
+            <a href="#" class="nav-item nav-link dropdown-toggle" data-toggle="dropdoid="MyDropdown" aria-haspopup="true" aria-expanded="false">
+                Link 2
+            </a>
+            <!-- Now the definition of the dropdown -->
+            <div class="dropdown-menu" aria-labelledby="MyDropdown">
+                <a href="#" class="dropdown-item">Option 1</a>
+                <a href="#" class="dropdown-item">Option 2</a>
+                <a href="#" class="dropdown-item">Option 3</a>
+            </div>
+        </div>
+        <a href="#" class="nav-item nav-link disabled">Link 3</a>
+        <a href="#" class="nav-item nav-link">Link 4</a>
+    </div>
+    <span class="navbar-text">Descripter text</span>
+</nav>
+```
+![img9](./img/DropDown.JPG)
 
 
+#### 02.02.06 Position menu
 
+`fixed-top`: keeps the menu above the viewport
 
+`fixed-bottom`: keeps the menu at the botton of the viewport
 
+`sticky-top`: keeps the menu at its position specified in the flow but when scrolling it remains at the top.
 
+```html
+<nav class="navbar bg-dark navbar-dark navbar-expand-sm fixed-top">
+    <div class="navbar-nav">
+        <a href="#" class="nav-item nav-link active">Link 1</a>        
+        <a href="#" class="nav-item nav-link disabled">Link 3</a>
+        <a href="#" class="nav-item nav-link">Link 4</a>
+    </div>
+    <span class="navbar-text">Descripter text</span>
+</nav>
+```
 
+#### 02.02.07 Collapse
 
+First, get the elements want to collapse inside a container with classes `collapse` and `navbar-collapse` (if we are collpasing a navbar). Aditionally we need to give an `id` to relate this content with the second element.
 
+The second thing we need is the element that will control the collapsible elements (usually the hamburger menu). `navbar-toggler` class usually applies to a button that will be the hamburger menu. In order to insert the hamburger icon we can use the class `navbar-toggler-icon`
 
+The attribute `data-toggle="collapse"` in the HAM button tells bootstrap that the button is a special element that javascript will control.
+
+Also the attribute `data-target="#IdOfCollapsibleContainer"`, its neccesary to tell bootstrap which element are controlling the button.
+
+```html
+<nav class="navbar bg-dark navbar-dark navbar-expand-sm">
+
+    <!-- this button will be the Hamburger -->
+    <button class="navbar-toggler" 
+        type="button" 
+        data-toggle="collapse" 
+        data-target="#myHamburger">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="myHamburger">
+        <div class="navbar-nav">
+            <a href="#" class="nav-item nav-link active">Link 1</a>
+            <a href="#" class="nav-item nav-link disabled">Link 3</a>
+            <a href="#" class="nav-item nav-link">Link 4</a>
+        </div>
+    </div>
+    <span class="navbar-text">Descripter text</span>
+</nav>
+```
+
+![img10](./img/HamMenu.JPG)
 
 
