@@ -114,8 +114,7 @@ To control the width and height can use `w-25` and `h-25` (and so on classes).
 
 Can use `bg-COL` classes to changes the color of progress bar. Also, there is an adittional class to control styles called `progress-bar-striped` and `progress-bar-animated`.
 
-To handle accessibility use `role="progressbar"`to indicate this is a progress bar and `aria-value-now="20%"` to store the current value of the bar. `aria-value-min="0"` and `aria-value-max="100%"` indicates the min and max values of progress bar.
-
+To handle accessibility use `role="progressbar"` to indicate this is a progress bar and `aria-value-now="20%"` to store the current value of the bar. `aria-value-min="0"` and `aria-value-max="100%"` indicates the min and max values of progress bar.
 
 
 Note that setting with to 71% the progress bar fill at 71%
@@ -134,6 +133,105 @@ Note that setting with to 71% the progress bar fill at 71%
 ```
 
 ![img4](./img/ProgressBar1.JPG)
+
+### 03.05 List Groups
+
+A way to style list, buttons and links.
+
+A parent container is marked with class `list-group` (usually a div or ul). Inside this container, create elements of type `a`, `button` or `li` with class `list-group-item`.
+
+Can apply to the elements `active` or `disabled`. If you need to create an actionable list item that enable users click on it, you must use `list-group-item-action` (this add a different effect for example adding a effect on hover).
+
+Background options: `list-group-item-COL` primary, secondary, success, danger, warning, info, light, dark
+
+To make a group horizontal and put all items next to each other use `list-group-horizontal-SIZE` sm, md, lg, xl.
+
+To add badges to a list use the class `badge` (use justify-content-between to put the badge at the edge).
+
+```html
+<ul class="list-group mb-3">
+    <li class="list-group-item list-group-item-action">Element1</li>
+    <li class="list-group-item list-group-item-action">Element2</li>
+    <li class="list-group-item list-group-item-action active">Element3</li>
+    <li class="list-group-item list-group-item-action">Element4</li>
+    <li class="list-group-item list-group-item-action list-group-item-dark">Element5</li>
+</ul>
+```
+![img5](./img/ListGroup.JPG)
+
+
+```html
+<div class="list-group list-group-horizontal mb-3">
+    <button class="list-group-item list-group-item-action">Element1</button>
+    <button class="list-group-item list-group-item-action">Element2</button>
+    <button class="list-group-item list-group-item-action active">Element3</button>
+    <button class="list-group-item list-group-item-action">Element4</button>
+    <button class="list-group-item list-group-item-action list-group-item-dark">Element5</button>
+</div>
+```
+![img6](./img/ListGroup2.JPG)
+
+```html
+<div class="list-group mb-3">
+    <button class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+        Element1
+        <span class="badge badge-primary badge-pill">
+            18
+        </span>
+    </button>
+    <button class="list-group-item list-group-item-action">Element2</button>
+    <button class="list-group-item list-group-item-action">Element3</button>
+</div>
+```
+![img7](./img/ListGroupWithBadge.JPG)
+
+
+### 03.06 Breadcrumbs
+
+Is an element to indicate the place where the user is inside the navigation structure of the site.
+
+As usual, create a container with class `breadcrumb`, inside create a series of elements with class `breadcrumb-item` (you can apply the `active` class to the current item you are).
+
+The items can be `li` or `nav > a` elements.
+
+```html
+<nav class="breadcrumb">
+    <a class="breadcrumb-item" href="#">Home</a>
+    <a class="breadcrumb-item" href="#">Page 1</a>
+    <span class="breadcrumb-item active">Page 2</span>
+</nav>
+```
+![img7](./img/Breadcrumbs.JPG)
+
+To overewrite the separator character of the different items in a breadcrumb can use this CSS style:
+´´´CSS
+.breadcrumb-item+.breadcrumb-item::before{
+    content: '>';
+}
+´´´
+
+### 03.07 Shadows
+
+This works only for box components (not for text or other elements).
+
+There're 3 shadow classes for different shadow sizes: `shadow-none`, `shadow-lg`, `shadow-sm`, `shadow`
+
+```html
+<section class="border shadow mb-3">
+    <h5>shadow</h5>
+    <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc leo tortor, iaculis non tempor ac, mattis et est. Praesent vel lacinia massa. Nullam cursus ut felis vitae efficitur.</div>
+</section>
+<section class="border shadow-sm mb-3">
+    <h5>shadow-sm</h5>
+    <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc leo tortor, iaculis non tempor ac, mattis et est. Praesent vel lacinia massa. Nullam cursus ut felis vitae efficitur.</div>
+</section>
+<section class="border shadow-lg mb-3">
+    <h5>shadow-lg</h5>
+    <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc leo tortor, iaculis non tempor ac, mattis et est. Praesent vel lacinia massa. Nullam cursus ut felis vitae efficitur.</div>
+</section>
+```
+
+![img7](./img/Shadows.JPG)
 
 
 
