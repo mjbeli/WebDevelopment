@@ -98,10 +98,151 @@ Create a container that has a card layout.
 
 ##### 04.03.01 Cards basics
 
-Asign to the main container the class `card`. Inside of that container we must have another container with the class `card-body`.
+Asign to the main container the class `card`. Inside of that container we must have another container with the class `card-body`. In addition, we can have containers with `card-header` and `card-footer` class.
 
 Inside the card-body we gonna have a series of classes that will identify the type of content.
 `card-text`, `card-title`, `card-subtitle`, `card-link`, `card-img`. Theses classes give the content the proper alignment.
 
 We can use the traditional classes for backgrounds, border and text: bg-COL, border-COL, text-COL.
+
+
+```html
+<section class="card">
+    <div class="card-body">
+        <img class="card-img" src="img/sample.png" alt="MyImg">
+        <h2 class="card-title">Card Title</h2>
+        <h5 class="card-subtitle">Card SubTitle</h5>
+        <p class="card-text">card text</p>
+        <a class="card-link" href="#">Link1</a>
+        <a class="card-link" href="#">Link2</a>
+        <a class="card-link" href="#">Link3</a>
+    </div>
+</section>
+```
+
+![img4](./img/cards1.JPG)
+
+
+##### 04.03.02 Card contents
+
+Inside of the basic `card` container we should have a `card-body` container, but in addition, we can have containers with `card-header` and `card-footer` class.
+
+In adition to `card-img` we can have `card-img-top`, `card-img-bottom` or `card-img-overlay` (this last one in case we want text that sits on the top of an image).
+
+FYI, its very common to use list-group elements inside a card.
+
+```html
+<section class="card">
+    <div class="card-header">
+        <h2 class="card-title">Card Title</h2>
+        <h5 class="card-subtitle">Card SubTitle</h5>
+    </div>
+    <div class="card-body">
+        <img class="card-img" src="img/sample.png" alt="MyImg">
+        <p class="card-text">card text </p>
+    </div>
+    <div class="card-footer">
+        <a class="card-link" href="#">Link1</a>
+        <a class="card-link" href="#">Link2</a>
+        <a class="card-link" href="#">Link3</a>
+    </div>
+</section>
+```
+![img5](./img/cards-header-footer.JPG)
+
+Note that `card-img-top` its used outside of card-body and  this make the image takes all the width of the card wihtout a padding.
+
+```html
+<section class="card">
+    <img class="card-img-top" src="img/sample.png" alt="MyImg">
+    <div class="card-body">
+        <h2 class="card-title">Card Title</h2>
+        <h5 class="card-subtitle">Card SubTitle</h5>
+        <p class="card-text">card text </p>
+        <a class="card-link" href="#">Link1</a>
+        <a class="card-link" href="#">Link2</a>
+        <a class="card-link" href="#">Link3</a>
+    </div>
+</section>
+```
+![img6](./img/card-img-top.JPG)
+
+
+Note that using a `card-img` and `card-img-overlay` instead of card-body we can use an image as background of the card.
+
+```html
+<section class="card">
+    <img class="card-img" src="img/sample.png" alt="MyImg">
+    <div class="card-img-overlay">
+        <h2 class="card-title">Card Title</h2>
+        <h5 class="card-subtitle">Card SubTitle</h5>
+        <p class="card-text">card text </p>
+        <a class="card-link" href="#">Link1</a>
+        <a class="card-link" href="#">Link2</a>
+        <a class="card-link" href="#">Link3</a>
+    </div>
+</section>
+```
+![img7](./img/card-img-overlay.JPG)
+
+
+This is how to use a list-group inside a card. Note that the `a` elements doesn't have the card-link class anymore and they are list-group-item. `list-group-flush` is used to fit the borders of the list-group with the borders of the card (for example tansforming the top rounded borders in corners).
+```html
+<section class="card">
+    <img class="card-img-top" src="img/sample.png" alt="MyImg">
+    <div class="card-body">
+        <h2 class="card-title">Card Title</h2>
+        <h5 class="card-subtitle">Card SubTitle</h5>
+        <p class="card-text">card text </p>
+    </div>
+    <div class="list-group list-group-flush">
+        <a class="list-group-item" href="#">Link1</a>
+        <a class="list-group-item" href="#">Link2</a>
+        <a class="list-group-item" href="#">Link3</a>
+    </div>
+</section>
+```
+![img8](./img/card-list-group.JPG)
+
+
+##### 04.03.03 Card layouts
+
+
+There are 3 layout container classes you can use:
+
+ - `card-group` similar to button group but with cards, the cards will show together and share borders.
+ - `card-deck` add spaces between the columns.
+ - `card-columns` alternative lauyout
+
+Aditionally, we can use the grid (containers, rows and columns) with special mention to `row-cols-SIZE-COLUMNS` that was speciic created for cards. COLUMNS goes from 1 to 6.
+
+```html
+<!-- card-group or card-deck in the principal container -->
+<div class="card-group">
+    <div class="card">
+        <img class="card-img-top" src="img/sample.png" alt="Card image cap">
+        <div class="card-body">
+            <h4 class="card-title">Title</h4>
+            <p class="card-text">Text</p>
+        </div>
+    </div>
+    <div class="card">
+        <img class="card-img-top" src="img/sample.png" alt="Card image cap">
+        <div class="card-body">
+            <h4 class="card-title">Title</h4>
+            <p class="card-text">Text</p>
+        </div>
+    </div>
+    <div class="card">
+        <img class="card-img-top" src="img/sample.png" alt="Card image cap">
+        <div class="card-body">
+            <h4 class="card-title">Title</h4>
+            <p class="card-text">Text</p>
+        </div>
+    </div>
+</div>
+```
+
+This image shows the difference between `card-group` and `card-deck`
+![img9](./img/card-group and deck.JPG)
 
