@@ -212,9 +212,9 @@ There are 3 layout container classes you can use:
 
  - `card-group` similar to button group but with cards, the cards will show together and share borders.
  - `card-deck` add spaces between the columns.
- - `card-columns` alternative lauyout
+ - `card-columns` alternative layout
 
-Aditionally, we can use the grid (containers, rows and columns) with special mention to `row-cols-SIZE-COLUMNS` that was speciic created for cards. COLUMNS goes from 1 to 6.
+Aditionally, we can use the grid (containers, rows and columns) with special mention to `row-cols-SIZE-COLUMNS` that was specific created for cards. COLUMNS goes from 1 to 6.
 
 ```html
 <!-- card-group or card-deck in the principal container -->
@@ -246,3 +246,23 @@ Aditionally, we can use the grid (containers, rows and columns) with special men
 This image shows the difference between `card-group` and `card-deck`
 ![img9](./img/card-group and deck.JPG)
 
+### 04.04 Media Objects
+
+Used to put an image an text side by side. This elements are based on flexbox
+
+On the container for both elements add the class `media`. For the elements you want to be in one side add class `media-body`. The image itself can be managed indepently with flexbox classes.
+
+```html
+<div class="container mb-5">
+    <section class="media">
+        <img class="img-fluid w-25 rounded" src="img/sample.png" alt="MyImg">
+        <div class="media-body ml-2">
+            <h2>Img Description</h2>
+            <h5>Img Detail</h5>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc leo tortor, iaculis non tempor ac, mattis et est. Praesent vel lacinia massa. Nullam cursus ut felis vitae efficitur</p>
+        </div>
+    </section>
+</div>
+```
+
+![img10](./img/MediaObjects.JPG)
