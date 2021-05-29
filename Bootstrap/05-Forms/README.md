@@ -39,4 +39,143 @@ Another two classes you can use for input basic text
     </form>
 </div>
 ```
+
 ![img1](./img/form1.JPG)
+
+
+### 05.02 Checkbox & radio
+
+ - `form-check`: the main container for these 2 types of input is  (don't use form-group). 
+ - `form-check-label`: for labels that belongs to these type of fields.
+ - `form-check-input`: for checkbox or radio input itself.
+ - `form-check-inline`: by default these are elements displayed as block, use this if you want appears side by side
+
+It seems that these classes don't change the appareance very much, buy it's important to the messages validations.
+
+```html
+<div class="container mb-2">
+    <form>
+        <div class="form-group">
+            <label>Default checks </label>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input">
+                    Option 1
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input">
+                    Option 2
+                </label>
+            </div>
+        </div>
+    </form>
+</div>
+```
+![img2](./img/form2.JPG)
+
+
+Note here we put the label `d-block` class to avoid all in the same line.
+```html
+<form>
+    <div class="form-group">
+        <label class="d-block">Default inline </label>
+        <div class="form-check form-check-inline">
+            <label class="form-check-label">
+                <input type="checkbox" class="form-check-input">
+                Option 1
+            </label>
+        </div>
+        <div class="form-check form-check-inline">
+            <label class="form-check-label">
+                <input type="checkbox" class="form-check-input">
+                Option 2
+            </label>
+        </div>
+    </div>
+</form>
+```
+
+![img3](./img/form3.JPG)
+
+```html
+<form>
+    <div class="form-group">
+        <label>Radio </label>
+        <div class="form-check">
+            <label class="form-check-label">
+                <input type="radio" name="RadioName" class="form-check-input">
+                Radio 1
+            </label>
+        </div>
+        <div class="form-check">
+            <label class="form-check-label">
+                <input type="radio" name="RadioName" class="form-check-input">
+                Radio 2
+            </label>
+        </div>
+    </div>
+</form>
+```
+
+![img4](./img/form4.JPG)
+
+
+### 05.03 Style options
+
+ - `form-control-sm` `form-control-lg`: input field smaller or bigger.
+ - `form-inline`: to put the group in the same line.
+
+```html
+<div class="form-group form-inline">
+    <label class="form-control-label" for="inputtext">Example label</label>
+    <input type="text" class="form-control form-control-sm" id="inputtext" placeholder="Example input">
+</div>
+```
+
+### 05.04 Multicolumn forms
+
+For build a multicolumn form let's use column grid. 
+
+> We don't need to add a container on forms, simply start adding a row and columns inside the rows.
+
+Special classes we can use:
+ - `form-row`: modified version of row that gives less spaces between columns.
+ - `col-auto`: automatically determine the width of the column depending on the element you are including.
+ - `col-form-label`: add to any label in the layouts.
+
+
+Note we don't use in the samples form-control-label for labels, instead we're using `col-form-label`.
+Note that the third row has nested `form-group` divs, that add some extra space that it's fixed with col class. Adding two div with `col` space divide the space in 2 (this is normal grid behaviour).
+
+```html
+<h5>Multicolumn form</h5>
+<div class="container-fluid mb-2">
+    <form>
+        <div class="form-group row">
+            <label class="col-form-label text-sm-right col-sm-3" for="inputtext">Label</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" id="inputtext" placeholder="Example input">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-form-label text-sm-right col-sm-3" for="inputtext2">Personal Data</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" id="inputtext2" placeholder="Name">
+            </div>
+        </div>
+        <div class="form-group form-row">
+            <div class="form-group offset-sm-3 col"> <!-- Use offset to align with previous fields -->
+                <input type="text" class="form-control" id="inputtext3" placeholder="City">
+            </div>
+            <div class="form-group col">
+                <input type="text" class="form-control" id="inputtext3" placeholder="Zip">
+            </div>
+        </div>
+    </form>
+</div>
+```
+
+![img5](./img/form5.JPG)
+
