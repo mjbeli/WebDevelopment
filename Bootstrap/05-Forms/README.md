@@ -179,3 +179,44 @@ Note that the third row has nested `form-group` divs, that add some extra space 
 
 ![img5](./img/form5.JPG)
 
+
+### 05.05 Input Groups
+
+Allows to create form elements in horizontal layouts.
+
+> Bootstrap don't support multiple form-controls in a single input group and <label>s must come outside the input group.
+
+ - `input-group`: define an input group.
+ - `input-group-prepend`: add items at the beginning of the input group.
+ - `input-group-append`: add item at the end of the input group.
+ - `input-group-text`: any element (button, checkbox, text,...) placed inside the input group (append or prepend) must have this class.
+
+ ```html
+<form>
+    <div class="form-group">
+        <label class="form-control-label">Donation Amount</label>
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text">
+                    <input type="checkbox" id="confirm-check" checked>
+                </div>
+                <div class="input-group-text">$</div>
+            </div>
+            <input type="text" class="form-control" placeholder="Amount...">
+            <div class="input-group-append">
+                <div class="input-group-text">.00</div>
+            </div>
+        </div>
+    </div>
+    <div class="input-group">
+        <input class="form-control" type="text" id="search" placeholder="Search for...">
+        <div class="input-group-append">
+            <button type="button" class="btn btn-info">Go</button>
+        </div>
+    </div>
+</form>
+ ```
+
+![img6](./img/form6.JPG)
+
+ 
