@@ -54,7 +54,7 @@ To setup, simply use attribute `data-toggle="popover"` in the html element and t
 In order to activate or enabling you have to do in a similiar way of tooltips.
 
 Options can use in tooltip (alls are attributes of html elements):
- - data-placement: top, right, bottom, left.
+ - data-placement: top, right (by default), bottom, left.
  - data-trigger: hover, click (by default), focus.
  - data-container: defines the container the popover will be attached to.
 
