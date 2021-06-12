@@ -156,3 +156,123 @@ For control how things look:
 ![img4](./img/Dropdown1.JPG)
 
 
+Create a split button for the dropdown: 
+ - instead of a `dropdown` class create a `btn-group` (the first button has the text and the second will be the split)
+ - add the second button `dropdown-toggle dropdown-toggle-split`
+
+```html
+<div class="btn-group">
+    <!-- trigger for the menu -->
+    <button type="button" class="btn btn-primary">Menu</button>
+    <button class="btn btn-primary btn-sm dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" type="button"></button>
+    <div class="dropdown-menu">
+        <div class="dropdown-header">Header</div>
+        <a class="dropdown-item" href="#">Item 1</a>
+        <a class="dropdown-item" href="#">Item 2</a>
+        <a class="dropdown-item" href="#">Item 3</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="#">Item 4</a>
+    </div>
+</div>
+```
+
+![img5](./img/Dropdown2.JPG)
+
+
+### 06.05 Collapse & accordions
+
+Component that allow us to show or hide content. 
+ - Create a link or a button and add the attribute `data-toggle="collapse"` That`s the element that will collapse the content.
+ - To set the target content use `href="#id"` if you are using a link or `data-target` attribute if using a button.
+ - The element that will be showed or hided must have the `collapse` class.
+
+Note that we use a button to make the collapse, so we use data-target attribute 
+
+```html
+<button type="button" class="btn btn-primary mb-2" 
+        data-toggle="collapse" 
+        data-target="#collapsableContent">
+    Clickable content
+</button>
+<div id="collapsableContent" class="collapse">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc leo tortor, iaculis non tempor ac, mattis et est. Praesent vel lacinia massa. Nullam cursus ut felis vitae efficitur
+</div>
+```
+
+![img5](./img/collapse1.JPG)
+
+
+### 06.06 Accordions
+
+Accordions are in essencial a set of collapsers.
+ - It requires a container.
+ - Only one of the elements of the container should be visible so we add the `show` class (only once elemnt at a time).
+ - Need to add the `collapse-menu` class to all collapsible content (and add `show` the content open by default).
+ - It's common to put the content inside a `card` class.
+ - Add data-toggle="collapse" attribute to all buttons or links that are clickable.
+ - Add `data-parent="#id"` attribute to all collapsible content, where id is the id of the main accordion content.
+
+
+```html
+<div id="accordionContainer"> <!-- Principal container of accordion -->
+    <section class="card">
+        <div class="card-header" id="card1Header">
+            <h5>
+                <a href="#Card1" data-toggle="collapse">Card Title 1</a>
+            </h5>
+        </div>
+        <div id="Card1" class="collapse show" data-parent="#accordionContainer">
+            <div class="card-body">
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc leo tortor, iaculis non tempor ac, mattis et est. Praesent vel lacinia massa. Nullam cursus ut felis vitae efficitur</p>
+            </div>
+        </div>
+    </section>
+    <section class="card">
+        <div class="card-header" id="card2Header">
+            <h5>
+                <a href="#Card2" class="collapsed" data-toggle="collapse">Card Title 2</a>
+            </h5>
+        </div>
+        <div id="Card2" class="collapse" data-parent="#accordionContainer">
+            <div class="card-body">
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc leo tortor, iaculis non tempor ac, mattis et est. Praesent vel lacinia massa. Nullam cursus ut felis vitae efficitur</p>
+            </div>
+        </div>
+    </section>
+    <section class="card">
+        <div class="card-header" id="card3Header">
+            <h5>
+                <a href="#Card3" class="collapsed" data-toggle="collapse">Card Title 3</a>
+            </h5>
+        </div>
+        <div id="Card3" class="collapse" data-parent="#accordionContainer">
+            <div class="card-body">
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc leo tortor, iaculis non tempor ac, mattis et est. Praesent vel lacinia massa. Nullam cursus ut felis vitae efficitur</p>
+            </div>
+        </div>
+    </section>
+</div>
+```
+
+![img6](./img/accordion.JPG)
+
+
+### 06.07 Toast
+
+Notifications
+
+ - Create a container with the class `toast`.
+ - Inside the container add elements with `toast-header` and `toast-body` classes to add header and body.
+ - In the toast header usually you put something to close the toast.
+
+ In the main container `toast` you can add this attributes:
+  - `animation="false"` (by default it's set to true)
+  - `autohide="false"` (by default it's set to true)
+  - `dealy=500` (tells the toast how long stay in the screen)
+  - `data-dismiss="toast"` (if you modify the toast so it doesn't dissapears after few seconds)
+
+By default the toast has't any position, so you have to set it manually.
+
+To enable toast using jquery:
+
+

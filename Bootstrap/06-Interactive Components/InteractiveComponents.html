@@ -68,6 +68,111 @@
         </div>
     </div>
 
+
+    <h5>Dropdown with split</h5>
+    <div class="container-fluid mb-5">
+        <div class="btn-group">
+            <!-- trigger for the menu -->
+            <button type="button" class="btn btn-primary">Menu</button>
+            <button class="btn btn-primary btn-sm dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" type="button"></button>
+            <div class="dropdown-menu">
+                <div class="dropdown-header">Header</div>
+                <a class="dropdown-item" href="#">Item 1</a>
+                <a class="dropdown-item" href="#">Item 2</a>
+                <a class="dropdown-item" href="#">Item 3</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Item 4</a>
+            </div>
+        </div>
+    </div>
+
+
+
+    <h5>Collpase</h5>
+    <div class="container-fluid mb-5">
+
+        <button type="button" class="btn btn-primary mb-2" data-toggle="collapse" data-target="#collapsableContent">
+            Clickable content
+        </button>
+        <div id="collapsableContent" class="collapse">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc leo tortor, iaculis non tempor ac, mattis et est. Praesent vel lacinia massa. Nullam cursus ut felis vitae efficitur
+        </div>
+    </div>
+
+    <h5>Accordion</h5>
+    <div class="container-fluid mb-5">
+
+        <div id="accordionContainer">
+            <section class="card">
+                <div class="card-header" id="card1Header">
+                    <h5>
+                        <a href="#Card1" data-toggle="collapse">Card Title 1</a>
+                    </h5>
+                </div>
+                <div id="Card1" class="collapse show" data-parent="#accordionContainer">
+                    <div class="card-body">
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc leo tortor, iaculis non tempor ac, mattis et est. Praesent vel lacinia massa. Nullam cursus ut felis vitae efficitur</p>
+                    </div>
+                </div>
+            </section>
+            <section class="card">
+                <div class="card-header" id="card2Header">
+                    <h5>
+                        <a href="#Card2" class="collapsed" data-toggle="collapse">Card Title 2</a>
+                    </h5>
+                </div>
+                <div id="Card2" class="collapse" data-parent="#accordionContainer">
+                    <div class="card-body">
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc leo tortor, iaculis non tempor ac, mattis et est. Praesent vel lacinia massa. Nullam cursus ut felis vitae efficitur</p>
+                    </div>
+                </div>
+            </section>
+            <section class="card">
+                <div class="card-header" id="card3Header">
+                    <h5>
+                        <a href="#Card3" class="collapsed" data-toggle="collapse">Card Title 3</a>
+                    </h5>
+                </div>
+                <div id="Card3" class="collapse" data-parent="#accordionContainer">
+                    <div class="card-body">
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc leo tortor, iaculis non tempor ac, mattis et est. Praesent vel lacinia massa. Nullam cursus ut felis vitae efficitur</p>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+    </div>
+
+    <h5>Simple Toast</h5>
+    <div class="container-fluid mb-5">
+
+        <button id="simpleToast" type="button" class="btn btn-primary mb-2">
+           Simple toast
+        </button>
+        <div class="toast" data-delay="5000" style="position: absolute; bottom: 1rem; right: 1rem;">
+            Nullam cursus ut felis vitae efficitur
+        </div>
+    </div>
+
+    <h5>Toast</h5>
+    <div class="container-fluid mb-5">
+
+        <button type="button" class="btn btn-primary mb-2">
+           Trigger toast
+        </button>
+        <div class="toast" data-delay="5000" style="position: absolute; bottom: 1rem; right: 1rem;">
+            <div class="toast-header">
+                Lorem ipsum
+                <button type="button" class="close" data-dismiss="toast"></button>
+            </div>
+            <div class="toast-body">
+                Nunc leo tortor, iaculis non tempor ac
+            </div>
+        </div>
+    </div>
+
+
     <br>
     <br>
     <br>
@@ -89,6 +194,11 @@
     });
     $(function() {
         $('[data-toggle="popover"]').popover(); // this function can receive options object.
+    });
+    $(document).ready(function() {
+        $("#simpleToast").click(function() {
+            $('.toast').toast('show');
+        })
     });
 </script>
 
