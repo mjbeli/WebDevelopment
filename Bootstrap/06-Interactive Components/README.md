@@ -273,6 +273,27 @@ Notifications
 
 By default the toast has't any position, so you have to set it manually.
 
-To enable toast using jquery:
+Remember to enable toast using jquery.
+
+### 06.08 Stretched links
+
+Make an html element clickable its whole. Adding class `stretched-link` to a link to make its containing block clickable. This means that the element must have position: relative to stretched-link works.
+
+If the stretched link doesn’t seem to work, the containing block will probably be the cause.
+
+ - Columns are position: relative by default, so clickable columns only require the .stretched-link class. However, stretching a link over an entire .row requires .position-static on the column and .position-relative on the row.
+ - Media objects do not have position: relative by default, so we need to add the .position-relative in the media div.
+ - Cards have position: relative by default so you can safely add the ``stretched-link` class.
+
+
+```html
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+        <h5 class="card-title">Card with stretched link</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <a href="#" class="btn btn-primary stretched-link">Go somewhere</a>
+    </div>
+</div>
+```
 
 
