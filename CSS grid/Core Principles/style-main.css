@@ -1,0 +1,47 @@
+/*--------------------------------------------------------------
+My grid
+--------------------------------------------------------------*/
+
+.gridContainer {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+
+/*--------------------------------------------------------------
+General styling
+--------------------------------------------------------------*/
+
+.site {
+    margin: 1em;
+}
+
+.masthead,
+.page-title,
+.main-content,
+.sidebar,
+.footer-content {
+    margin-bottom: 1em;
+    padding: 1em;
+    color: white;
+}
+
+.masthead {
+    background-color: #b46ae3;
+}
+
+.page-title {
+    background-color: #51a7fa;
+}
+
+.main-content {
+    background-color: #70bf40;
+}
+
+.sidebar {
+    background-color: #f49018;
+}
+
+.footer-content {
+    background-color: #0265c0;
+}
