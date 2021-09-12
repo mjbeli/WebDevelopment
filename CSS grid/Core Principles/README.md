@@ -28,9 +28,86 @@ This sample defines 2 column grid, each column has 50% of the space of the grid:
 /* 
   Find the first column grid line (number 1), 
   then put a secong grid line (number 2) at the 50% of the container 
-  and put the another grid line (numbner 3) after the remaining 50% 
+  and put the another grid line (number 3) after the remaining 50% 
   */
 ```
 
 ![FirstGrid](assets/FirstGrid.png?raw=true)
+
+
+The default width of any row or column is "auto", you can use that value if you want the cell expand or contract automatically depending on the content.
+
+### 01.02 Units
+
+You can mix differents measures in the list, like px, em %, vw, ...
+
+For example:
+```css
+.gridContainer {
+    display: grid;
+    grid-template-columns: 10px 4em 20% 50vw; 
+}
+```
+
+CSS grid has aditional measures units
+
+### 01.02.01 Fractions
+
+Fraction units (fr): represents a fraction of the available space in the grid.
+
+This is the same as `grid-template-columns: 50% 50%;`. This means that each column has 1 fraction of the space in the grid, so this means that each column has 50% of space.
+```css
+.gridContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+}
+```
+
+So to define a grid with column 1 25%, column 2 25% and column 3 50%:
+
+```css
+.gridContainerFractions {
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr;
+}
+```
+
+![FirstGrid](assets/UnitFractions.png?raw=true)
+
+
+Can alternate differents units with fractions like `grid-template-columns: 50em 1fr 1fr;`
+
+### 01.02.02 Min max function
+
+Defines a size range greater or equal to min value and lower or equal than max value. Allows us to create responsive layouts.
+
+In this same, the first column will expand or reduce automatically, the same as the second column, but with a max width of 20em and min of 10em.
+```css
+.gridContainerMinMax {
+    display: grid;
+    grid-template-columns: 1fr minmax(10em, 20em);
+}
+```
+
+### 01.03 Repeat
+
+Repeat is a way to define multiple columns in a short way. Repeat the given pattern a number of times. 
+So `grid-template-rows: repeat(2, 1fr) 2fr;` repeat `1fr` 2 times.
+
+Can put more complex expressions to define the pattern to repeat.
+
+```css
+.gridContainerRepeat {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr 4em);
+}
+```
+
+Note: important not put a space afet `repeat` key word
+
+![FirstGrid](assets/Repeat.png?raw=true)
+
+
+
+
 

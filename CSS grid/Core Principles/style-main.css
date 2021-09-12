@@ -7,6 +7,22 @@ My grid
     grid-template-columns: 50% 50%;
 }
 
+.gridContainerFractions {
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr;
+}
+
+.gridContainerMinMax {
+    display: grid;
+    grid-template-rows: minmax(50px, auto);
+    grid-template-columns: auto auto;
+}
+
+.gridContainerRepeat {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr 7em);
+}
+
 
 /*--------------------------------------------------------------
 General styling

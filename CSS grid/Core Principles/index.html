@@ -7,40 +7,127 @@
 
 <body class="site">
 
+    <h2>
+        Simple grid defined as
+        <em>grid-template-columns: 50% 50%;</em>
+    </h2>
     <div class="gridContainer">
+        <div class="masthead">
+            <h1>div grid item 1</h1>
+        </div>
+        <div class="page-title">
+            <h1>div grid item 2</h1>
+        </div>
+        <div class="main-content">
+            <h1>div grid item 3</h1>
+        </div>
+        <div class="sidebar">
+            <h1>div grid item 4</h1>
+        </div>
+        <div class="footer-content">
+            <h1>div grid item 5</h1>
+        </div>
+    </div>
 
+    <h2>
+        This grid has been defined with
+        <em>grid-template-columns: 1fr 1fr 2fr;</em>
+    </h2>
+    <div class="gridContainerFractions">
+        <div class="masthead">
+            <h1>div grid item 1</h1>
+        </div>
+        <div class="page-title">
+            <h1>div grid item 2</h1>
+        </div>
+        <div class="main-content">
+            <h1>div grid item 3</h1>
+        </div>
+        <div class="sidebar">
+            <h1>div grid item 4</h1>
+        </div>
+        <div class="footer-content">
+            <h1>div grid item 5</h1>
+        </div>
+    </div>
+    <h2>
+        This grid has been defined with
+        <em>grid-template-columns: 1fr minmax(10em, 20em);</em>
+    </h2>
+    <div class="gridContainerMinMax">
+        <div class="masthead">
+            <h1>div grid item 1</h1>
+        </div>
+        <div class="page-title">
+            <h1>div grid item 2</h1>
+        </div>
+        <div class="main-content">
+            <h1>div grid item 3</h1>
+        </div>
+    </div>
+
+    <h2>
+        Repet in columns
+        <em>grid-template-columns: repeat(3, 1fr 7em);</em>
+    </h2>
+    <div class="gridContainerRepeat">
+        <div class="masthead">
+            <h1>div grid item 1</h1>
+        </div>
+        <div class="page-title">
+            <h1>div grid item 2</h1>
+        </div>
+        <div class="main-content">
+            <h1>div grid item 3</h1>
+        </div>
+        <div class="sidebar">
+            <h1>div grid item 4</h1>
+        </div>
+        <div class="footer-content">
+            <h1>div grid item 5</h1>
+        </div>
+        <div class="masthead">
+            <h1>div grid item 6</h1>
+        </div>
+        <div class="page-title">
+            <h1>div grid item 7</h1>
+        </div>
+        <div class="main-content">
+            <h1>div grid item 8</h1>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <!-- <div class="gridContainer">
         <header class="masthead">
             <code class="identifier"><pre>.masthead</pre></code>
             <h2>header grid item 1</h2>
         </header>
-
-
         <div class="page-title">
             <code class="identifier"><pre>.page-title</pre></code>
             <h1>div grid item 2</h1>
         </div>
-
-
         <main id="content" class="main-content">
             <code class="identifier"><pre>.main-content</pre></code>
             <h2>Main content</h2>
             <p>This is where the main bulk of the document content would go.</p>
         </main>
-
         <aside class="sidebar">
             <code class="identifier"><pre>.sidebar</pre></code>
             <h2>Sidebar</h2>
             <p>The place where things of less relevance appears.</p>
         </aside>
-
-
         <footer class="footer-content">
             <code class="identifier"><pre>.footer-content</pre></code>
             <h2>Footer</h2>
             <p><span class="bg">The place where site nav and other meta info typically appears.</span></p>
         </footer>
-
-    </div>
+    </div> -->
 </body>
 
 </html>
