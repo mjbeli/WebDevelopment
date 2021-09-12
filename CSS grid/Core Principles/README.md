@@ -23,6 +23,14 @@ This sample defines 2 column grid, each column has 50% of the space of the grid:
 ```css
 .gridContainer {
     display: grid;
-    grid-template-columns: 50% 50%; /* Find the first column grid line, then put a secong grid line at the 50% of the container and put the */
+    grid-template-columns: 50% 50%; 
 }
+/* 
+  Find the first column grid line (number 1), 
+  then put a secong grid line (number 2) at the 50% of the container 
+  and put the another grid line (numbner 3) after the remaining 50% 
+  */
 ```
+
+![FirstGrid](assets/FirstGrid.png?raw=true)
+
