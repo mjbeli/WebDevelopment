@@ -51,7 +51,7 @@ For example:
 
 CSS grid has aditional measures units
 
-### 01.02.01 Fractions
+##### 01.02.01 Fractions
 
 Fraction units (fr): represents a fraction of the available space in the grid.
 
@@ -77,7 +77,7 @@ So to define a grid with column 1 25%, column 2 25% and column 3 50%:
 
 Can alternate differents units with fractions like `grid-template-columns: 50em 1fr 1fr;`
 
-### 01.02.02 Min max function
+##### 01.02.02 Min max function
 
 Defines a size range greater or equal to min value and lower or equal than max value. Allows us to create responsive layouts.
 
