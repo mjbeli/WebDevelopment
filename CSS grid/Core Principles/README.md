@@ -109,5 +109,63 @@ Note: important not put a space afet `repeat` key word
 
 
 
+### 01.04 Manual placement
+
+By default the items of the grid will populate it form top-left to bottom-right. But you can also define manually where to put items in the grid.
+
+You can declare the grid column and grid row for each item:
+
+```css
+.gridSampleManuallyItemPosition {
+    display: grid;
+    grid-template-columns: 2fr repeat(2, 1fr);
+    grid-template-rows: auto 1fr 3fr;
+}
+
+.mastheadManualPosition {
+    /* item will be placed in column between 2 and 4 and in row between 2 and 3 */
+    grid-column: 2/4;
+    grid-row: 2/3;
+}
+```
+
+Item `mastheadManualPosition` it's positioned in columns 2 and 3 (from column line 2 to column line 4) and in row 2 (from row line 2 to row line 3).
+
+![FirstGrid](assets/ItemGridManualPosition.png?raw=true)
+
+Note than the others grid items will be repositioning to fit in the available space (thats means starting top-left).
+
+
+### 01.05 Implicit lines
+
+If grid items placement takes additional columns or rows to be created, the browser adds implicit lines to keep de structure of the grid.
+The grid only has 3 rows define but the `main-content-implicit-line` has defined the row line 4 (the last row line) so the element its placed in the fourth row:
+
+```css
+.gridImplicitLines {
+    display: grid;
+    grid-template-columns: 2fr repeat(2, 1fr);
+    grid-template-rows: auto 1fr 3fr;
+}
+
+.main-content-implicit-line {
+    grid-column: 1/4;
+    grid-row: 4;
+}
+```
+![FirstGrid](assets/ImplicitLines.png?raw=true)
+
+The height of the new row is ´auto´ because it is not explicit define.
+
+Also we can just define the numbers of cells we want the item expand using ´span´ keyword
+```css
+.main-content-implicit-line {
+    grid-column: 1 span;
+    grid-row: 4;
+}
+```
+
+![FirstGrid](assets/span.png?raw=true)
+
 
 

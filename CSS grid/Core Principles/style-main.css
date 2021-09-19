@@ -24,6 +24,35 @@ My grid
 }
 
 
+/* Manual position items */
+
+.gridSampleManuallyItemPosition {
+    display: grid;
+    grid-template-columns: 2fr repeat(2, 1fr);
+    grid-template-rows: auto 1fr 3fr;
+}
+
+.mastheadManualPosition {
+    /* item will be placed in column between 2 and 4 and in row between 2 and 3 */
+    grid-column: 2/4;
+    grid-row: 2/3;
+}
+
+
+/* Implicit lines */
+
+.gridImplicitLines {
+    display: grid;
+    grid-template-columns: 2fr repeat(2, 1fr);
+    grid-template-rows: auto 1fr 3fr;
+}
+
+.main-content-implicit-line {
+    grid-column: 1/4;
+    grid-row: 4;
+}
+
+
 /*--------------------------------------------------------------
 General styling
 --------------------------------------------------------------*/
@@ -36,7 +65,9 @@ General styling
 .page-title,
 .main-content,
 .sidebar,
-.footer-content {
+.footer-content,
+.mastheadManualPosition,
+.main-content-implicit-line {
     margin-bottom: 1em;
     padding: 1em;
     color: white;
@@ -60,4 +91,12 @@ General styling
 
 .footer-content {
     background-color: #0265c0;
+}
+
+.mastheadManualPosition {
+    background-color: #b46ae3;
+}
+
+.main-content-implicit-line {
+    background-color: #70bf40;
 }
