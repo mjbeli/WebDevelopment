@@ -168,4 +168,92 @@ Also we can just define the numbers of cells we want the item expand using ´spa
 ![FirstGrid](assets/span.png?raw=true)
 
 
+### 01.06 Grid areas
+
+```html
+<div class="gridAreas">
+    <div class="masthead-gridarea"> <h1>class masthead-gridarea</h1> </div>
+    <div class="page-title-gridarea"> <h1>class page-title-gridarea</h1> </div>
+    <div class="main-content-gridarea"> <h1>class main-content-gridarea</h1> </div>
+    <div class="sidebar-gridarea"> <h1>class sidebar-gridarea</h1> </div>
+    <div class="footer-content-gridarea"> <h1>class footer-content-gridarea</h1> </div>                
+</div>
+```
+
+Using 'grid-template-areas' inside the grid container we can define rectangular areas within the grid and give it names (this areas, of course, can span one or more cells). Then we can use those names inside the grid items and the property `grid-area` to place items. We can turn the grid into a map! 
+
+Imagine our rid it's defined like this:
+```css
+.gridAreas {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: auto 1fr 3fr;
+
+    grid-template-areas: "title title title" /* row 1 */
+    "main masthead masthead"                 /* row 2 */
+    "main sidebar footer"                    /* row 3 */
+    ;
+}
+```
+
+Note that `grid-template-areas` define each cell with a name. Now using "show area names" in the developer tools we can see the assigned name for each cell.
+
+![GridArea](assets/firstGridArea.png?raw=true)
+
+Now we can use that names defined in each cell and assign them to our css elements like this:
+
+```css
+.masthead-gridarea { grid-area: masthead; }
+
+.page-title-gridarea { grid-area: title; }
+
+.main-content-gridarea { grid-area: main; }
+
+.sidebar-gridarea { grid-area: sidebar; }
+
+.footer-content-gridarea { grid-area: footer; }
+```
+
+##### 01.06.01 Empty areas inside grid areas
+
+To set an empty area inside the map of the grid area, just use a dot like name area.
+
+In this case we have an empty cell inside in the middle of the second row.
+```css
+.gridAreas {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: auto 1fr 3fr;
+
+    grid-template-areas: "title title title" /* row 1 */
+    "main . masthead"                        /* row 2 */
+    "main sidebar footer"                    /* row 3 */
+    ;
+}
+```
+![GridArea](assets/EmptyCellGridArea.png?raw=true)
+
+##### 01.06.02 Responsive with grid area
+
+We use media queries to create responsive grid like this:
+
+```css
+/* This will apply bellow 600px */
+.gridAreasResponsive {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto 1fr 3fr;
+    grid-template-areas: "title title" "main main" "footer footer";
+}
+
+
+/* This will apply for 600px or more */
+@media screen and (min-witdh: 600px) {
+    .gridAreasResponsive {
+        grid-template-columns: 2fr 1fr 1fr;
+        grid-template-areas: "title title title" "main masthead masthead" "main sidebar footer";
+    }
+}
+```
+![GridAreaResponsive](assets/GridAreaResponsive.png?raw=true)
 
