@@ -198,7 +198,7 @@ Imagine our rid it's defined like this:
 
 Note that `grid-template-areas` define each cell with a name. Now using "show area names" in the developer tools we can see the assigned name for each cell.
 
-![GridArea](assets/firstGridArea.png?raw=true)
+![firstGridArea](assets/firstGridArea.png?raw=true)
 
 Now we can use that names defined in each cell and assign them to our css elements like this:
 
