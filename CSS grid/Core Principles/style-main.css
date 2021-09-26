@@ -110,6 +110,14 @@ My grid
 }
 
 
+/* responsive without media queries */
+
+.responsiveGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+}
+
+
 /*--------------------------------------------------------------
 General styling
 --------------------------------------------------------------*/
@@ -166,4 +174,29 @@ General styling
 
 .main-content-implicit-line {
     background-color: #70bf40;
+}
+
+.masthead-resp {
+    background-color: #b46ae3;
+    width: 300px;
+}
+
+.page-title-resp {
+    background-color: #51a7fa;
+    width: 300px;
+}
+
+.main-content-resp {
+    background-color: #70bf40;
+    width: 300px;
+}
+
+.sidebar-resp {
+    background-color: #f49018;
+    width: 300px;
+}
+
+.footer-resp {
+    background-color: #0265c0;
+    width: 300px;
 }

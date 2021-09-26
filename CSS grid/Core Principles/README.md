@@ -233,7 +233,9 @@ In this case we have an empty cell inside in the middle of the second row.
 ```
 ![GridArea](assets/EmptyCellGridArea.png?raw=true)
 
-##### 01.06.02 Responsive with grid area
+### 01.07 Responsive
+
+##### 01.07.01 Grid area responsive using media queries
 
 We use media queries to create responsive grid like this:
 
@@ -256,4 +258,29 @@ We use media queries to create responsive grid like this:
 }
 ```
 ![GridAreaResponsive](assets/GridAreaResponsive.png?raw=true)
+
+##### 01.07.02 Responsive with no media queries
+
+To avoid using media queries we can combine the `repeat` and the `minmax` functions like this:
+
+```css
+.responsiveGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.masthead-resp {
+    background-color: #b46ae3;
+    width: 300px; /* this is necessary */
+}
+```
+
+`minmax(300px, 1fr)` requires the width of each grid item to always be in between 300px and 1fr.
+
+If their widths is bellow to 300px, a new row will form. This is thanks solely to auto-fit. Basically, `auto-fit` tracks the widths of each container: if the width of a container falls below 300px, auto-fit will form a new row.
+
+
+![responsiveNoMedias](assets/responsiveNoMedias.png?raw=true)
+
+
 
