@@ -271,16 +271,52 @@ To avoid using media queries we can combine the `repeat` and the `minmax` functi
 
 .masthead-resp {
     background-color: #b46ae3;
-    width: 300px; /* this is necessary */
 }
 ```
 
-`minmax(300px, 1fr)` requires the width of each grid item to always be in between 300px and 1fr.
+`minmax(320px, 1fr)` requires the width of each grid item to always be between 320px and 1fr.
 
-If their widths is bellow to 300px, a new row will form. This is thanks solely to auto-fit. Basically, `auto-fit` tracks the widths of each container: if the width of a container falls below 300px, auto-fit will form a new row.
+If their widths is bellow to 320px, a new row will form. This is thanks solely to auto-fit. Basically, `auto-fit` tracks the widths of each container: if the width of a container falls below 320px, auto-fit will form a new row.
 
 
 ![responsiveNoMedias](assets/responsiveNoMedias.png?raw=true)
 
+
+
+### 01.08 Grid areas
+
+Using a `margin` style in each item of the grid my works but this is not changing the grid layout. Instead of that is better to use gutters inside the grid.
+
+We can use gutters in css grid with the `grid-gap` property. This property applies to different cells, not areas or other things. So if an item fills more than one cell, the gap only appears between different cells.
+
+```css
+.gridAreaWithGap {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: auto 1fr 3fr;
+    grid-template-areas: "title title title"/* row 1 */
+    "main masthead masthead"/* row 2 */
+    "main sidebar footer"/* row 3 */
+    ;
+    grid-gap: 1rem;
+}
+
+.page-title-gridareagap {
+    grid-area: title;
+}
+
+.page-title-gridareagap {
+    background-color: #51a7fa;
+}
+```
+
+You can use `grid-column-gap` and `grid-row-gap` to define gap for columns or rows.
+
+Using `grid-gap: 1em 2em;` row gap is 1 em and column gap 2em.
+
+Important is that this gap create space between the areas of the grid and not around the grid. For that, you have to envelope the grid into an element and put some margin.
+
+
+![gridgap](assets/GridGap.png?raw=true)
 
 

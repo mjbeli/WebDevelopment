@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <style>
+        /* responsive without media queries */
+        
+        .gridAreaWithGap {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            grid-template-rows: auto 1fr 3fr;
+            grid-template-areas: "title title title"/* row 1 */
+            "main masthead masthead"/* row 2 */
+            "main sidebar footer"/* row 3 */
+            ;
+            grid-gap: 1rem;
+        }
+        
+        .masthead-gridareagap {
+            grid-area: masthead;
+        }
+        
+        .page-title-gridareagap {
+            grid-area: title;
+        }
+        
+        .main-content-gridareagap {
+            grid-area: main;
+        }
+        
+        .sidebar-gridareagap {
+            grid-area: sidebar;
+        }
+        
+        .footer-content-gridareagap {
+            grid-area: footer;
+        }
+        
+        .masthead-gridareagap,
+        .page-title-gridareagap,
+        .main-content-gridareagap,
+        .sidebar-gridareagap,
+        .footer-content-gridareagap {
+            color: white;
+            padding: 1em;
+        }
+        
+        .masthead-gridareagap {
+            background-color: #b46ae3;
+        }
+        
+        .page-title-gridareagap {
+            background-color: #51a7fa;
+        }
+        
+        .main-content-gridareagap {
+            background-color: #70bf40;
+        }
+        
+        .sidebar-gridareagap {
+            background-color: #f49018;
+        }
+        
+        .footer-content-gridareagap {
+            background-color: #0265c0;
+        }
+    </style>
+</head>
+
+<body class="site">
+    <h2>
+        Grid gap sample
+    </h2>
+    <div class="gridAreaWithGap">
+        <div class="masthead-gridareagap">
+            <h1>class masthead-gridareagap</h1>
+        </div>
+        <div class="page-title-gridareagap">
+            <h1>class page-title-gridareagap</h1>
+        </div>
+        <div class="main-content-gridareagap">
+            <h1>class main-content-gridareagapgap</h1>
+        </div>
+        <div class="sidebar-gridareagap">
+            <h1>class sidebar-gridareagap</h1>
+        </div>
+        <div class="footer-content-gridareagap">
+            <h1>class footer-content-gridareagap</h1>
+        </div>
+    </div>
+</body>
+
+</html>
