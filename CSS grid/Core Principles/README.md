@@ -265,8 +265,8 @@ To avoid using media queries we can combine the `repeat` and the `minmax` functi
 
 ```css
 .responsiveGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
 }
 
 .masthead-resp {
