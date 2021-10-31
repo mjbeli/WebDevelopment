@@ -287,7 +287,7 @@ If their widths is bellow to 320px, a new row will form. This is thanks solely t
 
 Using a `margin` style in each item of the grid my works but this is not changing the grid layout. Instead of that is better to use gutters inside the grid.
 
-We can use gutters in css grid with the `grid-gap` property. This property applies to different cells, not areas or other things. So if an item fills more than one cell, the gap only appears between different cells.
+We can use gutters in css grid with the `grid-gap` property. This property applies to different areas, not cells or other things. So if an item fills more than one cell, the gap doesn't applies to that cells.
 
 ```css
 .gridAreaWithGap {
