@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <style>
+        /* General styles */
+        
+        .site {
+            max-width: 60em;
+            margin: 1em;
+        }
+        
+        .title,
+        .main,
+        .detail-1,
+        .detail-2,
+        .footer {
+            padding: 1em;
+            color: white;
+        }
+        
+        .title {
+            background-color: #51a7fa;
+        }
+        
+        .main {
+            background-color: #70bf40;
+        }
+        
+        .detail-1 {
+            background-color: #f49018;
+        }
+        
+        .detail-2 {
+            background-color: #f49018;
+        }
+        
+        .footer {
+            background-color: #0265c0;
+        }
+        /* Grid Areas */
+        
+        .gridAreas {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-template-rows: auto 3fr 2fr 1fr;
+            grid-template-areas: "title title title title" "main main main main" "detail-1 detail-1 detail-2 detail-2" "footer footer footer footer";
+        }
+        
+        .title {
+            grid-area: title;
+        }
+        
+        .main {
+            grid-area: main;
+        }
+        
+        .detail-1 {
+            grid-area: detail-1;
+        }
+        
+        .detail-2 {
+            grid-area: detail-2;
+        }
+        
+        .footer {
+            grid-area: footer;
+        }
+        /* responsive grid areas with media queries */
+    </style>
+</head>
+
+<body class="site">
+
+    <h2>
+        Grid areas
+    </h2>
+    <div class="gridAreas">
+        <div class="title">
+            <h1>class title</h1>
+        </div>
+        <div class="main">
+            <h1>class main</h1>
+        </div>
+        <div class="detail-1">
+            <h1>class detail 1</h1>
+        </div>
+        <div class="detail-2">
+            <h1>class detail 2</h1>
+        </div>
+        <div class="footer">
+            <h1>class footer</h1>
+        </div>
+    </div>
+</body>
+
+</html>
