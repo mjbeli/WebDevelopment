@@ -32,7 +32,7 @@
         }
         
         .detail-2 {
-            background-color: #f49018;
+            background-color: #f01a37;
         }
         
         .footer {
@@ -42,9 +42,9 @@
         
         .gridAreas {
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr 1fr;
-            grid-template-rows: auto 3fr 2fr 1fr;
-            grid-template-areas: "title title title title" "main main main main" "detail-1 detail-1 detail-2 detail-2" "footer footer footer footer";
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto 3fr 1fr 1fr 1fr;
+            grid-template-areas: "title title" "main main" "detail-1 detail-1" "detail-2 detail-2" "footer footer";
         }
         
         .title {
@@ -67,6 +67,25 @@
             grid-area: footer;
         }
         /* responsive grid areas with media queries */
+        
+        @media screen and (min-width: 65em) {
+            .gridAreas {
+                display: grid;
+                grid-template-columns: 1fr 2fr 2fr;
+                grid-template-rows: 1fr 3fr 1fr 1fr 1fr;
+                grid-template-areas: "title title title" ". main main" ". detail-1 detail-2" "footer footer footer";
+            }
+        }
+        /* responsive grid areas with media queries */
+        
+        @media screen and (min-width: 85em) {
+            .gridAreas {
+                display: grid;
+                grid-template-columns: 1fr 2fr 1fr;
+                grid-template-rows: 1fr 2fr 2fr 1fr;
+                grid-template-areas: "title title title" "main main detail-1" "main main detail-2" "footer footer footer";
+            }
+        }
     </style>
 </head>
 
