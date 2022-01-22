@@ -170,6 +170,42 @@ Also we can just define the numbers of cells we want the item expand using ´spa
 
 ### 01.06 Grid areas
 
+`grid-area` es una forma abreviada de combinar grid-column y grid-row. Admite cuatro valores separados por barras: grid-row-start, grid-column-start, grid-row-end y grid-column-end.
+
+```css
+/* Cuadrícula de 5x5 */
+#cuadricula {
+  display: grid;
+  grid-template-columns: 20% 20% 20% 20% 20%;
+  grid-template-rows: 20% 20% 20% 20% 20%;
+}
+
+/* 
+  Este área comienza en la línea de fila 1 hasta línea de fila 4
+  y línea de columna 2 hasta línea de columna 6 (sería la última)
+*/
+#custom-area {
+  grid-area: 1 / 2 / 4 / 6;
+}
+```
+
+##### 01.06.01 Basics
+
+```css
+.gridAreas {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: auto 1fr 3fr;
+
+    grid-template-areas: "title title title" /* row 1 */
+    "main masthead masthead"                 /* row 2 */
+    "main sidebar footer"                    /* row 3 */
+    ;
+}
+```
+
+
+##### 01.06.02 Gris Template Areas
 ```html
 <div class="gridAreas">
     <div class="masthead-gridarea"> <h1>class masthead-gridarea</h1> </div>
@@ -214,7 +250,7 @@ Now we can use that names defined in each cell and assign them to our css elemen
 .footer-content-gridarea { grid-area: footer; }
 ```
 
-##### 01.06.01 Empty areas inside grid areas
+##### 01.06.03 Empty areas inside grid areas
 
 To set an empty area inside the map of the grid area, just use a dot like name area.
 
