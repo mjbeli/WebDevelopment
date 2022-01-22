@@ -206,7 +206,7 @@ Also we can just define the numbers of cells we want the item expand using ´spa
 }
 ```
 
-##### 01.06.02 Grid Template Areas
+##### 01.06.03 Grid Template Areas
 
 ```css
 .gridAreas {
@@ -265,7 +265,7 @@ Now we can use that names defined in each cell and assign them to our css elemen
 .footer-content-gridarea { grid-area: footer; }
 ```
 
-##### 01.06.03 Empty areas inside grid areas
+##### 01.06.04 Empty areas inside grid areas
 
 To set an empty area inside the map of the grid area, just use a dot like name area.
 
