@@ -170,6 +170,9 @@ Also we can just define the numbers of cells we want the item expand using ´spa
 
 ### 01.06 Grid areas
 
+
+##### 01.06.01 Basics
+
 `grid-area` es una forma abreviada de combinar grid-column y grid-row. Admite cuatro valores separados por barras: grid-row-start, grid-column-start, grid-row-end y grid-column-end.
 
 ```css
@@ -189,7 +192,21 @@ Also we can just define the numbers of cells we want the item expand using ´spa
 }
 ```
 
-##### 01.06.01 Basics
+##### 01.06.02 Grid Template
+
+`grid-template` es una propiedad abreviada que combina grid-template-rows y grid-template-columns.
+
+```css
+#cuadricula {
+  display: grid;
+  
+  /* grid-template-rows / grid-template-columns values */
+  grid-template: 100px 1fr / 50px 1fr;
+  grid-template: auto 1fr / auto 1fr auto;
+}
+```
+
+##### 01.06.02 Grid Template Areas
 
 ```css
 .gridAreas {
@@ -204,8 +221,6 @@ Also we can just define the numbers of cells we want the item expand using ´spa
 }
 ```
 
-
-##### 01.06.02 Gris Template Areas
 ```html
 <div class="gridAreas">
     <div class="masthead-gridarea"> <h1>class masthead-gridarea</h1> </div>
