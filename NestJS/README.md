@@ -8,7 +8,7 @@ NestJS is a framework for building efficient, scalable Node.js server-side appli
 
 After install NodeJS (which contains npm), execute:
 
-```
+```bash
 npm i -g @nestjs/cli
 ```
 
@@ -16,7 +16,7 @@ If you want to make sure nestjs cli is installed try this --> `nest --v`
 
 ### Project Creation
 
-```
+```bash
 nest new project-name
 ```
 
