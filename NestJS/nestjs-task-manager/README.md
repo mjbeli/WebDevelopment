@@ -51,7 +51,7 @@ All important files for development are inside `\src` folder.
 
 ```typescript
 import { NestFactory } from '@nestjs/core'; // import nest factory from nest
-import { AppModule } from './app.module'; // import module from file
+import { AppModule } from './app.module'; // import module from local file
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule); // --> create a nest application from this module
