@@ -5,17 +5,17 @@
 [circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
 [circleci-url]: https://circleci.com/gh/nestjs/nest
   
-## Description
+#### Description
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
-## Installation
+#### Installation
 
 ```bash
 $ npm install
 ```
 
-## Running the app
+#### Running the app
 
 ```bash
 # development
@@ -27,8 +27,12 @@ $ npm run start:dev
 # production mode
 $ npm run start:prod
 ```
+ Alternative owth yarn be like: 
+ yarn start
+ yarn start:dev
+ yarn start:prod
 
-## Test
+#### Test
 
 ```bash
 # unit tests
@@ -41,7 +45,7 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
-## Project Structure
+## 01 - Project Structure
 
 Lets focus in files important to the develpment process and set aside the differents configuration files like package.json, tsconfig.json, .eslintrs.js, ...
 All important files for development are inside `\src` folder.
@@ -68,9 +72,96 @@ import { Module } from '@nestjs/common';
 
 @Module({
   imports: [],
-  // --> In the future here declare the controllers and the services
+  // --> In the future here declare the controllers, services, imports and exports
 })
 export class AppModule {}
 ```
 
 
+## 02 - Modules
+
+The module is the basic unit of organization for NestJS. In an NestJS application exists at least one module, the root module. 
+It's common to create a folder for each module, and a module for feature.
+
+A module is defined with the `@Module` decorator in a class. This decorator helps Nest to organize the application structure.
+
+#### 02.01 - Properties of @Module decorator
+
+Can pass this properties to the @Module decorator:
+ - providers: an array of providers that will be available inside the module using dependency injection.
+ - controllers: an array of controllers to be instantiated inside the module.
+ - exports: array of providers to export. Other modules that import this module will have access to the providers declared here.
+ - imports: array of modules required by this module. Any providers exported in these modules will be available in the current module.
+
+```typescript
+@Module({
+  providers: [ServiceFileName],
+  contollers: [ControllerFileName]
+  imports: [
+    ClassNameModule1,
+    ClassNameModule2,
+    ClassNameModule3
+  ],
+  exports:[ ServiceFileName ]  
+})
+```
+
+#### 02.02 - Creating a module with NestJS CLI
+
+We can create a module file by file, but we can also use the NestJS CLI to automatic generate a typical schema module.
+
+Make sure you launch this command inside the 'src' folder.
+
+```bash
+nest g module module-name
+```
+
+g stands for 'generate' and can receive several parameters, for more info type `nest g --help`
+
+This command creates a new folder, a new module file inside that folder and update the 'app.module.ts' file to include the new module inside the Nest root module.
+
+
+## 03 - Controllers
+
+Controllers are responsibles to handle incoming request and returning responses.
+
+Each controller is bound to a specific path, for example tasksController is bounded to /tasks.
+
+Controller contains differents handlers as get, post, delete each of them can be an endpoint.
+
+Controllers can use dependency injection to use providers.
+
+#### 03.01 - Defining a controller
+
+A controller is a class with the `@Controller` decorator. This decorator accepts a string that is the path that will be handled by the controller:
+
+You can create a controller using tis command inside the 'src' folder:
+```bash
+nest g controller controller-name
+```
+
+If you want to generate without test:
+```bash
+nest g controller controller-name --no-spec
+```
+
+This will create a new file for the controller (created automatic inside the module folder with the same name of the controller) and update the module file to add the new controller.
+
+#### 03.02 - Defining a handler
+
+A handler is a method inside a controller class that use decorators such as ´@Get´, ´@Post´, ´@Delete´.
+
+```typescript
+@Controller('/tasks')
+export class TasksController {
+  @Get()
+  getAllTasks(){
+    //...
+  }
+
+  @Post()
+  createTask(){
+    //...
+  }
+}
+```
