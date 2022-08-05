@@ -135,7 +135,7 @@ Controllers can use dependency injection to use providers.
 
 A controller is a class with the `@Controller` decorator. This decorator accepts a string that is the path that will be handled by the controller:
 
-You can create a controller using tis command inside the 'src' folder:
+You can create a controller using this command inside the 'src' folder:
 ```bash
 nest g controller controller-name
 ```
@@ -165,3 +165,35 @@ export class TasksController {
   }
 }
 ```
+
+## 04 - Providers & Services
+
+#### 04.01 - Providers
+
+Providers are classes, plain values or sync/async functions decorated with ´@Injectable´. Can be injected into constructors using dependency injection.
+
+To be accesible inside a module (this means to be injectable), the providers must be declared inside:
+```typescript
+@Module({
+  providers: [ServiceFileName],
+  // ...
+})
+```
+
+#### 04.02 - Services
+
+Not all providers are services, but all services are declared as providers.
+Services are Singleton classes with the decorator ´@Injectable()´ and provided to a module. Yes, here we are talking about singleton design pattern.
+In NestJS services are the main source of business logic.
+
+
+Any component in NetJS can inject a provider (any element decorated with ´@Injectable´). 
+NetJS use constructor dependency injection, that will be accessible as a class property.
+
+You can create a service using this command inside the 'src' folder:
+
+```bash
+nest g service service-name --no-spec
+```
+
+This command create a service file and add it to the module
