@@ -17,6 +17,8 @@ $ npm install
 
 #### Running the app
 
+(!) Inside the project folder
+
 ```bash
 # development
 $ npm run start
@@ -196,4 +198,50 @@ You can create a service using this command inside the 'src' folder:
 nest g service service-name --no-spec
 ```
 
-This command create a service file and add it to the module
+This command create a service file with this content:
+```typescript
+// File tasks.service.ts
+import { Injectable } from '@nestjs/common';
+
+@Injectable()
+export class TasksService {}
+```
+
+And add the new services into the module:
+```typescript
+// File tasks.module.ts
+import { Module } from '@nestjs/common';
+import { TasksController } from './tasks.controller';
+import { TasksService } from './tasks.service';
+
+@Module({
+  controllers: [TasksController],
+  providers: [TasksService],
+})
+export class TasksModule {}
+```
+
+To add the service to the controller:
+
+```typescript
+// File tasks.controller.ts
+import { Controller } from '@nestjs/common';
+import { TasksService } from './tasks.service';
+
+@Controller('tasks')
+export class TasksController {
+  constructor(private tasksService: TasksService) {}
+  // Note that adding an accessor (like private, public,...) ahead of the constructor parameter NetJS will automatic create 
+  // a private atribute inside the class and assign it the value received in the constructor.
+}
+```
+
+And to add a endpoint to the controller that use the service:
+```typescript
+// Defining an end point to our controller, in this case a Get request receive in tasks controller with 'getAllTasks' action name with by managed by this endpoint
+// http://localhost:3000/tasks/getAllTasks
+@Get('getAllTasks')
+getAllTasks() {
+  return this.tasksService.getAllTasks();
+}
+```
