@@ -245,3 +245,25 @@ getAllTasks() {
   return this.tasksService.getAllTasks();
 }
 ```
+
+An endpoint with parameters:
+```typescript
+// In this case all request to tasks controller being a Post request will invoke this endpoint. --> POST : http://localhost:3000/tasks
+// Note that there isn't path argument in Post annotation.
+// With @Body annotation NestJS will inject automatic the variable in the body with name title to the title parameter.
+@Post()
+createTask(
+  @Body('title') title: string,
+  @Body('description') description: string,
+): Task {
+  return this.tasksService.createTask(title, description);
+}
+```
+
+The same endpoint but using a DTO class:
+```typescript
+@Post()
+createTask(@Body() createTaskDtoObject: CreateTaskDto): Task {
+  return this.tasksService.createTask(createTaskDtoObject);
+}
+```
