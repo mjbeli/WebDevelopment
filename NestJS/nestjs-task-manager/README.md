@@ -151,7 +151,7 @@ This will create a new file for the controller (created automatic inside the mod
 
 #### 03.02 - Defining a handler
 
-A handler is a method inside a controller class that use decorators such as ´@Get´, ´@Post´, ´@Delete´.
+A handler is a method inside a controller class that use decorators such as ´@Get´, ´@Post´, ´@Delete´. The handlers are the actions of a controller:
 
 ```typescript
 @Controller('/tasks')
@@ -167,6 +167,52 @@ export class TasksController {
   }
 }
 ```
+
+And to add a endpoint to the controller that use the service:
+```typescript
+// Defining an end point to our controller, in this case a Get request receive in tasks controller with 'getAllTasks' action name with by managed by this endpoint
+// http://localhost:3000/tasks/getAllTasks
+@Get('getAllTasks')
+getAllTasks() {
+  return this.tasksService.getAllTasks();
+}
+```
+
+An endpoint with parameters:
+```typescript
+// In this case all request to tasks controller being a Post request will invoke this endpoint. --> POST : http://localhost:3000/tasks
+// Note that there isn't path argument in Post annotation.
+// With @Body annotation NestJS will inject automatic the variable in the body with name title to the title parameter.
+@Post()
+createTask(
+  @Body('title') title: string,
+  @Body('description') description: string,
+): Task {
+  return this.tasksService.createTask(title, description);
+}
+```
+
+The same endpoint but using a DTO class. Note that due to the empty parameter in ´@Body()´, the entire object received throught the body will be mapped into the DTO object:
+```typescript
+@Post()
+createTask(@Body() createTaskDtoObject: CreateTaskDto): Task {
+  return this.tasksService.createTask(createTaskDtoObject);
+}
+```
+
+Here is the way to define a handler with path parameter. 
+Inside the ´@Get()´ decorator we can define the path parameters with a colon ´:´ before the name of the parameter.
+To receive the path parameter inside the handler we can use the ´@Param()´ decorator with the same name defined in the ´@Get´ decorator, then declare the variable (name and type) that will be mapped into and would be acccesible inside the method.
+
+```typescript
+// End point with a path parameter
+@Get('/:id')
+getTaskById(@Param('id') id: string): Task {
+  return this.tasksService.getTaskById(id);
+}
+```
+
+
 
 ## 04 - Providers & Services
 
@@ -236,34 +282,4 @@ export class TasksController {
 }
 ```
 
-And to add a endpoint to the controller that use the service:
-```typescript
-// Defining an end point to our controller, in this case a Get request receive in tasks controller with 'getAllTasks' action name with by managed by this endpoint
-// http://localhost:3000/tasks/getAllTasks
-@Get('getAllTasks')
-getAllTasks() {
-  return this.tasksService.getAllTasks();
-}
-```
 
-An endpoint with parameters:
-```typescript
-// In this case all request to tasks controller being a Post request will invoke this endpoint. --> POST : http://localhost:3000/tasks
-// Note that there isn't path argument in Post annotation.
-// With @Body annotation NestJS will inject automatic the variable in the body with name title to the title parameter.
-@Post()
-createTask(
-  @Body('title') title: string,
-  @Body('description') description: string,
-): Task {
-  return this.tasksService.createTask(title, description);
-}
-```
-
-The same endpoint but using a DTO class:
-```typescript
-@Post()
-createTask(@Body() createTaskDtoObject: CreateTaskDto): Task {
-  return this.tasksService.createTask(createTaskDtoObject);
-}
-```
