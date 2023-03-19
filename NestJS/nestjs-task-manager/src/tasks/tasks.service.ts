@@ -37,4 +37,13 @@ export class TasksService {
     }
     return false;
   }
+
+  updateStatusTaskById(id: string, status: TaskStatus): Task {
+    const index = this.tasks.findIndex((item) => item.id == id);
+    if (index > -1) {
+      this.tasks[index].status = status;
+      return this.tasks[index];
+    }
+    return null;
+  }
 }
