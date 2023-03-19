@@ -1,7 +1,8 @@
-import { Controller, Get, Post, Delete, Put, Body, Param } from '@nestjs/common';
+import { Controller, Get, Post, Delete, Put, Body, Param, Query } from '@nestjs/common';
 import { TasksService } from './tasks.service';
 import { Task, TaskStatus } from './task.model';
 import { CreateTaskDto } from './dto/create-task.dto';
+import { GetTaskFilterDto } from './dto/get-task-filter.dto';
 
 @Controller('tasks')
 export class TasksController {
@@ -20,10 +21,16 @@ export class TasksController {
     }
   */
 
-  // Defining an end point to our controller, in this case all Get request receive in tasks controller with 'getAllTasks' action name with by managed by this endpoint
-  @Get('getAllTasks')
-  getAllTasks(): Task[] {
-    return this.tasksService.getAllTasks();
+  // Defining an end point to our controller, search tasks due to a filter (if filter doesn't exists then return all tasks)
+  // Query parameters are received by the url like
+  // http://localhost:3000/tasks?status=OPEN&search=never
+  @Get('')
+  getTasks(@Query() filterDto: GetTaskFilterDto): Task[] {
+    if (Object.keys(filterDto).length) {
+      return this.tasksService.getTasksByFilter(filterDto);
+    } else {
+      return this.tasksService.getAllTasks();
+    }
   }
 
   // End point with a path parameter

@@ -212,6 +212,20 @@ getTaskById(@Param('id') id: string): Task {
 }
 ```
 
+```typescript
+// Defining search tasks due to a filter (if filter doesn't exists then return all tasks)
+// Query parameters are received by the url and will map the parameters with the dfinition of the DTO.
+// http://localhost:3000/tasks?status=OPEN&search=never
+@Get('')
+getTasks(@Query() filterDto: GetTaskFilterDto): Task[] {
+  if (Object.keys(filterDto).length) {
+    return this.tasksService.getTasksByFilter(filterDto);
+  } else {
+    return this.tasksService.getAllTasks();
+  }
+}
+```
+
 
 
 ## 04 - Providers & Services
