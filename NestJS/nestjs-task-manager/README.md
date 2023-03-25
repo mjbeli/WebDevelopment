@@ -369,3 +369,25 @@ There are different types of Pipes:
  - Parameter-level
  - Global --> defined at application level and applied to all incoming request.
 
+#### 05.04 - Error handling
+
+The way to handle errors in NestJs is siper simply. Just throw an exception from the service and NestJs will wrapped the error and send back to the client in a readable manner.
+
+```typescript
+getTaskById(id: string): Task {
+  const myTask = this.tasks.find((item) => item.id == id);
+  if (!myTask) {
+    throw new NotFoundException('Task not found');
+  }
+  return myTask;
+}
+```
+
+Nest will build a 404 response for NotFoundException. This will be the response:
+```json
+{
+    "statusCode": 404,
+    "message": "Task not found",
+    "error": "Not Found"
+}
+```
