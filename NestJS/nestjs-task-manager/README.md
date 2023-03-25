@@ -297,3 +297,26 @@ export class TasksController {
 ```
 
 
+## 05 - Validation & Error Handling
+
+#### 05.01 - Validation Pipeline
+
+ - Pipes operates in arguments of the action/handler, just befor the handler itself.
+ - Pipes can perform data validation & data transformation.
+ - Pipes can throw exceptions that will be handled by NestJs and parsed into error response.
+
+Samples:
+`ValidationPipeline` validates the compatibilityof an entire object against a class (DTO). If any property cann't be mapped, the validation will fail.
+`ParseIntPipe` validates an argument is a number: the argument is transformed to a Number ans passed to the handler.
+
+Custom Pipes Validation
+
+ - Pipes ara classes with `@Injectable()` decorator and must implement `PipeTransform` interface.
+ - The `transform()` method is called by NestJs to validate and tranforms the arguments.
+ - Whatever is returned by `tranform()` method will ve passed to the handler. Exceptions will be returned to the client.
+
+There are different types of Pipes:
+ - Handler-level
+ - Parameter-level
+ - Global --> defined at application level and applied to all incoming request.
+
