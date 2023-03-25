@@ -305,11 +305,60 @@ export class TasksController {
  - Pipes can perform data validation & data transformation.
  - Pipes can throw exceptions that will be handled by NestJs and parsed into error response.
 
+We need to install 2 packages:
+`npm i class-validator`
+`npm i class-transformer`
+
+#### 05.02 - Validation Samples
+
+With the class-validator packager we hava a lot of decorators that we can put in each filed of a DTO to apply validations. Here an example how to check fields are not empty in a create task request:
+
+```typescript
+import { IsNotEmpty } from 'class-validator';
+
+export class CreateTaskDto {
+  @IsNotEmpty()
+  title: string;
+
+  @IsNotEmpty()
+  description: string;
+}
+```
+
+This is the way to use all validations at global level (in all the incoming request that has validation decorators):
+
+```typescript
+import { ValidationPipe } from '@nestjs/common';
+import { NestFactory } from '@nestjs/core';
+import { AppModule } from './app.module';
+
+async function bootstrap() {
+  const app = await NestFactory.create(AppModule);
+  app.useGlobalPipes(new ValidationPipe()); // --> Whenever Nest finds a Validation decorator, will execute validation pipe.
+  await app.listen(3000);
+}
+bootstrap();
+```
+
+This is a sample of automatic response when the fields failed a validation:
+
+```json
+{
+    "statusCode": 400,
+    "message": [
+        "title should not be empty",
+        "description should not be empty"
+    ],
+    "error": "Bad Request"
+}
+```
+
 Samples:
 `ValidationPipeline` validates the compatibilityof an entire object against a class (DTO). If any property cann't be mapped, the validation will fail.
 `ParseIntPipe` validates an argument is a number: the argument is transformed to a Number ans passed to the handler.
 
-Custom Pipes Validation
+
+#### 05.03 - Custom Pipes Validation
 
  - Pipes ara classes with `@Injectable()` decorator and must implement `PipeTransform` interface.
  - The `transform()` method is called by NestJs to validate and tranforms the arguments.
