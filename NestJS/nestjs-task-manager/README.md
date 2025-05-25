@@ -356,7 +356,7 @@ This is a sample of automatic response when the fields failed a validation:
 Samples:
 `ValidationPipeline` validates the compatibilityof an entire object against a class (DTO). If any property cann't be mapped, the validation will fail.
 `ParseIntPipe` validates an argument is a number: the argument is transformed to a Number ans passed to the handler.
-
+`IsEnum` validate the argument has the value of a enumerator.
 
 #### 05.03 - Custom Pipes Validation
 
